@@ -1,0 +1,306 @@
+---
+title: "Internal Service Revenue 2017 - Barchartss"
+author: Taylor Johnston
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: scroll
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(ggplot2)
+library(reshape2)
+```
+
+### Benefits Barcharts
+
+```{r}
+benefits <- c("sinking_fund_general_operation", "telephone_exchange", "office_of_radio_communication", "motor_vehicle_maintenance", "printing_and_reproduction","cca_income_tax_administration")
+
+
+benefits_2017 <- c(40680, 38949, 40885, 42223, 399550, 322424)
+
+benefits_2018 <- c(328570, 419828, 176865, 192901, 183235, 225100)
+
+benefits_2019 <- c(1729012, 1724134, 1900460, 2003144, 246355, 315383)
+
+benefits_2020 <- c(269672, 296031, 1723518, 1769185, 1835517, 2331563)
+
+benefits_df <- data.frame(benefits, benefits_2017, benefits_2018, benefits_2019, benefits_2020)
+
+benefits_df_reshape <- melt(benefits_df,id.vars = "benefits")
+
+
+benefits_barchart <- ggplot(benefits_df_reshape, aes(x = benefits, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+benefits_barchart + coord_flip()
+
+```
+
+### Capital Outlay Barcharts
+
+```{r}
+
+capital_outlay <- c("office_of_radio_communication")
+
+capital_outlay_2017 <- c(274263)
+
+capital_outlay_2018 <- c(455756)
+
+capital_outlay_2019 <- c(214408)
+
+capital_outlay_2020 <- c(600000)
+
+capital_outlay_df <- data.frame(capital_outlay, capital_outlay_2017, capital_outlay_2018, capital_outlay_2019, capital_outlay_2020)
+
+capital_outlay_df_reshape <- melt(capital_outlay_df,id.vars = "capital_outlay")
+
+capital_outlay_barchart <- ggplot(capital_outlay_df_reshape, aes(x = capital_outlay, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+capital_outlay_barchart + coord_flip()
+
+```
+
+### Charges from Print Reproduction Barcharts
+
+```{r}
+charges_from_print_reprod <- c("health_insurance_fund")
+
+charges_from_print_reprod_2017 <- c(3605)
+
+charges_from_print_reprod_2018 <- c(9151)
+
+charges_from_print_reprod_2019 <- c(200)
+
+charges_from_print_reprod_2020 <- c(10000)
+
+charges_from_print_reprod_df <- data.frame(charges_from_print_reprod, charges_from_print_reprod_2017, charges_from_print_reprod_2018, charges_from_print_reprod_2019, charges_from_print_reprod_2020)
+
+charges_from_print_reprod_df_reshape <- melt(charges_from_print_reprod_df,id.vars = "charges_from_print_reprod")
+
+
+charges_from_print_reprod_barchart <- ggplot(charges_from_print_reprod_df_reshape, aes(x = charges_from_print_reprod, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+charges_from_print_reprod_barchart + coord_flip()
+```
+
+### Claims, Refunds, Maintenance Barcharts
+
+```{r}
+claims_refunds_maintenance <- c("health_insurance_fund", "prescription_self_insurance_fund", "cca_income_tax_administration")
+
+claims_refunds_maintenance_2017 <- c(68437196, 74034972, 75932758)
+
+claims_refunds_maintenance_2018 <- c(84635944, 13621819, 13839493)
+
+claims_refunds_maintenance_2019 <- c(14706319, 18468560, 508313)
+
+claims_refunds_maintenance_2020 <- c(541890, 606698, 599230)
+
+claims_refunds_maintenance_df <- data.frame(claims_refunds_maintenance, claims_refunds_maintenance_2017, claims_refunds_maintenance_2018, claims_refunds_maintenance_2019, claims_refunds_maintenance_2020)
+
+claims_refunds_maintenance_df_reshape <- melt(claims_refunds_maintenance_df,id.vars = "claims_refunds_maintenance")
+
+
+claims_refunds_maintenance_barchart <- ggplot(claims_refunds_maintenance_df_reshape, aes(x = claims_refunds_maintenance, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+claims_refunds_maintenance_barchart + coord_flip()
+
+```
+
+### Contractual Services Barcharts
+
+```{r}
+contractual_services <- c("sinking_fund_general_operation", "telephone_exchange", "office_of_radio_communication", "motor_vehicle_maintenance", "printing_and_reproduction", "health_insurance_fund", "cca_income_tax_administration")
+
+contractual_services_2017 <- c(505670, 599829, 594769, 630000, 42665, 44627, 37258)
+
+contractual_services_2018 <- c(44370, 314564, 290599, 292099,	424102, 155035, 193285)
+
+contractual_services_2019 <- c(260628, 213250, 605863, 594817, 693245, 747000, 6000462)
+
+contractual_services_2020 <- c(6621629, 7022252, 7065588, 1605687, 1617016, 1172663, 1649000 )
+
+contractual_services_df <- data.frame(contractual_services, contractual_services_2017, contractual_services_2018, contractual_services_2019, contractual_services_2020)
+
+contractual_services_df_reshape <- melt(contractual_services_df,id.vars = "contractual_services")
+
+
+contractual_services_barchart <- ggplot(contractual_services_df_reshape, aes(x = contractual_services, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+contractual_services_barchart + coord_flip()
+```
+
+### Interdepart Services Charges Barcharts
+
+```{r}
+interdepart_services_charges <- c("office_of_radio_communication", "motor_vehicle_maintenance", "printing_and_reproduction", "cca_income_tax_administration")
+
+interdepart_services_charges_2017 <- c(9441, 9883, 9848, 9266)
+
+interdepart_services_charges_2018 <- c(124480, 134809, 140801, 134259)
+
+interdepart_services_charges_2019 <- c(7856, 5471, 14425, 12000)
+
+interdepart_services_charges_2020 <- c(693587, 703892,633902, 69351)
+
+interdepart_services_charges_df <- data.frame(interdepart_services_charges, interdepart_services_charges_2017, interdepart_services_charges_2018, interdepart_services_charges_2019, interdepart_services_charges_2020)
+
+interdepart_services_charges_df_reshape <- melt(interdepart_services_charges_df,id.vars = "interdepart_services_charges")
+
+
+interdepart_services_charges_barchart <- ggplot(interdepart_services_charges_df_reshape, aes(x = interdepart_services_charges, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+interdepart_services_charges_barchart + coord_flip()
+```
+
+### Maintenance Barcharts
+
+```{r}
+maintenance <- c( "telephone_exchange", "office_of_radio_communication", "motor_vehicle_maintenance", "printing_and_reproduction", "cca_income_tax_administration")
+
+maintenance_2017 <- c(105426, 124000, 19714, 171950, 1560049)
+
+maintenance_2018 <- c(1612619, 	967950,	1942040,	1110434, 1034062)
+
+maintenance_2019 <- c(1023491, 	1050000,	105761,	108640,	93652)
+
+maintenance_2020 <- c(103650, 	139458, 241857,	148084, 260000)
+
+maintenance_df <- data.frame(maintenance, maintenance_2017, maintenance_2018, maintenance_2019, maintenance_2020)
+
+maintenance_df_reshape <- melt(maintenance_df,id.vars = "maintenance")
+
+
+maintenance_barchart <- ggplot(maintenance_df_reshape, aes(x = maintenance, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+maintenance_barchart + coord_flip()
+```
+
+
+### Materials and Supplies Barcharts
+
+```{r}
+materials_and_supplies <- c("sinking_fund_general_operation", "telephone_exchange", "office_of_radio_communication", "motor_vehicle_materials_and_supplies", "printing_and_reproduction", "cca_income_tax_administration")
+
+materials_and_supplies_2017 <- c(89, 	77, 	199, 	200, 	906, 	10285)
+
+materials_and_supplies_2018 <- c(9042, 	17500, 	321359, 	79299, 	107574, 	145500)
+
+materials_and_supplies_2019 <- c(9153973, 	10563489, 	12452530, 	13001500, 	536899, 	499763)
+
+materials_and_supplies_2020 <- c(518794, 	740000, 	609978, 	337090, 	219717, 	689900)
+
+materials_and_supplies_df <- data.frame(materials_and_supplies, materials_and_supplies_2017, materials_and_supplies_2018, materials_and_supplies_2019, materials_and_supplies_2020)
+
+materials_and_supplies_df_reshape <- melt(materials_and_supplies_df,id.vars = "materials_and_supplies")
+
+
+materials_and_supplies_barchart <- ggplot(materials_and_supplies_df_reshape, aes(x = materials_and_supplies, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+materials_and_supplies_barchart + coord_flip()
+```
+
+### Other Training and Professional Dues Barcharts
+
+```{r}
+other_training_and_prof_dues <- c("sinking_fund_general_operation", "office_of_radio_communication", "motor_vehicle_other_training_and_prof_dues", "printing_and_reproduction", "cca_income_tax_administration")
+
+other_training_and_prof_dues_2017 <- c(261, 	261, 	1461, 	270, 	11588)
+
+other_training_and_prof_dues_2018 <- c(8743, 	11490, 	27000, 	4794, 	6134)
+
+other_training_and_prof_dues_2019 <- c(3278, 	6180, 	4908, 	2538, 	5090)
+
+other_training_and_prof_dues_2020 <- c(8000, 	23024, 	33819, 	19718, 	48500)
+
+other_training_and_prof_dues_df <- data.frame(other_training_and_prof_dues, other_training_and_prof_dues_2017, other_training_and_prof_dues_2018, other_training_and_prof_dues_2019, other_training_and_prof_dues_2020)
+
+other_training_and_prof_dues_df_reshape <- melt(other_training_and_prof_dues_df,id.vars = "other_training_and_prof_dues")
+
+
+other_training_and_prof_dues_barchart <- ggplot(other_training_and_prof_dues_df_reshape, aes(x = other_training_and_prof_dues, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+other_training_and_prof_dues_barchart + coord_flip()
+```
+### Revenue Barcharts
+
+```{r}
+revenue <- c("sinking_fund_general_operation", "telephone_exchange", "office_of_radio_communication", "motor_vehicle_revenue", "printing_and_reproduction", "health_insurance_fund", "prescription_self_insurance_fund", "cca_income_tax_administration")
+
+revenue_2017 <- c(693858, 	894511, 	700628, 	846562, 	7219718, 	8142575, 	9238778, 	11174288)
+
+revenue_2018 <- c(3539221, 	2659084, 	3124076, 	2874812, 	18512465, 	18938934, 	20588766, 	19858034)
+
+revenue_2019 <- c(2372123, 	2243049, 	2266400, 	2910772, 	79775356,	79796750,	85258896,	91711535)
+
+revenue_2020 <- c(14616979,	12398360,	15191240,	18468559,	9654345, 	10895024, 	10450147, 	12672653 )
+
+revenue_df <- data.frame(revenue, revenue_2017, revenue_2018, revenue_2019, revenue_2020)
+
+revenue_df_reshape <- melt(revenue_df,id.vars = "revenue")
+
+
+revenue_barchart <- ggplot(revenue_df_reshape, aes(x = revenue, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+revenue_barchart + coord_flip()
+```
+
+### Salaries and Wages Barcharts
+
+```{r}
+salaries_and_wages <- c("sinking_fund_general_operation", "telephone_exchange", "office_of_radio_communication", "motor_vehicle_salaries_and_wages", "printing_and_reproduction", "cca_income_tax_administration")
+
+salaries_and_wages_2017 <- c(155833, 	161285, 	167255, 	173869, 	980718, 	943857)
+
+salaries_and_wages_2018 <- c(876094, 	1070504, 	392782, 	423416, 	379928, 	467301)
+
+salaries_and_wages_2019 <- c(3812213, 	4142698, 	4459237, 	4293843, 	606396, 811424)
+
+salaries_and_wages_2020 <- c(753181, 	808453, 	4655742, 	5223834, 	5081684, 	6075089)
+
+salaries_and_wages_df <- data.frame(salaries_and_wages, salaries_and_wages_2017, salaries_and_wages_2018, salaries_and_wages_2019, salaries_and_wages_2020)
+
+salaries_and_wages_df_reshape <- melt(salaries_and_wages_df,id.vars = "salaries_and_wages")
+
+
+salaries_and_wages_barchart <- ggplot(salaries_and_wages_df_reshape, aes(x = salaries_and_wages, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+salaries_and_wages_barchart + coord_flip()
+```
+
+### Utilities Barcharts
+
+```{r}
+utilities <- c("telephone_exchange", "office_of_radio_communication", "motor_vehicle_utilities", "printing_and_reproduction", "cca_income_tax_administration")
+
+utilities_2017 <- c(5771221,	6471011,	7635411,	9449386,	165591)
+
+utilities_2018 <- c(91322,	175092,	253444,	104467,	159730)
+
+utilities_2019 <- c(168569,	180217,	37334,	40626,	46106)
+
+utilities_2020 <- c(45638,	182857,	188253,	176741,	200410)
+
+utilities_df <- data.frame(utilities, utilities_2017, utilities_2018, utilities_2019, utilities_2020)
+
+utilities_df_reshape <- melt(utilities_df,id.vars = "utilities")
+
+
+utilities_barchart <- ggplot(utilities_df_reshape, aes(x = utilities, y = value,fill=variable)) +
+    geom_bar(stat='identity')
+
+utilities_barchart + coord_flip()
+```

@@ -1,0 +1,1 @@
+"0","tidycensus_variables <- load_variables(2017, ""acs5"", cache = TRUE)"

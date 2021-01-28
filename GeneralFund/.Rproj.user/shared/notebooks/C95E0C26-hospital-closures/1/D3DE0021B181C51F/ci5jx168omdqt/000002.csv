@@ -1,0 +1,2 @@
+"0","hospital_closures_with_zctas <-"
+"0","  hospital_closures %>% left_join(zip_to_zcta, by = c(""zip"" = ""zip_code""))"

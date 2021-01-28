@@ -1,0 +1,218 @@
+---
+title: "hospital-closures"
+author: "Taylor Johnston"
+date: "11/09/2020"
+output:
+  html_notebook:
+    toc: true
+    toc_float: true
+---
+## Load packages
+
+```{r setup, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(tidycensus)
+library(janitor)
+library(keyring)
+library(readxl)
+library(fuzzyjoin)
+```
+
+```{r}
+options(scipen=999)
+```
+
+## Load data
+Downloaded data from (https://www.shepscenter.unc.edu/programs-projects/rural-health/rural-hospital-closures/) in the data folder.
+```{r}
+hospital_closures <- read_xlsx("data/Closures-Database-for-Web.xlsx") %>% 
+  clean_names()
+```
+
+## ZCTA data
+
+Downloaded [Zip_to_zcta__crosswalk_2020.xlsx] from [UDS Mapper](https://udsmapper.org/zip-code-to-zcta-crosswalk/) to data folder.
+
+```{r}
+zip_to_zcta <-
+  read_excel("data/Zip_to_zcta_crosswalk_2020.xlsx") %>%
+  clean_names()
+```
+
+## Joining ZIP codes to ZCTAs
+
+```{r}
+hospital_closures_with_zctas <-
+  hospital_closures %>% left_join(zip_to_zcta, by = c("zip" = "zip_code"))
+```
+
+## Set Census key
+
+```{r}
+census_api <- rstudioapi::askForSecret("Census API key")
+census_api_key(census_api)
+```
+
+## Tidycensus variables
+
+```{r}
+tidycensus_variables <- load_variables(2017, "acs5", cache = TRUE)
+```
+
+## What are the racial demographics of communities whose hospitals have closed?
+
+```{r}
+## Download total population and total white population data
+census_zctas <- get_acs(
+  geography = "zcta",
+  variables = c(total = "B03002_001",
+                white = "B03002_003")
+) %>%
+  clean_names()
+
+## Joining ZCTA crosswalk
+census_zctas <- census_zctas %>%
+  inner_join(zip_to_zcta, by = c("geoid" = "zip_code")) %>%
+  select(zcta, state, po_name, moe, estimate, variable)
+
+```
+
+```{r}
+## Pivot Census data 
+census_zctas_with_pcts <- census_zctas %>% pivot_wider(
+  id_cols = c(zcta),
+  names_from = c(variable),
+  values_from = c(estimate)
+) %>%
+  mutate(
+    non_white = total - white,
+    pct_white = round(white / total * 100, 1),
+    pct_non_white = round(non_white / total * 100, 1)
+  )
+```
+
+```{r}
+## Join Census data to hospital closures
+hospital_closures_with_census <-
+  hospital_closures_with_zctas %>% inner_join(census_zctas_with_pcts,  by = "zcta")  %>%
+  select(
+    hospital,
+    city,
+    state.x,
+    closure_month,
+    closure_year,
+    total,
+    white,
+    non_white,
+    pct_white,
+    pct_non_white
+  )
+
+## Closures in 2020
+hospital_closures_with_census_2020 <- hospital_closures_with_census %>%
+  filter(closure_year == "2020")
+
+hospital_closures_with_census_2020$hospital = toupper(hospital_closures_with_census_2020$hospital) #capitalizing hospital column to match HHS data
+
+write_csv(hospital_closures_with_census_2020, "hospital_closures_2020.csv")
+```
+
+```{r}
+## ZIP code to HSA to HRR crosswalk
+## Downloaded [ZipHsaHrr18.csv] from (https://atlasdata.dartmouth.edu/downloads/supplemental#crosswalks) to data folder.
+## Note: Difference between HSA and HRR here - https://www.dartmouthatlas.org/faq/
+hsa_crosswalk <- read_csv("data/ZipHsaHrr18.csv") %>% 
+  select(zipcode18, hsanum, hsacity, hsastate) ## I only want HSA
+
+## Join crosswalk to census data
+zctas_and_crosswalk_hospitals <- census_zctas_with_pcts %>%
+  inner_join(hsa_crosswalk, by = c("zcta" = "zipcode18"))
+
+## Join new crosswalk to hospitals
+hospital_closures_with_hsa_crosswalk <- zctas_and_crosswalk_hospitals %>%
+  inner_join(hospital_closures_with_zctas, by = "zcta")
+
+## Closures in 2020 with crosswalk
+hospital_closures_with_hsa_crosswalk_2020 <- hospital_closures_with_hsa_crosswalk %>%
+  filter(closure_year == "2020") %>%
+  select(hospital, city, hsacity, state.x, closure_month, closure_year, total, white, non_white, pct_white, pct_non_white)
+```
+
+##  What are the racial demographics of communities receiving stimulus funding to rural hospitals?
+```{r}
+## HHS Provider Relief Fund data
+## Downloaded [HHS_Provider_Relief_Fund.csv]from (https://data.cdc.gov/Administrative/HHS-Provider-Relief-Fund/kh8y-3es6) to data folder.
+
+hhs_relief_fund <-
+  read_csv("data/HHS_Provider_Relief_Fund.csv") %>% clean_names()
+
+## Sum all payments
+hhs_relief_fund <- hhs_relief_fund %>%
+  group_by(provider_name, state, city) %>%
+  summarise(provider_name,
+            payment_sum = sum(payment)) %>%
+  unique ##remove duplicate rows
+```
+
+```{r}
+## 2019 Hospital List
+## Downloaded [HospitalList2019b.xlsx] from (https://www.shepscenter.unc.edu/programs-projects/rural-health/data/)
+## (Note: April is interested in all the columns in this list)
+
+#All other hospitals
+hospital_list <- read_excel("data/HospitalList2019b.xlsx") %>% clean_names() %>%
+    filter(forhp_rural_urban_2018 != "Rural") %>%
+  select(name, address, city, state, zip, )
+
+## Rural hospitals only
+rural_hospital_list <- read_excel("data/HospitalList2019b.xlsx") %>% clean_names() %>%
+    filter(forhp_rural_urban_2018 == "Rural") %>%
+  select(name, address, city, state, zip)
+```
+
+```{r}
+## Joining relief fund data to rural hospitals list using fuzzy join
+rural_hospitals_and_relief_fund <-
+  rural_hospital_list %>% stringdist_inner_join(hhs_relief_fund,  by  = c("name" = "provider_name", "city" = "city"))
+
+## Trying it with a regular join to see how many objects are returned
+rural_hospitals_and_relief_fund_non_fuzzy <-
+  rural_hospital_list %>% inner_join(hhs_relief_fund,  by  = c("name" = "provider_name", "city" = "city"))
+```
+
+```{r}
+## Joining census data to hospitals relief fund data
+rural_hospitals_and_relief_fund_with_census <-
+  rural_hospitals_and_relief_fund %>% inner_join(census_zctas_with_pcts, by = c("zip" = "zcta")) %>%
+  select(
+    name,
+    city.x,
+    state.x,
+    total,
+    white,
+    non_white,
+    pct_white,
+    pct_non_white,
+    payment_sum
+  ) %>%
+  rename(city = city.x,
+         state = state.x)
+
+write_csv(rural_hospitals_and_relief_fund_with_census,"rural_hospitals_and_relief_fund_with_census.csv")
+```
+
+##  How much of the payments from the relief fund went to rural hospitals?
+
+```{r}
+total_payments <- sum(hhs_relief_fund$payment_sum) 
+rural_only_payments <- sum(rural_hospitals_and_relief_fund$payment_sum)
+
+pct_rural_payments <- total_payments / rural_only_payments
+```
+
+
+```{r}
+hospitals <- read_xlsx("data/HospitalList2019b.xlsx") %>% clean_names()
+rural_count <- hospitals %>% filter(forhp_rural_urban_2018 == "Rural")
+urban_count <- hospitals %>% filter(forhp_rural_urban_2018 == "Urban")
+```

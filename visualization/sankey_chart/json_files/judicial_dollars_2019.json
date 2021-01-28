@@ -1,0 +1,429 @@
+{
+  "nodes": [{
+      "node": 0,
+      "name": "Shared revenue source: property tax state subsidy"
+    },
+    {
+      "node": 1,
+      "name": "Shared revenue source: cigarette & liquor tax"
+    },
+    {
+      "node": 2,
+      "name": "Shared revenue source: estate tax"
+    },
+    {
+      "node": 3,
+      "name": "Shared revenue source: casino"
+    },
+    {
+      "node": 4,
+      "name": "Shared revenue source: other"
+    },
+    {
+      "node": 5,
+      "name": "Other taxes: admission tax"
+    },
+    {
+      "node": 6,
+      "name": "Other taxes: motor license tax"
+    },
+    {
+      "node": 7,
+      "name": "Other taxes: parking tax"
+    },
+    {
+      "node": 8,
+      "name": "Other taxes: electric excise tax"
+    },
+    {
+      "node": 9,
+      "name": "Other taxes: hotel tax"
+    },
+    {
+      "node": 10,
+      "name": "Other taxes: other"
+    },
+    {
+      "node": 11,
+      "name": "Shared Revenue"
+    },
+    {
+      "node": 12,
+      "name": "Other taxes"
+    },
+
+    {
+      "node": 13,
+      "name": "Income tax"
+    },
+    {
+      "node": 14,
+      "name": "Interest income"
+    },
+    {
+      "node": 15,
+      "name": "Charges for services"
+    },
+    {
+      "node": 16,
+      "name": "Fines,forfeitures, & settlements"
+    },
+    {
+      "node": 17,
+      "name": "Licenses & permits"
+    },
+    {
+      "node": 18,
+      "name": "Misc."
+    },
+    {
+      "node": 19,
+      "name": "Property tax"
+    },
+    {
+      "node": 20,
+      "name": "Sale of city assests"
+    },
+    {
+      "node": 21,
+      "name": "Transfers in"
+    },
+    {
+      "node": 22,
+      "name": "Local government fund"
+    },
+    {
+      "node": 23,
+      "name": "Grant revenue"
+    },
+
+    {
+      "node": 24,
+      "name": "General fund"
+    },
+    {
+      "node": 25,
+      "name": "Judicial Branch"
+    },
+    {
+      "node": 26,
+      "name": "Department: Other"
+    },
+
+    {
+      "node": 27,
+      "name": "Municipal Court"
+    },
+    {
+      "node": 28,
+      "name": "Clerk of Courts"
+    },
+    {
+      "node": 29,
+      "name": "Housing Court"
+    },
+
+    {
+      "node": 30,
+      "name": "Salaries"
+    },
+    {
+      "node": 31,
+      "name": "Benefits"
+    },
+    {
+      "node": 32,
+      "name": "Training & professional service dues"
+    },
+    {
+      "node": 33,
+      "name": "Car Washes"
+    },
+    {
+      "node": 34,
+      "name": "Contractual services"
+    },
+    {
+      "node": 35,
+      "name": "Materials & supplies"
+    },
+    {
+      "node": 36,
+      "name": "Maintenance"
+    },
+    {
+      "node": 37,
+      "name": "Interdepart service charges"
+    },
+    {
+      "node": 38,
+      "name": "Claim, Refunds, Maintenance"
+    }
+
+
+  ],
+  "links": [{
+      "source": 0,
+      "target": 11,
+      "value": 3191438
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "value": 816964
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "value": 12779
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "value": 9416043
+    },
+    {
+      "source": 4,
+      "target": 11,
+      "value": 3360
+    },
+
+    {
+      "source": 5,
+      "target": 12,
+      "value": 28939818
+    },
+    {
+      "source": 6,
+      "target": 12,
+      "value": 3504426
+    },
+    {
+      "source": 7,
+      "target": 12,
+      "value": 15348019
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "value": 0
+    },
+    {
+      "source": 9,
+      "target": 12,
+      "value": 7006596
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "value": 24374
+    },
+    {
+      "source": 11,
+      "target": 24,
+      "value": 44823233
+    },
+    {
+      "source": 12,
+      "target": 24,
+      "value": 912538
+    },
+
+    {
+      "source": 13,
+      "target": 24,
+      "value": 441753856
+    },
+    {
+      "source": 14,
+      "target": 24,
+      "value": 5495262
+    },
+    {
+      "source": 15,
+      "target": 24,
+      "value": 38600845
+    },
+    {
+      "source": 16,
+      "target": 24,
+      "value": 11015522
+    },
+    {
+      "source": 17,
+      "target": 24,
+      "value": 19518635
+    },
+    {
+      "source": 18,
+      "target": 24,
+      "value": 42382264
+    },
+    {
+      "source": 19,
+      "target": 24,
+      "value": 42382264
+    },
+    {
+      "source": 20,
+      "target": 24,
+      "value": 37905311
+    },
+    {
+      "source": 21,
+      "target": 24,
+      "value": 0
+    },
+    {
+      "source": 22,
+      "target": 24,
+      "value": 3731113
+    },
+    {
+      "source": 23,
+      "target": 24,
+      "value": 26072779
+    },
+
+    {
+      "source": 24,
+      "target": 25,
+      "value": 38734381
+    },
+    {
+      "source": 24,
+      "target": 26,
+      "value": 646999662
+    },
+
+    {
+      "source": 25,
+      "target": 27,
+      "value": 22532563
+    },
+    {
+      "source": 25,
+      "target": 28,
+      "value": 11705770
+    },
+    {
+      "source": 25,
+      "target": 29,
+      "value": 4496881
+    },
+
+    {
+      "source": 27,
+      "target": 30,
+      "value": 13609755
+    },
+    {
+      "source": 27,
+      "target": 31,
+      "value": 5083472
+    },
+    {
+      "source": 27,
+      "target": 32,
+      "value": 47064
+    },
+    {
+      "source": 27,
+      "target": 34,
+      "value": 3580005
+    },
+    {
+      "source": 27,
+      "target": 35,
+      "value": 35531
+    },
+    {
+      "source": 27,
+      "target": 33,
+      "value": 543
+    },
+    {
+      "source": 27,
+      "target": 37,
+      "value": 176193
+    },
+
+    {
+      "source": 28,
+      "target": 30,
+      "value": 6923994
+    },
+    {
+      "source": 28,
+      "target": 31,
+      "value": 3002879
+    },
+    {
+      "source": 28,
+      "target": 32,
+      "value": 2546
+    },
+    {
+      "source": 28,
+      "target": 34,
+      "value": 1226525
+    },
+    {
+      "source": 28,
+      "target": 35,
+      "value": 340432
+    },
+    {
+      "source": 28,
+      "target": 36,
+      "value": 21669
+    },
+    {
+      "source": 28,
+      "target": 38,
+      "value": 1150
+    },
+    {
+      "source": 28,
+      "target": 37,
+      "value": 186575
+    },
+
+    {
+      "source": 29,
+      "target": 30,
+      "value": 3069727
+    },
+    {
+      "source": 29,
+      "target": 31,
+      "value": 1110943
+    },
+    {
+      "source": 29,
+      "target": 32,
+      "value": 35173
+    },
+    {
+      "source": 29,
+      "target": 34,
+      "value": 84793
+    },
+    {
+      "source": 29,
+      "target": 35,
+      "value": 26346
+    },
+    {
+      "source": 29,
+      "target": 33,
+      "value": 420
+    },
+    {
+      "source": 29,
+      "target": 37,
+      "value": 168645
+    }
+
+  ]
+}

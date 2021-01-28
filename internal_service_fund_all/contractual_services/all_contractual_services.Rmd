@@ -1,0 +1,88 @@
+---
+title: "all_contractual_services"
+author: "Taylor"
+date: "9/22/2020"
+output: html_document
+---
+```{r}
+library(tidyverse)
+library(treemap)
+library(janitor)
+```
+
+## INTERNAL SERVICE FUND
+#Import data by reading each excel page as a csv and saving it to a dataframe
+```{r}
+df_01_sinking_fund_gen_op = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/01_SinkingFundGenOp_pg465.csv')
+df_02_telephone_exc = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/02_TelephoneExchange_pg467-68.csv')
+df_03_radio_comm = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/03_OfficeofRadioComm_pg472-73.csv')
+df_04_motor_vehicle_mtn = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/04_MotorVehicleMtn_pg477-79.csv')
+df_05_printing_reprod = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/05_Printing&Reproduc_pg482-83.csv')
+df_06_health_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/06_HealthSelfInsuranceFund_pg488.csv')
+df_07_prescription_self_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/07_PrscptnSelfInsrncFund_pg489.csv')
+df_08_CCA_income_tax = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/08_CCAIncomeTaxAdmin_pg493-95.csv')
+```
+
+#Get the values for the Contractual Services section
+```{r}
+ISF_sinking_fund_gen_op_other_training_and_prof_contractual_services_2017 <- df_01_sinking_fund_gen_op[21:23, 1:5]
+ISF_telephone_exc_contractual_services_2017 <- df_02_telephone_exc[35:38, 1:5]
+ISF_radio_comm_contractual_services_2017 <- df_03_radio_comm[33:37, 1:5]
+ISF_motor_vehicle_mtn_contractual_services_2017 <- df_04_motor_vehicle_mtn[36:40, 1:5]
+ISF_printing_reprod_contractual_services_2017 <- df_05_printing_reprod[34:39, 1:5]
+ISF_health_insurance_fund_contractual_services_2017 <- df_06_health_insurance_fund[1:11, 1:5]
+ISF_CCA_income_tax_contractual_services_2017 <- df_08_CCA_income_tax[31:42, 1:5]
+```
+
+#Merge all the offices into one dataframe
+
+```{r}
+all_contractual_services <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(ISF_sinking_fund_gen_op_other_training_and_prof_contractual_services_2017,ISF_telephone_exc_contractual_services_2017,ISF_radio_comm_contractual_services_2017, ISF_motor_vehicle_mtn_contractual_services_2017, ISF_printing_reprod_contractual_services_2017, ISF_health_insurance_fund_contractual_services_2017,ISF_CCA_income_tax_contractual_services_2017))
+```
+
+#Rename first column
+```{r}
+names(all_contractual_services)[1] <- 'contractual_services'
+names(all_contractual_services)[2] <- 'Sinking Fund General Operation 2017'
+names(all_contractual_services)[3] <- 'Telephone Exchange 2017'
+names(all_contractual_services)[4] <- 'Office of Radio Communication 2017'
+names(all_contractual_services)[5] <- 'Motor Vehicle Maintenance 2017'
+names(all_contractual_services)[6] <- 'Printing and Reproduction 2017'
+names(all_contractual_services)[7] <- 'Health Insurance Fund 2017'
+names(all_contractual_services)[8] <- 'CCA Income Tax Administration 2017'
+
+names(all_contractual_services)[9] <- 'Sinking Fund General Operation 2018'
+names(all_contractual_services)[10] <- 'Telephone Exchange 2018'
+names(all_contractual_services)[11] <- 'Office of Radio Communication 2018'
+names(all_contractual_services)[12] <- 'Motor Vehicle Maintenance 2018'
+names(all_contractual_services)[13] <- 'Printing and Reproduction 2018'
+names(all_contractual_services)[14] <- 'Health Insurance Fund 2018'
+names(all_contractual_services)[15] <- 'CCA Income Tax Administration 2018'
+
+names(all_contractual_services)[16] <- 'Sinking Fund General Operation 2019'
+names(all_contractual_services)[17] <- 'Telephone Exchange 2019'
+names(all_contractual_services)[18] <- 'Office of Radio Communication 2019'
+names(all_contractual_services)[19] <- 'Motor Vehicle Maintenance 2019'
+names(all_contractual_services)[20] <- 'Printing and Reproduction 2019'
+names(all_contractual_services)[21] <- 'Health Insurance Fund 2019'
+names(all_contractual_services)[22] <- 'CCA Income Tax Administration 2019'
+
+names(all_contractual_services)[23] <- 'Sinking Fund General Operation 2020'
+names(all_contractual_services)[24] <- 'Telephone Exchange 2020'
+names(all_contractual_services)[25] <- 'Office of Radio Communication 2020'
+names(all_contractual_services)[26] <- 'Motor Vehicle Maintenance 2020'
+names(all_contractual_services)[27] <- 'Printing and Reproduction 2020'
+names(all_contractual_services)[28] <- 'Health Insurance Fund 2020'
+names(all_contractual_services)[29] <- 'CCA Income Tax Administration 2020'
+all_contractual_services[27,1] <- "Total" #renaming row to "total"
+
+all_contractual_services <- clean_names(all_contractual_services) #cleans the column names
+```
+
+#Create file
+```{r}
+write.csv(all_contractual_services,"all_contractual_services.csv")
+```
+
+```

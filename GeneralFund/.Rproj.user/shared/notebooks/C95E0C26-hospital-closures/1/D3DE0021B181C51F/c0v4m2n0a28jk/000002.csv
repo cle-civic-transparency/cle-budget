@@ -1,0 +1,24 @@
+"0","## HHS Provider Relief Fund data"
+"0","## Downloaded [HHS_Provider_Relief_Fund.csv]from (https://data.cdc.gov/Administrative/HHS-Provider-Relief-Fund/kh8y-3es6) to data folder."
+"0",""
+"0","hhs_relief_fund <-"
+"0","  read_csv(""data/HHS_Provider_Relief_Fund.csv"") %>% clean_names()"
+"2","
+[36m──[39m [1m[1mColumn specification[1m[22m [36m────────────────────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  `Provider Name` = [31mcol_character()[39m,
+  State = [31mcol_character()[39m,
+  City = [31mcol_character()[39m,
+  Payment = [32mcol_double()[39m
+)
+
+"
+"0","## Sum all payments"
+"0","hhs_relief_fund <- hhs_relief_fund %>%"
+"0","  group_by(provider_name, state, city) %>%"
+"0","  summarise(provider_name,"
+"0","            payment_sum = sum(payment)) %>%"
+"0","  unique ##remove duplicate rows"
+"2","`summarise()` regrouping output by 'provider_name', 'state', 'city' (override with `.groups` argument)
+"
+"0","View(rural_count)"

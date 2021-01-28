@@ -1,0 +1,32 @@
+{
+    "id": "8FC22553",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1605719438213.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "expression": "rural_count",
+        "caption": "rural_count",
+        "totalObservations": "2198",
+        "displayedObservations": "2198",
+        "variables": "18",
+        "cacheKey": "065BDB98",
+        "object": "rural_count",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=rural_count&cache_key=065BDB98&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 140333838046720,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1605719438213,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,144 @@
+{
+  "nodes": [{
+      "node": 0,
+      "name": "Major Enterprise fund"
+    },
+
+    {
+      "node": 1,
+      "name": "Department of Public Utilities"
+    },
+    {
+      "node": 2,
+      "name": "Department of Port Control"
+    },
+
+    {
+      "node": 3,
+      "name": "Utilities Administration"
+    },
+    {
+      "node": 4,
+      "name": "Fiscal Control"
+    },
+    {
+      "node": 5,
+      "name": "Water"
+    },
+    {
+      "node": 6,
+      "name": "Water Pollution Control"
+    },
+    {
+      "node": 7,
+      "name": "Cleveland Public Power"
+    },
+
+    {
+      "node": 8,
+      "name": "Revenue: Utilities Administration"
+    },
+    {
+      "node": 9,
+      "name": "Revenue: Fiscal Control"
+    },
+    {
+      "node": 10,
+      "name": "Revenue: Water"
+    },
+    {
+      "node": 11,
+      "name": "Revenue: Water Pollution Control"
+    },
+    {
+      "node": 12,
+      "name": "Revenue: Cleveland Public Power"
+    },
+
+    {
+      "node": 12,
+      "name": "Airport General Operations"
+    },
+    {
+      "node": 13,
+      "name": "Revenue: Airport"
+    }
+
+
+  ],
+  "links": [{
+      "source": 0,
+      "target": 1,
+      "value": 1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "value": 1
+    },
+
+    {
+      "source": 8,
+      "target": 0,
+      "value": 6570040
+    },
+    {
+      "source": 9,
+      "target": 0,
+      "value": 7232424
+    },
+    {
+      "source": 10,
+      "target": 0,
+      "value": 330939281
+    },
+    {
+      "source": 11,
+      "target": 0,
+      "value": 32699000
+    },
+    {
+      "source": 12,
+      "target": 0,
+      "value": 209564526
+    },
+
+    {
+      "source": 1,
+      "target": 3,
+      "value": 6488211
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "value": 7300586
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "value": 330916319
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "value": 29323917
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "value": 206037054
+    },
+
+    {
+      "source": 2,
+      "target": 12,
+      "value": 165421443
+    },
+    {
+      "source": 13,
+      "target": 0,
+      "value": 165398867
+    }
+
+  ]
+}

@@ -1,0 +1,3 @@
+"0","zip_to_zcta <-"
+"0","  read_excel(""data/Zip_to_zcta_crosswalk_2020.xlsx"") %>%"
+"0","  clean_names()"

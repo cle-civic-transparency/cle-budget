@@ -1,0 +1,173 @@
+{
+  "nodes": [{
+      "name": "Small Enterprise fund",
+      "id": "animals"
+    },
+    {
+      "name": "Special Revenue fund",
+      "id": "animals"
+    },
+    {
+      "name": "Department of Public Works",
+      "id": "fallback"
+    },
+    {
+      "name": "Cemeteries",
+      "id": "social"
+    },
+    {
+      "name": "Golf courses",
+      "id": "social"
+    },
+    {
+      "name": "Municipal parking facilities",
+      "id": "social"
+    },
+    {
+      "name": "Public Auditorium",
+      "id": "social"
+    },
+    {
+      "name": "West Side Market",
+      "id": "social"
+    },
+    {
+      "name": "Revenue: Cemeteries",
+      "id": "fallback"
+    },
+    {
+      "name": "Revenue: Golf courses",
+      "id": "fallback"
+    },
+    {
+      "name": "Municipal parking facilities",
+      "id": "fallback"
+    },
+    {
+      "name": "Revenue: Public Auditorium",
+      "id": "fallback"
+    },
+    {
+      "name": "Revenue: West Side Market",
+      "id": "fallback"
+    },
+    {
+      "id": "social",
+      "name": "Contractual - Professional Services"
+    },
+    {
+      "name": "Street Construction",
+      "id": "social"
+    },
+    {
+      "name": "Cleveland Stadium",
+      "id": "social"
+    },
+    {
+      "name": "Salt & De-Icer",
+      "id": "social"
+    },
+    {
+      "name": "Salaries",
+      "id": "social"
+    },
+    {
+      "name": "Revenue: Street Construction",
+      "id": "fallback"
+    },
+    {
+      "name": "Revenue: Cleveland Stadium",
+      "id": "fallback"
+    }
+  ],
+  "links": [{
+      "source": 8,
+      "target": 0,
+      "value": 1585673
+    },
+    {
+      "source": 9,
+      "target": 0,
+      "value": 1343933
+    },
+    {
+      "source": 10,
+      "target": 0,
+      "value": 10378257
+    },
+    {
+      "source": 11,
+      "target": 0,
+      "value": 2687508
+    },
+    {
+      "source": 12,
+      "target": 0,
+      "value": 1379619
+    },
+
+    {
+      "source": 18,
+      "target": 1,
+      "value": 44095057
+    },
+    {
+      "source": 19,
+      "target": 1,
+      "value": 16044482
+    },
+
+    {
+      "source": 0,
+      "target": 3,
+      "value": 1768506
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "value": 1395670
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "value": 10610757
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "value": 2921089
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "value": 1655523
+    },
+    {
+      "source": 5,
+      "target": 13,
+      "value": 2265163
+    },
+
+    {
+      "source": 1,
+      "target": 14,
+      "value": 35747709
+    },
+    {
+      "source": 1,
+      "target": 15,
+      "value": 13802332
+    },
+
+    {
+      "source": 14,
+      "target": 16,
+      "value": 3359623
+    },
+    {
+      "source": 14,
+      "target": 17,
+      "value": 14119197
+    }
+  ]
+}

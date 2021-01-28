@@ -1,0 +1,83 @@
+---
+title: "salary_and_wages_2017"
+author: "Taylor"
+date: "9/22/2020"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(treemap)
+library(janitor)
+```
+
+
+## INTERNAL SERVICE FUND
+#Import data by reading each excel page as a csv and saving it to a dataframe
+```{r}
+df_01_sinking_fund_gen_op = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/01_SinkingFundGenOp_pg465.csv')
+df_02_telephone_exc = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/02_TelephoneExchange_pg467-68.csv')
+df_03_radio_comm = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/03_OfficeofRadioComm_pg472-73.csv')
+df_04_motor_vehicle_mtn = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/04_MotorVehicleMtn_pg477-79.csv')
+df_05_printing_reprod = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/05_Printing&Reproduc_pg482-83.csv')
+df_06_health_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/06_HealthSelfInsuranceFund_pg488.csv')
+df_07_prescription_self_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/07_PrscptnSelfInsrncFund_pg489.csv')
+df_08_CCA_income_tax = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/08_CCAIncomeTaxAdmin_pg493-95.csv')
+```
+
+#Get the values for the Salary and Wages section
+```{r}
+ISF_sinking_fund_gen_op_salary_2017 <- df_01_sinking_fund_gen_op[2:6, 1:5]
+ISF_telephone_exc_salary_2017 <- df_02_telephone_exc[2:8, 1:5]
+ISF_radio_comm_salary_2017 <- df_03_radio_comm[2:7, 1:5]
+ISF_motor_vehicle_mtn_salary_2017 <- df_04_motor_vehicle_mtn[2:9, 1:5]
+ISF_printing_reprod_salary_2017 <- df_05_printing_reprod[2:8, 1:5]
+ISF_CCA_income_tax_salary_2017 <- df_08_CCA_income_tax[2:9, 1:5]
+```
+
+#Merge all the offices into one dataframe
+
+```{r}
+all_salary_and_wages <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(ISF_sinking_fund_gen_op_salary_2017,ISF_telephone_exc_salary_2017,ISF_radio_comm_salary_2017, ISF_motor_vehicle_mtn_salary_2017, ISF_printing_reprod_salary_2017, ISF_CCA_income_tax_salary_2017))
+```
+
+#Rename first column
+```{r}
+names(all_salary_and_wages)[1] <- 'salary_and_wages'
+names(all_salary_and_wages)[2] <- 'Sinking Fund General Operation 2017'
+names(all_salary_and_wages)[3] <- 'Telephone Exchange 2017'
+names(all_salary_and_wages)[4] <- 'Office of Radio Communication 2017'
+names(all_salary_and_wages)[5] <- 'Motor Vehicle Maintenance 2017'
+names(all_salary_and_wages)[6] <- 'Printing and Reproduction 2017'
+names(all_salary_and_wages)[7] <- 'CCA Income Tax Administration 2017'
+
+names(all_salary_and_wages)[8] <- 'Sinking Fund General Operation 2018'
+names(all_salary_and_wages)[9] <- 'Telephone Exchange 2018'
+names(all_salary_and_wages)[10] <- 'Office of Radio Communication 2018'
+names(all_salary_and_wages)[11] <- 'Motor Vehicle Maintenance 2018'
+names(all_salary_and_wages)[12] <- 'Printing and Reproduction 2018'
+names(all_salary_and_wages)[13] <- 'CCA Income Tax Administration 2018'
+
+names(all_salary_and_wages)[14] <- 'Sinking Fund General Operation 2019'
+names(all_salary_and_wages)[15] <- 'Telephone Exchange 2019'
+names(all_salary_and_wages)[16] <- 'Office of Radio Communication 2019'
+names(all_salary_and_wages)[17] <- 'Motor Vehicle Maintenance 2019'
+names(all_salary_and_wages)[18] <- 'Printing and Reproduction 2019'
+names(all_salary_and_wages)[19] <- 'CCA Income Tax Administration 2019'
+
+names(all_salary_and_wages)[20] <- 'Sinking Fund General Operation 2020'
+names(all_salary_and_wages)[21] <- 'Telephone Exchange 2020'
+names(all_salary_and_wages)[22] <- 'Office of Radio Communication 2020'
+names(all_salary_and_wages)[23] <- 'Motor Vehicle Maintenance 2020'
+names(all_salary_and_wages)[24] <- 'Printing and Reproduction 2020'
+names(all_salary_and_wages)[25] <- 'CCA Income Tax Administration 2020'
+all_salary_and_wages[9,1] <- "Total" #renaming row to "total"
+
+all_salary_and_wages <- clean_names(all_salary_and_wages) #cleans the column names
+```
+
+#Create file
+```{r}
+write.csv(all_salary_and_wages,"all_salary_and_wages.csv")
+```

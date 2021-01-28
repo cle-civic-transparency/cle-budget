@@ -1,0 +1,89 @@
+{
+"nodes":[
+  {"node":0,"name":"Shared revenue source: property tax state subsidy"},
+  {"node":1,"name":"Shared revenue source: cigarette & liquor tax"},
+  {"node":2,"name":"Shared revenue source: estate tax"},
+  {"node":3,"name":"Shared revenue source: casino"},
+  {"node":4,"name":"Shared revenue source: other"},
+  {"node":5,"name":"Other taxes: admission tax"},
+  {"node":6,"name":"Other taxes: motor license tax"},
+  {"node":7,"name":"Other taxes: parking tax"},
+  {"node":8,"name":"Other taxes: electric excise tax"},
+  {"node":9,"name":"Other taxes: hotel tax"},
+  {"node":10,"name":"Other taxes: other"},
+  {"node":11,"name":"Shared Revenue"},
+  {"node":12,"name":"Other taxes"},
+
+  {"node":13,"name":"Income tax"},
+  {"node":14,"name":"Interest income"},
+  {"node":15,"name":"Charges for services"},
+  {"node":16,"name":"Fines,forfeitures, & settlements"},
+  {"node":17,"name":"Licenses & permits"},
+  {"node":18,"name":"Misc."},
+  {"node":19,"name":"Property tax"},
+  {"node":20,"name":"Sale of city assests"},
+  {"node":21,"name":"Transfers in"},
+  {"node":22,"name":"Local government fund"},
+  {"node":23,"name":"Grant revenue"},
+
+  {"node":24,"name":"General fund"},
+  {"node":25,"name":"Department of Public Saftey"},
+
+  {"node":26,"name":"Public Saftey Administration"},
+  {"node":27,"name":"Division of Police"},
+  {"node":28,"name":"Division of Fire"},
+  {"node":29,"name":"Division of Correction"},
+  {"node":30,"name":"Civilian Police Review Board"},
+  {"node":31,"name":"Community Police Commision"},
+  {"node":32,"name":"Police Inspector General"},
+  {"node":33,"name":"Department of Justice"},
+  {"node":34,"name":"Divisions: Other - EMS, Animal Control, 911"},
+
+  {"node":35,"name":"Police Pension"},
+  {"node":36,"name":"Fire Pension"}
+
+],
+"links":[
+  {"source":0,"target":11,"value":3191438},
+  {"source":1,"target":11,"value":816964},
+  {"source":2,"target":11,"value":12779},
+  {"source":3,"target":11,"value":9416043},
+  {"source":4,"target":11,"value":3360},
+
+  {"source":5,"target":12,"value":28939818},
+  {"source":6,"target":12,"value":3504426},
+  {"source":7,"target":12,"value":15348019},
+  {"source":8,"target":12,"value":0},
+  {"source":9,"target":12,"value":7006596},
+  {"source":10,"target":12,"value":24374},
+  {"source":11,"target":24,"value":44823233},
+  {"source":12,"target":24,"value":912538},
+
+  {"source":13,"target":24,"value":441753856},
+  {"source":14,"target":24,"value":5495262},
+  {"source":15,"target":24,"value":38600845},
+  {"source":16,"target":24,"value":11015522},
+  {"source":17,"target":24,"value":19518635},
+  {"source":18,"target":24,"value":42382264},
+  {"source":19,"target":24,"value":42382264},
+  {"source":20,"target":24,"value":37905311},
+  {"source":21,"target":24,"value":0},
+  {"source":22,"target":24,"value":3731113},
+  {"source":23,"target":24,"value":26072779},
+
+  {"source":24,"target":25,"value":377288542},
+
+  {"source":25,"target":26,"value":5884768},
+  {"source":25,"target":27,"value":206566800},
+  {"source":25,"target":28,"value":99613125},
+  {"source":25,"target":29,"value":5199792},
+  {"source":25,"target":30,"value":156450},
+  {"source":25,"target":31,"value":393198},
+  {"source":25,"target":32,"value":44837},
+  {"source":25,"target":33,"value":3130455},
+  {"source":25,"target":34,"value":32808184},
+
+  {"source":24,"target":35,"value":1503060},
+  {"source":24,"target":36,"value":1503060}
+
+  ]}

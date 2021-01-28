@@ -1,0 +1,77 @@
+---
+title: "all_other_training_and_professional_dues_2017"
+author: "Taylor"
+date: "9/22/2020"
+output: html_document
+---
+```{r}
+library(tidyverse)
+library(treemap)
+library(janitor)
+```
+
+
+## INTERNAL SERVICE FUND
+#Import data by reading each excel page as a csv and saving it to a dataframe
+```{r}
+df_01_sinking_fund_gen_op = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/01_SinkingFundGenOp_pg465.csv')
+df_02_telephone_exc = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/02_TelephoneExchange_pg467-68.csv')
+df_03_radio_comm = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/03_OfficeofRadioComm_pg472-73.csv')
+df_04_motor_vehicle_mtn = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/04_MotorVehicleMtn_pg477-79.csv')
+df_05_printing_reprod = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/05_Printing&Reproduc_pg482-83.csv')
+df_06_health_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/06_HealthSelfInsuranceFund_pg488.csv')
+df_07_prescription_self_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/07_PrscptnSelfInsrncFund_pg489.csv')
+df_08_CCA_income_tax = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/08_CCAIncomeTaxAdmin_pg493-95.csv')
+```
+
+#Get the values for the Other Training & Professional Dues section
+```{r}
+ISF_sinking_fund_gen_op_other_training_and_prof_dues_2017 <- df_01_sinking_fund_gen_op[18:19, 1:5]
+ISF_radio_comm_other_training_and_prof_dues_2017 <- df_03_radio_comm[22:24, 1:5]
+ISF_motor_vehicle_mtn_other_training_and_prof_dues_2017 <- df_04_motor_vehicle_mtn[25:27, 1:5]
+ISF_printing_reprod_other_training_and_prof_dues_2017 <- df_05_printing_reprod[22:26, 1:5]
+ISF_CCA_income_tax_other_training_and_prof_dues_20177 <- df_08_CCA_income_tax[22:25, 1:5]
+```
+
+#Merge all the offices into one dataframe
+
+```{r}
+all_other_training_and_prof_dues <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(ISF_sinking_fund_gen_op_other_training_and_prof_dues_2017,ISF_radio_comm_other_training_and_prof_dues_2017, ISF_motor_vehicle_mtn_other_training_and_prof_dues_2017, ISF_printing_reprod_other_training_and_prof_dues_2017, ISF_CCA_income_tax_other_training_and_prof_dues_20177))
+```
+
+#Rename first column
+```{r}
+names(all_other_training_and_prof_dues)[1] <- 'other_training_and_prof_dues'
+names(all_other_training_and_prof_dues)[2] <- 'Sinking Fund General Operation 2017'
+names(all_other_training_and_prof_dues)[3] <- 'Office of Radio Communication 2017'
+names(all_other_training_and_prof_dues)[4] <- 'Motor Vehicle Maintenance 2017'
+names(all_other_training_and_prof_dues)[5] <- 'Printing and Reproduction 2017'
+names(all_other_training_and_prof_dues)[6] <- 'CCA Income Tax Administration 2017'
+
+names(all_other_training_and_prof_dues)[7] <- 'Sinking Fund General Operation 2018'
+names(all_other_training_and_prof_dues)[8] <- 'Office of Radio Communication 2018'
+names(all_other_training_and_prof_dues)[9] <- 'Motor Vehicle Maintenance 2018'
+names(all_other_training_and_prof_dues)[10] <- 'Printing and Reproduction 2018'
+names(all_other_training_and_prof_dues)[11] <- 'CCA Income Tax Administration 2018'
+
+names(all_other_training_and_prof_dues)[12] <- 'Sinking Fund General Operation 2019'
+names(all_other_training_and_prof_dues)[13] <- 'Office of Radio Communication 2019'
+names(all_other_training_and_prof_dues)[14] <- 'Motor Vehicle Maintenance 2019'
+names(all_other_training_and_prof_dues)[15] <- 'Printing and Reproduction 2019'
+names(all_other_training_and_prof_dues)[16] <- 'CCA Income Tax Administration 2019'
+
+names(all_other_training_and_prof_dues)[17] <- 'Sinking Fund General Operation 2020'
+names(all_other_training_and_prof_dues)[18] <- 'Office of Radio Communication 2020'
+names(all_other_training_and_prof_dues)[19] <- 'Motor Vehicle Maintenance 2020'
+names(all_other_training_and_prof_dues)[20] <- 'Printing and Reproduction 2020'
+names(all_other_training_and_prof_dues)[21] <- 'CCA Income Tax Administration 2020'
+all_other_training_and_prof_dues[5,1] <- "Total" #renaming row to "total"
+
+all_other_training_and_prof_dues <- clean_names(all_other_training_and_prof_dues) #cleans the column names
+```
+
+#Create file
+```{r}
+write.csv(all_other_training_and_prof_dues,"all_other_training_and_prof_dues.csv")
+```

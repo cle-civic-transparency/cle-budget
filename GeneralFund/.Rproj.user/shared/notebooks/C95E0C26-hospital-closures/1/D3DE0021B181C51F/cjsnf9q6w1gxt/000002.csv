@@ -1,0 +1,2 @@
+"0","hospital_closures <- read_xlsx(""data/Closures-Database-for-Web.xlsx"") %>% "
+"0","  clean_names()"

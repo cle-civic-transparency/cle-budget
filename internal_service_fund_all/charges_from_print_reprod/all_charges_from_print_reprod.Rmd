@@ -1,0 +1,50 @@
+---
+title: "all_charges_2017"
+author: "Taylor"
+date: "9/22/2020"
+output: html_document
+---
+
+## INTERNAL SERVICE FUND
+#Import data by reading each excel page as a csv and saving it to a dataframe
+```{r}
+df_01_sinking_fund_gen_op = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/01_SinkingFundGenOp_pg465.csv')
+df_02_telephone_exc = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/02_TelephoneExchange_pg467-68.csv')
+df_03_radio_comm = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/03_OfficeofRadioComm_pg472-73.csv')
+df_04_motor_vehicle_mtn = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/04_MotorVehicleMtn_pg477-79.csv')
+df_05_printing_reprod = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/05_Printing&Reproduc_pg482-83.csv')
+df_06_health_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/06_HealthSelfInsuranceFund_pg488.csv')
+df_07_prescription_self_insurance_fund = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/07_PrscptnSelfInsrncFund_pg489.csv')
+df_08_CCA_income_tax = read_csv('/Users/taylorjohnston/Desktop/Repositories/cle-budget/InternalServiceFund/08_CCAIncomeTaxAdmin_pg493-95.csv')
+```
+
+
+#Get the 2017 Values for the Charges From Print & Repro section
+```{r}
+ISF_health_insurance_fund_charges_from_print_reprod_2017 <- df_06_health_insurance_fund[18:19, 1:5]
+```
+
+#Merge all the offices into one dataframe
+
+```{r}
+all_charges_from_print_reprod_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(ISF_health_insurance_fund_charges_from_print_reprod_2017 ))
+```
+
+#Rename first column
+```{r}
+names(all_charges_from_print_reprod_2017)[1] <- 'claims_refunds_maintenance'
+names(all_charges_from_print_reprod_2017)[2] <- 'Health Insurance Fund 2017'
+names(all_charges_from_print_reprod_2017)[3] <- 'Health Insurance Fund 2018'
+names(all_charges_from_print_reprod_2017)[4] <- 'Health Insurance Fund 2019'
+names(all_charges_from_print_reprod_2017)[5] <- 'Health Insurance Fund 2020'
+all_charges_from_print_reprod_2017[2,1] <- "Total" #renaming row to "total"
+
+all_charges_from_print_reprod_2017 <- clean_names(all_charges_from_print_reprod_2017) #cleans the column names
+
+```
+
+#Create file
+```{r}
+write.csv(all_charges_from_print_reprod_2017,"all_charges_from_print_reprod.csv")
+```

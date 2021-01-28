@@ -1,0 +1,4 @@
+"0","census_api <- rstudioapi::askForSecret(""Census API key"")"
+"0","census_api_key(census_api)"
+"2","To install your API key for use in future sessions, run this function with `install = TRUE`.
+"

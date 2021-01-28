@@ -1,0 +1,3 @@
+"0","## Joining relief fund data to rural hospitals list using fuzzy join"
+"0","rural_hospitals_and_relief_fund <-"
+"0","  rural_hospital_list %>% stringdist_inner_join(hhs_relief_fund,  by  = c(""name"" = ""provider_name"", ""city"" = ""city""))"

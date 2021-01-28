@@ -1,0 +1,161 @@
+{
+   "nodes" : [
+     {
+        "name" : "General fund : $685,651,943",
+        "id" : "animals",
+        "number":0
+     },
+     {
+        "id" : "fallback",
+        "name" : "Income tax : $441,753,856",
+        "number":1
+     },
+     {
+        "name" : "Other taxes : $44,823,233",
+        "id" : "fallback",
+        "number":2
+     },
+     {
+        "name" : "Misc. : $42,382,264",
+        "id" : "fallback",
+        "number":3
+     },
+     {
+        "name" : "Charges for services: $38,600,845",
+        "id" : "fallback",
+        "number":4
+     },
+     {
+        "name" : "Property tax : $37,905,311",
+        "id" : "fallback",
+        "number":5
+     },
+     {
+        "name" : "State & local government fund : $26,072,779",
+        "id" : "fallback",
+        "number":6
+     },
+     {
+        "name" : "Licenses and permits : $19,518,635",
+        "id" : "fallback",
+        "number":7
+     },
+     {
+        "name" : "Shared revenue tax : $13,440,585",
+        "id" : "fallback",
+        "number":8
+     },
+     {
+        "name" : "Fines, forfeitures and settlements : $11,015,522",
+        "id" : "fallback",
+        "number":9
+     },
+     {
+        "name" : "Investment income : $5,495,262",
+        "id" : "fallback",
+        "number":10
+     },
+     {
+        "name" : "Transfers in : $3,731,113",
+        "id" : "fallback",
+        "number":11
+     },
+     {
+        "name" : "Grant revenue : $912,538",
+        "id" : "fallback",
+        "number":12
+     },
+     {
+        "name" : "Cleveland Municipal Court - Judges Division : $22,532,563",
+        "id" : "social",
+        "number":13
+     },
+     {
+        "name" : "Cleveland Municipal Court - Clerk's Division : $11,705,770",
+        "id" : "social",
+        "number":14
+     },
+     {
+        "name" : "Cleveland Municipal Court - Housing Division : $4,496,048",
+        "id" : "social",
+        "number":15
+     }
+   ],
+   "links" : [
+      {
+         "source" : 1,
+         "value" : 441753856,
+         "target" : 0
+      },
+      {
+         "source" : 2,
+         "value" : 44823233,
+         "target" : 0
+      },
+      {
+         "source" : 3,
+         "value" : 42382264,
+         "target" : 0
+      },
+      {
+         "source" : 4,
+         "value" : 38600845,
+         "target" : 0
+      },
+      {
+         "source" : 5,
+         "value" : 37905311,
+         "target" : 0
+      },
+      {
+         "source" : 6,
+         "value" : 26072779,
+         "target" : 0
+      },
+      {
+         "source" : 7,
+         "value" : 19518635,
+         "target" : 0
+      },
+      {
+         "source" : 8,
+         "value" : 13440585,
+         "target" : 0
+      },
+      {
+         "source" : 9,
+         "value" : 11015522,
+         "target" : 0
+      },
+      {
+         "source" : 10,
+         "value" : 5495262,
+         "target" : 0
+      },
+      {
+         "source" : 11,
+         "value" : 3731113,
+         "target" : 0
+      },
+      {
+         "source" : 12,
+         "value" : 912538,
+         "target" : 0
+      },
+      {
+         "source" : 0,
+         "value" : 22532563,
+         "target" : 13
+      },
+      {
+         "source" : 0,
+         "value" : 11705770,
+         "target" : 14
+      },
+      {
+         "source" : 0,
+         "value" : 4496048,
+         "target" : 15
+      }
+   ]
+}

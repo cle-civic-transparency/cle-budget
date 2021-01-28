@@ -1,0 +1,217 @@
+{
+   "nodes" : [
+      {
+         "name" : "Income Tax",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Charges for services",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Misc.",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Grant revenue",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Property Tax",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Sale of city assets",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Local government fund",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Licenses and permits",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Interest income",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Fines, forfeitures and settlements",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Other Taxes",
+         "id" : "fallback"
+      },
+      {
+         "name" : "Shared Revenue Source",
+         "id" : "fallback"
+      },
+      {
+         "name" : "General Fund",
+         "id" : "animals"
+      },
+      {
+         "id" : "social",
+         "name" : "Department of Public Safety"
+      },
+      {
+         "name" : "Division of Police",
+         "id" : "social"
+      },
+      {
+         "name" : "Division of Fire",
+         "id" : "social"
+      },
+      {
+         "name" : "Divisions: Other",
+         "id" : "social"
+      },
+      {
+         "name" : "Public Safety Administration",
+         "id" : "social"
+      },
+      {
+         "name" : "Division of Correction",
+         "id" : "social"
+      },
+      {
+         "name" : "Civilian Police Review Board",
+         "id" : "social"
+      },
+      {
+         "name" : "Police Inspector General",
+         "id" : "social"
+      },
+      {
+         "name" : "Department of Jusice",
+         "id" : "social"
+      },
+      {
+         "name" : "Fire Pension",
+         "id" : "social"
+      },
+      {
+         "name" : "Police Pension",
+         "id" : "social"
+      }
+   ],
+   "links" : [
+      {
+         "source" : 0,
+         "value" : 441753856,
+         "target" : 12
+      },
+      {
+         "source" : 1,
+         "value" : 38600845,
+         "target" : 12
+      },
+      {
+         "source" : 2,
+         "value" : 42382264,
+         "target" : 12
+      },
+      {
+         "source" : 3,
+         "value" : 26072779,
+         "target" : 12
+      },
+      {
+         "source" : 4,
+         "value" : 42382264,
+         "target" : 12
+      },
+      {
+         "source" : 5,
+         "value" : 37905311,
+         "target" : 12
+      },
+      {
+         "source" : 6,
+         "value" : 3731113,
+         "target" : 12
+      },
+      {
+         "source" : 7,
+         "value" : 19518635,
+         "target" : 12
+      },
+      {
+         "source" : 8,
+         "value" : 5495262,
+         "target" : 12
+      },
+      {
+         "source" : 9,
+         "value" : 11015522,
+         "target" : 12
+      },
+      {
+         "source" : 10,
+         "value" : 912538,
+         "target" : 12
+      },
+      {
+         "source" : 11,
+         "value" : 44823233,
+         "target" : 12
+      },
+      {
+         "source" : 12,
+         "value" : 377288542,
+         "target" : 13
+      },
+      {
+         "source" : 13,
+         "value" : 206566800,
+         "target" : 14
+      },
+      {
+         "source" : 13,
+         "value" : 99613125,
+         "target" : 15
+      },
+      {
+         "source" : 13,
+         "value" : 32808184,
+         "target" : 16
+      },
+      {
+         "source" : 13,
+         "value" : 32808184,
+         "target" : 17
+      },
+      {
+         "source" : 13,
+         "value" : 32808184,
+         "target" : 18
+      },
+      {
+         "source" : 13,
+         "value" : 32808184,
+         "target" : 19
+      },
+      {
+         "source" : 13,
+         "value" : 32808184,
+         "target" : 20
+      },
+      {
+         "source" : 13,
+         "value" : 32808184,
+         "target" : 21
+      },
+      {
+         "source" : 12,
+         "value" : 32808184,
+         "target" : 22
+      },
+      {
+         "source" : 12,
+         "value" : 32808184,
+         "target" : 23
+      }
+   ]
+}

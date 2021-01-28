@@ -1,0 +1,1366 @@
+---
+title: "majorenterprisefund"
+author: "Jonathan Steirer"
+date: "9/2/2020"
+output: html_document
+---
+
+```{r}
+library("tidyverse")
+library("data.table")
+```
+
+
+```{r}
+#Import data by reading each excel page as a csv and saving it to a dataframe
+df_01_utilities_gen_admin = read_csv('/Users/jwste/Documents/DataViz/data_viz_cle/MajorEnterpriseFund/01_UtilitiesGenAdmin_pg379-383.csv')
+df_02_utilities_fisc_ctrl = read_csv('/Users/jwste/Documents/DataViz/data_viz_cle/MajorEnterpriseFund/02_UtilitiesFiscalCtrl_pg385-86.csv')
+df_03_div_water = read_csv('/Users/jwste/Documents/DataViz/data_viz_cle/MajorEnterpriseFund/03_DivOfWater_pg390-93.csv')
+df_04_water_pollution_cont = read_csv('/Users/jwste/Documents/DataViz/data_viz_cle/MajorEnterpriseFund/04_WtrPollutionCtrl_pg402-04.csv')
+df_05_cle_public_power = read_csv('/Users/jwste/Documents/DataViz/data_viz_cle/MajorEnterpriseFund/05_ClePublicPower_pg409-12.csv')
+df_06_airport_gen_op = read_csv('/Users/jwste/Documents/DataViz/data_viz_cle/MajorEnterpriseFund/06_AirportGenOp_pg418-21.csv')
+```
+
+```{r}
+#Get the 2017 Values for the Salary section
+mef_utilities_gen_salary_2017 <- df_01_utilities_gen_admin[2:11, 1:2]
+mef_utilities_fisc_salary_2017 <- df_02_utilities_fisc_ctrl[2:9, 1:2]
+mef_div_Water_salary_2017 <- df_03_div_water[2:14, 1:2]
+mef_Water_pollution_salary_2017 <- df_04_water_pollution_cont[2:14, 1:2]
+mef_public_power_salary_2017 <- df_05_cle_public_power[2:11, 1:2]
+mef_airport_gen_salary_2017 <- df_06_airport_gen_op[2:13, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_salary_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_salary_2017, mef_utilities_fisc_salary_2017, mef_div_Water_salary_2017, mef_Water_pollution_salary_2017, mef_public_power_salary_2017, mef_airport_gen_salary_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_salary_2017)[1] <- '2017 - Salary and Wages'
+names(f_salary_2017)[2] <- 'Utilities - General Administration'
+names(f_salary_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_salary_2017)[4] <- 'Division of Water'
+names(f_salary_2017)[5] <- 'Water Pollution Control'
+names(f_salary_2017)[6] <- 'Cleveland Public Power'
+names(f_salary_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Benefits section
+mef_utilities_gen_benefits_2017 <- df_01_utilities_gen_admin[13:25, 1:2]
+mef_utilities_fisc_benefits_2017 <- df_02_utilities_fisc_ctrl[11:23, 1:2]
+mef_div_Water_benefits_2017 <- df_03_div_water[16:29, 1:2]
+mef_Water_pollution_benefits_2017 <- df_04_water_pollution_cont[13:26, 1:2]
+mef_public_power_benefits_2017 <- df_05_cle_public_power[13:26, 1:2]
+mef_airport_gen_benefits_2017 <- df_06_airport_gen_op[15:28, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_benefits_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_benefits_2017, mef_utilities_fisc_benefits_2017, mef_div_Water_benefits_2017, mef_Water_pollution_benefits_2017, mef_public_power_benefits_2017, mef_airport_gen_benefits_2017))
+```
+
+
+```{r}  
+#Rename first column
+names(f_benefits_2017)[1] <- '2017 - Benefits'
+names(f_benefits_2017)[2] <- 'Utilities - General Administration'
+names(f_benefits_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_benefits_2017)[4] <- 'Division of Water'
+names(f_benefits_2017)[5] <- 'Water Pollution Control'
+names(f_benefits_2017)[6] <- 'Cleveland Public Power'
+names(f_benefits_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Others section
+mef_utilities_gen_others_2017 <- df_01_utilities_gen_admin[26:31, 1:2]
+mef_utilities_fisc_others_2017 <- df_02_utilities_fisc_ctrl[24:29, 1:2]
+mef_div_Water_others_2017 <- df_03_div_water[30:37, 1:2]
+mef_Water_pollution_others_2017 <- df_04_water_pollution_cont[27:32, 1:2]
+mef_public_power_others_2017 <- df_05_cle_public_power[27:31, 1:2]
+mef_airport_gen_others_2017 <- df_06_airport_gen_op[29:35, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_others_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_others_2017, mef_utilities_fisc_others_2017, mef_div_Water_others_2017, mef_Water_pollution_others_2017, mef_public_power_others_2017, mef_airport_gen_others_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_others_2017)[1] <- '2017 - Others'
+names(f_others_2017)[2] <- 'Utilities - General Administration'
+names(f_others_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_others_2017)[4] <- 'Division of Water'
+names(f_others_2017)[5] <- 'Water Pollution Control'
+names(f_others_2017)[6] <- 'Cleveland Public Power'
+names(f_others_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Utilities section
+mef_div_Water_utilities_2017 <- df_03_div_water[38:47, 1:2]
+mef_Water_pollution_utilities_2017 <- df_04_water_pollution_cont[33:41, 1:2]
+mef_public_power_utilities_2017 <- df_05_cle_public_power[32:40, 1:2]
+mef_airport_gen_utilities_2017 <- df_06_airport_gen_op[36:43, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_utilities_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_utilities_2017, mef_Water_pollution_utilities_2017, mef_public_power_utilities_2017, mef_airport_gen_utilities_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_utilities_2017)[1] <- '2017 - Utilities'
+names(f_utilities_2017)[2] <- 'Division of Water'
+names(f_utilities_2017)[3] <- 'Water Pollution Control'
+names(f_utilities_2017)[4] <- 'Cleveland Public Power'
+names(f_utilities_2017)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Contractual section
+mef_utilities_gen_contractual_2017 <- df_01_utilities_gen_admin[32:42, 1:2]
+mef_utilities_fisc_contractual_2017 <- df_02_utilities_fisc_ctrl[30:36, 1:2]
+mef_div_Water_contractual_2017 <- df_03_div_water[48:61, 1:2]
+mef_Water_pollution_contractual_2017 <- df_04_water_pollution_cont[43:56, 1:2]
+mef_public_power_contractual_2017 <- df_05_cle_public_power[41:54, 1:2]
+mef_airport_gen_contractual_2017 <- df_06_airport_gen_op[44:62, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_contractual_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_contractual_2017, mef_utilities_fisc_contractual_2017, mef_div_Water_contractual_2017, mef_Water_pollution_contractual_2017, mef_public_power_contractual_2017, mef_airport_gen_contractual_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_contractual_2017)[1] <- '2017 - Contractual'
+names(f_contractual_2017)[2] <- 'Utilities - General Administration'
+names(f_contractual_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_contractual_2017)[4] <- 'Division of Water'
+names(f_contractual_2017)[5] <- 'Water Pollution Control'
+names(f_contractual_2017)[6] <- 'Cleveland Public Power'
+names(f_contractual_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Materials and Supplies section
+mef_utilities_gen_materials_2017 <- df_01_utilities_gen_admin[59:62, 1:2]
+mef_utilities_fisc_materials_2017 <- df_02_utilities_fisc_ctrl[52:54, 1:2]
+mef_div_Water_materials_2017 <- df_03_div_water[100:104, 1:2]
+mef_Water_pollution_materials_2017 <- df_04_water_pollution_cont[83:86, 1:2]
+mef_public_power_materials_2017 <- df_05_cle_public_power[85:88, 1:2]
+mef_airport_gen_materials_2017 <- df_06_airport_gen_op[97:100, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_materials_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_materials_2017, mef_utilities_fisc_materials_2017, mef_div_Water_materials_2017, mef_Water_pollution_materials_2017, mef_public_power_materials_2017, mef_airport_gen_materials_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_materials_2017)[1] <- '2017 - Materials'
+names(f_materials_2017)[2] <- 'Utilities - General Administration'
+names(f_materials_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_materials_2017)[4] <- 'Division of Water'
+names(f_materials_2017)[5] <- 'Water Pollution Control'
+names(f_materials_2017)[6] <- 'Cleveland Public Power'
+names(f_materials_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Maintenance section
+mef_utilities_gen_maintenance_2017 <- df_01_utilities_gen_admin[53:58, 1:2]
+mef_utilities_fisc_maintenance_2017 <- df_02_utilities_fisc_ctrl[47:51, 1:2]
+mef_div_Water_maintenance_2017 <- df_03_div_water[88:99, 1:2]
+mef_Water_pollution_maintenance_2017 <- df_04_water_pollution_cont[74:82, 1:2]
+mef_public_power_maintenance_2017 <- df_05_cle_public_power[75:84, 1:2]
+mef_airport_gen_maintenance_2017 <- df_06_airport_gen_op[88:96, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_maintenance_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_maintenance_2017, mef_utilities_fisc_maintenance_2017, mef_div_Water_maintenance_2017, mef_Water_pollution_maintenance_2017, mef_public_power_maintenance_2017, mef_airport_gen_maintenance_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_maintenance_2017)[1] <- '2017 - Maintenance'
+names(f_maintenance_2017)[2] <- 'Utilities - General Administration'
+names(f_maintenance_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_maintenance_2017)[4] <- 'Division of Water'
+names(f_maintenance_2017)[5] <- 'Water Pollution Control'
+names(f_maintenance_2017)[6] <- 'Cleveland Public Power'
+names(f_maintenance_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Claims, Refunds, and Maintenance section
+mef_utilities_gen_claims_2017 <- df_01_utilities_gen_admin[59:62, 1:2]
+mef_utilities_fisc_claims_2017 <- df_02_utilities_fisc_ctrl[52:54, 1:2]
+mef_div_Water_claims_2017 <- df_03_div_water[100:104, 1:2]
+mef_Water_pollution_claims_2017 <- df_04_water_pollution_cont[83:86, 1:2]
+mef_public_power_claims_2017 <- df_05_cle_public_power[85:88, 1:2]
+mef_airport_gen_claims_2017 <- df_06_airport_gen_op[97:100, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_claims_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_claims_2017, mef_utilities_fisc_claims_2017, mef_div_Water_claims_2017, mef_Water_pollution_claims_2017, mef_public_power_claims_2017, mef_airport_gen_claims_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_claims_2017)[1] <- '2017 - Claims'
+names(f_claims_2017)[2] <- 'Utilities - General Administration'
+names(f_claims_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_claims_2017)[4] <- 'Division of Water'
+names(f_claims_2017)[5] <- 'Water Pollution Control'
+names(f_claims_2017)[6] <- 'Cleveland Public Power'
+names(f_claims_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Interdepart Service Charges section
+mef_utilities_gen_interdept_2017 <- df_01_utilities_gen_admin[63:68, 1:2]
+mef_utilities_fisc_interdept_2017 <- df_02_utilities_fisc_ctrl[55:57, 1:2]
+mef_div_Water_interdept_2017 <- df_03_div_water[105:117, 1:2]
+mef_Water_pollution_interdept_2017 <- df_04_water_pollution_cont[87:97, 1:2]
+mef_public_power_interdept_2017 <- df_05_cle_public_power[89:100, 1:2]
+mef_airport_gen_interdept_2017 <- df_06_airport_gen_op[101:112, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_interdept_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_interdept_2017, mef_utilities_fisc_interdept_2017, mef_div_Water_interdept_2017, mef_Water_pollution_interdept_2017, mef_public_power_interdept_2017, mef_airport_gen_interdept_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_interdept_2017)[1] <- '2017 - Interdept Service Fees'
+names(f_interdept_2017)[2] <- 'Utilities - General Administration'
+names(f_interdept_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_interdept_2017)[4] <- 'Division of Water'
+names(f_interdept_2017)[5] <- 'Water Pollution Control'
+names(f_interdept_2017)[6] <- 'Cleveland Public Power'
+names(f_interdept_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Capital Outlay section
+mef_utilities_gen_outlay_2017 <- df_01_utilities_gen_admin[69:72, 1:2]
+mef_utilities_fisc_outlay_2017 <- df_02_utilities_fisc_ctrl[58:60, 1:2]
+mef_div_Water_outlay_2017 <- df_03_div_water[118:130, 1:2]
+mef_Water_pollution_outlay_2017 <- df_04_water_pollution_cont[98:105, 1:2]
+mef_public_power_outlay_2017 <- df_05_cle_public_power[101:112, 1:2]
+mef_airport_gen_outlay_2017 <- df_06_airport_gen_op[113:115, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_outlay_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_outlay_2017, mef_utilities_fisc_outlay_2017, mef_div_Water_outlay_2017, mef_Water_pollution_outlay_2017, mef_public_power_outlay_2017, mef_airport_gen_outlay_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_outlay_2017)[1] <- '2017 - Outlay'
+names(f_outlay_2017)[2] <- 'Utilities - General Administration'
+names(f_outlay_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_outlay_2017)[4] <- 'Division of Water'
+names(f_outlay_2017)[5] <- 'Water Pollution Control'
+names(f_outlay_2017)[6] <- 'Cleveland Public Power'
+names(f_outlay_2017)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Debt Service section
+mef_div_Water_debt_2017 <- df_03_div_water[131:135, 1:2]
+mef_Water_pollution_debt_2017 <- df_04_water_pollution_cont[106:110, 1:2]
+mef_public_power_debt_2017 <- df_05_cle_public_power[113:117, 1:2]
+mef_airport_gen_debt_2017 <- df_06_airport_gen_op[116:119, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_debt_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_debt_2017, mef_Water_pollution_debt_2017, mef_public_power_debt_2017, mef_airport_gen_debt_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_debt_2017)[1] <- '2017 - Debt'
+names(f_debt_2017)[2] <- 'Division of Water'
+names(f_debt_2017)[3] <- 'Water Pollution Control'
+names(f_debt_2017)[4] <- 'Cleveland Public Power'
+names(f_debt_2017)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2017 Values for the Expenditure Recovery section
+mef_div_Water_expenditure_2017 <- df_03_div_water[136:38, 1:2]
+mef_public_power_expenditure_2017 <- df_05_cle_public_power[118:120, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_expenditure_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_outlay_2017, mef_public_power_outlay_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_expenditure_2017)[1] <- '2017 - Expenditure'
+names(f_expenditure_2017)[2] <- 'Division of Water'
+names(f_expenditure_2017)[3] <- 'Cleveland Public Power'
+```
+
+```{r}
+#Get the 2017 Values for the Revenue section
+mef_utilities_gen_revenue_2017 <- df_01_utilities_gen_admin[74:77, 1:2]
+mef_utilities_fisc_revenue_2017 <- df_02_utilities_fisc_ctrl[62:67, 1:2]
+mef_div_Water_revenue_2017 <- df_03_div_water[140:148, 1:2]
+mef_Water_pollution_revenue_2017 <- df_04_water_pollution_cont[112:117, 1:2]
+mef_public_power_revenue_2017 <- df_05_cle_public_power[122:131, 1:2]
+mef_airport_gen_revenue_2017 <- df_06_airport_gen_op[121:128, 1:2]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_revenue_2017 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_revenue_2017, mef_utilities_fisc_revenue_2017, mef_div_Water_revenue_2017, mef_Water_pollution_revenue_2017, mef_public_power_revenue_2017, mef_airport_gen_revenue_2017))
+```
+
+```{r}  
+#Rename first column
+names(f_revenue_2017)[1] <- '2017 - Revenue'
+names(f_revenue_2017)[2] <- 'Utilities - General Administration'
+names(f_revenue_2017)[3] <- 'Utilities -Fiscal Control'
+names(f_revenue_2017)[4] <- 'Division of Water'
+names(f_revenue_2017)[5] <- 'Water Pollution Control'
+names(f_revenue_2017)[6] <- 'Cleveland Public Power'
+names(f_revenue_2017)[7] <- 'Airport General Operations'
+```
+
+
+```{r}
+#Get the 2018 Values for the Salary section
+mef_utilities_gen_salary_2018 <- df_01_utilities_gen_admin[2:11, c(1,3)]
+mef_utilities_fisc_salary_2018 <- df_02_utilities_fisc_ctrl[2:9,  c(1,3)]
+mef_div_Water_salary_2018 <- df_03_div_water[2:14,  c(1,3)]
+mef_Water_pollution_salary_2018 <- df_04_water_pollution_cont[2:14,  c(1,3)]
+mef_public_power_salary_2018 <- df_05_cle_public_power[2:11,  c(1,3)]
+mef_airport_gen_salary_2018 <- df_06_airport_gen_op[2:13,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_salary_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_salary_2018, mef_utilities_fisc_salary_2018, mef_div_Water_salary_2018, mef_Water_pollution_salary_2018, mef_public_power_salary_2018, mef_airport_gen_salary_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_salary_2018)[1] <- '2018 - Salary and Wages'
+names(f_salary_2018)[2] <- 'Utilities - General Administration'
+names(f_salary_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_salary_2018)[4] <- 'Division of Water'
+names(f_salary_2018)[5] <- 'Water Pollution Control'
+names(f_salary_2018)[6] <- 'Cleveland Public Power'
+names(f_salary_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Benefits section
+mef_utilities_gen_benefits_2018 <- df_01_utilities_gen_admin[13:25,  c(1,3)]
+mef_utilities_fisc_benefits_2018 <- df_02_utilities_fisc_ctrl[11:23,  c(1,3)]
+mef_div_Water_benefits_2018 <- df_03_div_water[16:29,  c(1,3)]
+mef_Water_pollution_benefits_2018 <- df_04_water_pollution_cont[13:26,  c(1,3)]
+mef_public_power_benefits_2018 <- df_05_cle_public_power[13:26,  c(1,3)]
+mef_airport_gen_benefits_2018 <- df_06_airport_gen_op[15:28,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_benefits_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_benefits_2018, mef_utilities_fisc_benefits_2018, mef_div_Water_benefits_2018, mef_Water_pollution_benefits_2018, mef_public_power_benefits_2018, mef_airport_gen_benefits_2018))
+```
+
+
+```{r}  
+#Rename first column
+names(f_benefits_2018)[1] <- '2018 - Benefits'
+names(f_benefits_2018)[2] <- 'Utilities - General Administration'
+names(f_benefits_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_benefits_2018)[4] <- 'Division of Water'
+names(f_benefits_2018)[5] <- 'Water Pollution Control'
+names(f_benefits_2018)[6] <- 'Cleveland Public Power'
+names(f_benefits_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Others section
+mef_utilities_gen_others_2018 <- df_01_utilities_gen_admin[26:31,  c(1,3)]
+mef_utilities_fisc_others_2018 <- df_02_utilities_fisc_ctrl[24:29,  c(1,3)]
+mef_div_Water_others_2018 <- df_03_div_water[30:37,  c(1,3)]
+mef_Water_pollution_others_2018 <- df_04_water_pollution_cont[27:32,  c(1,3)]
+mef_public_power_others_2018 <- df_05_cle_public_power[27:31,  c(1,3)]
+mef_airport_gen_others_2018 <- df_06_airport_gen_op[29:35,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_others_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_others_2018, mef_utilities_fisc_others_2018, mef_div_Water_others_2018, mef_Water_pollution_others_2018, mef_public_power_others_2018, mef_airport_gen_others_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_others_2018)[1] <- '2018 - Others'
+names(f_others_2018)[2] <- 'Utilities - General Administration'
+names(f_others_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_others_2018)[4] <- 'Division of Water'
+names(f_others_2018)[5] <- 'Water Pollution Control'
+names(f_others_2018)[6] <- 'Cleveland Public Power'
+names(f_others_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Utilities section
+mef_div_Water_utilities_2018 <- df_03_div_water[38:47,  c(1,3)]
+mef_Water_pollution_utilities_2018 <- df_04_water_pollution_cont[33:41,  c(1,3)]
+mef_public_power_utilities_2018 <- df_05_cle_public_power[32:40,  c(1,3)]
+mef_airport_gen_utilities_2018 <- df_06_airport_gen_op[36:43,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_utilities_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_utilities_2018, mef_Water_pollution_utilities_2018, mef_public_power_utilities_2018, mef_airport_gen_utilities_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_utilities_2018)[1] <- '2018 - Utilities'
+names(f_utilities_2018)[2] <- 'Division of Water'
+names(f_utilities_2018)[3] <- 'Water Pollution Control'
+names(f_utilities_2018)[4] <- 'Cleveland Public Power'
+names(f_utilities_2018)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Contractual section
+mef_utilities_gen_contractual_2018 <- df_01_utilities_gen_admin[32:42,  c(1,3)]
+mef_utilities_fisc_contractual_2018 <- df_02_utilities_fisc_ctrl[30:36,  c(1,3)]
+mef_div_Water_contractual_2018 <- df_03_div_water[48:61,  c(1,3)]
+mef_Water_pollution_contractual_2018 <- df_04_water_pollution_cont[43:56,  c(1,3)]
+mef_public_power_contractual_2018 <- df_05_cle_public_power[41:54,  c(1,3)]
+mef_airport_gen_contractual_2018 <- df_06_airport_gen_op[44:62,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_contractual_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_contractual_2018, mef_utilities_fisc_contractual_2018, mef_div_Water_contractual_2018, mef_Water_pollution_contractual_2018, mef_public_power_contractual_2018, mef_airport_gen_contractual_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_contractual_2018)[1] <- '2018 - Contractual'
+names(f_contractual_2018)[2] <- 'Utilities - General Administration'
+names(f_contractual_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_contractual_2018)[4] <- 'Division of Water'
+names(f_contractual_2018)[5] <- 'Water Pollution Control'
+names(f_contractual_2018)[6] <- 'Cleveland Public Power'
+names(f_contractual_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Materials and Supplies section
+mef_utilities_gen_materials_2018 <- df_01_utilities_gen_admin[59:62,  c(1,3)]
+mef_utilities_fisc_materials_2018 <- df_02_utilities_fisc_ctrl[52:54,  c(1,3)]
+mef_div_Water_materials_2018 <- df_03_div_water[100:104,  c(1,3)]
+mef_Water_pollution_materials_2018 <- df_04_water_pollution_cont[83:86,  c(1,3)]
+mef_public_power_materials_2018 <- df_05_cle_public_power[85:88,  c(1,3)]
+mef_airport_gen_materials_2018 <- df_06_airport_gen_op[97:100,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_materials_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_materials_2018, mef_utilities_fisc_materials_2018, mef_div_Water_materials_2018, mef_Water_pollution_materials_2018, mef_public_power_materials_2018, mef_airport_gen_materials_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_materials_2018)[1] <- '2018 - Materials'
+names(f_materials_2018)[2] <- 'Utilities - General Administration'
+names(f_materials_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_materials_2018)[4] <- 'Division of Water'
+names(f_materials_2018)[5] <- 'Water Pollution Control'
+names(f_materials_2018)[6] <- 'Cleveland Public Power'
+names(f_materials_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Maintenance section
+mef_utilities_gen_maintenance_2018 <- df_01_utilities_gen_admin[53:58,  c(1,3)]
+mef_utilities_fisc_maintenance_2018 <- df_02_utilities_fisc_ctrl[47:51,  c(1,3)]
+mef_div_Water_maintenance_2018 <- df_03_div_water[88:99,  c(1,3)]
+mef_Water_pollution_maintenance_2018 <- df_04_water_pollution_cont[74:82,  c(1,3)]
+mef_public_power_maintenance_2018 <- df_05_cle_public_power[75:84,  c(1,3)]
+mef_airport_gen_maintenance_2018 <- df_06_airport_gen_op[88:96,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_maintenance_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_maintenance_2018, mef_utilities_fisc_maintenance_2018, mef_div_Water_maintenance_2018, mef_Water_pollution_maintenance_2018, mef_public_power_maintenance_2018, mef_airport_gen_maintenance_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_maintenance_2018)[1] <- '2018 - Maintenance'
+names(f_maintenance_2018)[2] <- 'Utilities - General Administration'
+names(f_maintenance_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_maintenance_2018)[4] <- 'Division of Water'
+names(f_maintenance_2018)[5] <- 'Water Pollution Control'
+names(f_maintenance_2018)[6] <- 'Cleveland Public Power'
+names(f_maintenance_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Claims, Refunds, and Maintenance section
+mef_utilities_gen_claims_2018 <- df_01_utilities_gen_admin[59:62,  c(1,3)]
+mef_utilities_fisc_claims_2018 <- df_02_utilities_fisc_ctrl[52:54,  c(1,3)]
+mef_div_Water_claims_2018 <- df_03_div_water[100:104,  c(1,3)]
+mef_Water_pollution_claims_2018 <- df_04_water_pollution_cont[83:86,  c(1,3)]
+mef_public_power_claims_2018 <- df_05_cle_public_power[85:88,  c(1,3)]
+mef_airport_gen_claims_2018 <- df_06_airport_gen_op[97:100,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_claims_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_claims_2018, mef_utilities_fisc_claims_2018, mef_div_Water_claims_2018, mef_Water_pollution_claims_2018, mef_public_power_claims_2018, mef_airport_gen_claims_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_claims_2018)[1] <- '2018 - Claims'
+names(f_claims_2018)[2] <- 'Utilities - General Administration'
+names(f_claims_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_claims_2018)[4] <- 'Division of Water'
+names(f_claims_2018)[5] <- 'Water Pollution Control'
+names(f_claims_2018)[6] <- 'Cleveland Public Power'
+names(f_claims_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Interdepart Service Charges section
+mef_utilities_gen_interdept_2018 <- df_01_utilities_gen_admin[63:68,  c(1,3)]
+mef_utilities_fisc_interdept_2018 <- df_02_utilities_fisc_ctrl[55:57,  c(1,3)]
+mef_div_Water_interdept_2018 <- df_03_div_water[105:117,  c(1,3)]
+mef_Water_pollution_interdept_2018 <- df_04_water_pollution_cont[87:97,  c(1,3)]
+mef_public_power_interdept_2018 <- df_05_cle_public_power[89:100,  c(1,3)]
+mef_airport_gen_interdept_2018 <- df_06_airport_gen_op[101:112,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_interdept_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_interdept_2018, mef_utilities_fisc_interdept_2018, mef_div_Water_interdept_2018, mef_Water_pollution_interdept_2018, mef_public_power_interdept_2018, mef_airport_gen_interdept_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_interdept_2018)[1] <- '2018 - Interdept Service Fees'
+names(f_interdept_2018)[2] <- 'Utilities - General Administration'
+names(f_interdept_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_interdept_2018)[4] <- 'Division of Water'
+names(f_interdept_2018)[5] <- 'Water Pollution Control'
+names(f_interdept_2018)[6] <- 'Cleveland Public Power'
+names(f_interdept_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Capital Outlay section
+mef_utilities_gen_outlay_2018 <- df_01_utilities_gen_admin[69:72,  c(1,3)]
+mef_utilities_fisc_outlay_2018 <- df_02_utilities_fisc_ctrl[58:60,  c(1,3)]
+mef_div_Water_outlay_2018 <- df_03_div_water[118:130,  c(1,3)]
+mef_Water_pollution_outlay_2018 <- df_04_water_pollution_cont[98:105,  c(1,3)]
+mef_public_power_outlay_2018 <- df_05_cle_public_power[101:112,  c(1,3)]
+mef_airport_gen_outlay_2018 <- df_06_airport_gen_op[113:115,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_outlay_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_outlay_2018, mef_utilities_fisc_outlay_2018, mef_div_Water_outlay_2018, mef_Water_pollution_outlay_2018, mef_public_power_outlay_2018, mef_airport_gen_outlay_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_outlay_2018)[1] <- '2018 - Outlay'
+names(f_outlay_2018)[2] <- 'Utilities - General Administration'
+names(f_outlay_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_outlay_2018)[4] <- 'Division of Water'
+names(f_outlay_2018)[5] <- 'Water Pollution Control'
+names(f_outlay_2018)[6] <- 'Cleveland Public Power'
+names(f_outlay_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Debt Service section
+mef_div_Water_debt_2018 <- df_03_div_water[131:135,  c(1,3)]
+mef_Water_pollution_debt_2018 <- df_04_water_pollution_cont[106:110,  c(1,3)]
+mef_public_power_debt_2018 <- df_05_cle_public_power[113:117,  c(1,3)]
+mef_airport_gen_debt_2018 <- df_06_airport_gen_op[116:119,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_debt_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_debt_2018, mef_Water_pollution_debt_2018, mef_public_power_debt_2018, mef_airport_gen_debt_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_debt_2018)[1] <- '2018 - Debt'
+names(f_debt_2018)[2] <- 'Division of Water'
+names(f_debt_2018)[3] <- 'Water Pollution Control'
+names(f_debt_2018)[4] <- 'Cleveland Public Power'
+names(f_debt_2018)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2018 Values for the Expenditure Recovery section
+mef_div_Water_expenditure_2018 <- df_03_div_water[136:38,  c(1,3)]
+mef_public_power_expenditure_2018 <- df_05_cle_public_power[118:120,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_expenditure_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_outlay_2018, mef_public_power_outlay_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_expenditure_2018)[1] <- '2018 - Expenditure'
+names(f_expenditure_2018)[2] <- 'Division of Water'
+names(f_expenditure_2018)[3] <- 'Cleveland Public Power'
+```
+
+```{r}
+#Get the 2018 Values for the Revenue section
+mef_utilities_gen_revenue_2018 <- df_01_utilities_gen_admin[74:77,  c(1,3)]
+mef_utilities_fisc_revenue_2018 <- df_02_utilities_fisc_ctrl[62:67,  c(1,3)]
+mef_div_Water_revenue_2018 <- df_03_div_water[140:148,  c(1,3)]
+mef_Water_pollution_revenue_2018 <- df_04_water_pollution_cont[112:117,  c(1,3)]
+mef_public_power_revenue_2018 <- df_05_cle_public_power[122:131,  c(1,3)]
+mef_airport_gen_revenue_2018 <- df_06_airport_gen_op[121:128,  c(1,3)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_revenue_2018 <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_revenue_2018, mef_utilities_fisc_revenue_2018, mef_div_Water_revenue_2018, mef_Water_pollution_revenue_2018, mef_public_power_revenue_2018, mef_airport_gen_revenue_2018))
+```
+
+```{r}  
+#Rename first column
+names(f_revenue_2018)[1] <- '2018 - Revenue'
+names(f_revenue_2018)[2] <- 'Utilities - General Administration'
+names(f_revenue_2018)[3] <- 'Utilities -Fiscal Control'
+names(f_revenue_2018)[4] <- 'Division of Water'
+names(f_revenue_2018)[5] <- 'Water Pollution Control'
+names(f_revenue_2018)[6] <- 'Cleveland Public Power'
+names(f_revenue_2018)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Salary section
+mef_utilities_gen_salary_2019_unaudited <- df_01_utilities_gen_admin[2:11, c(1,4)]
+mef_utilities_fisc_salary_2019_unaudited <- df_02_utilities_fisc_ctrl[2:9,  c(1,4)]
+mef_div_Water_salary_2019_unaudited <- df_03_div_water[2:14,  c(1,4)]
+mef_Water_pollution_salary_2019_unaudited <- df_04_water_pollution_cont[2:14,  c(1,4)]
+mef_public_power_salary_2019_unaudited <- df_05_cle_public_power[2:11,  c(1,4)]
+mef_airport_gen_salary_2019_unaudited <- df_06_airport_gen_op[2:13,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_salary_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_salary_2019_unaudited, mef_utilities_fisc_salary_2019_unaudited, mef_div_Water_salary_2019_unaudited, mef_Water_pollution_salary_2019_unaudited, mef_public_power_salary_2019_unaudited, mef_airport_gen_salary_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_salary_2019_unaudited)[1] <- '2019_unaudited - Salary and Wages'
+names(f_salary_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_salary_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_salary_2019_unaudited)[4] <- 'Division of Water'
+names(f_salary_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_salary_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_salary_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Benefits section
+mef_utilities_gen_benefits_2019_unaudited <- df_01_utilities_gen_admin[13:25,  c(1,4)]
+mef_utilities_fisc_benefits_2019_unaudited <- df_02_utilities_fisc_ctrl[11:23,  c(1,4)]
+mef_div_Water_benefits_2019_unaudited <- df_03_div_water[16:29,  c(1,4)]
+mef_Water_pollution_benefits_2019_unaudited <- df_04_water_pollution_cont[13:26,  c(1,4)]
+mef_public_power_benefits_2019_unaudited <- df_05_cle_public_power[13:26,  c(1,4)]
+mef_airport_gen_benefits_2019_unaudited <- df_06_airport_gen_op[15:28,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_benefits_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_benefits_2019_unaudited, mef_utilities_fisc_benefits_2019_unaudited, mef_div_Water_benefits_2019_unaudited, mef_Water_pollution_benefits_2019_unaudited, mef_public_power_benefits_2019_unaudited, mef_airport_gen_benefits_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_benefits_2019_unaudited)[1] <- '2019_unaudited - Benefits'
+names(f_benefits_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_benefits_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_benefits_2019_unaudited)[4] <- 'Division of Water'
+names(f_benefits_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_benefits_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_benefits_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Others section
+mef_utilities_gen_others_2019_unaudited <- df_01_utilities_gen_admin[26:31,  c(1,4)]
+mef_utilities_fisc_others_2019_unaudited <- df_02_utilities_fisc_ctrl[24:29,  c(1,4)]
+mef_div_Water_others_2019_unaudited <- df_03_div_water[30:37,  c(1,4)]
+mef_Water_pollution_others_2019_unaudited <- df_04_water_pollution_cont[27:32,  c(1,4)]
+mef_public_power_others_2019_unaudited <- df_05_cle_public_power[27:31,  c(1,4)]
+mef_airport_gen_others_2019_unaudited <- df_06_airport_gen_op[29:35,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_others_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_others_2019_unaudited, mef_utilities_fisc_others_2019_unaudited, mef_div_Water_others_2019_unaudited, mef_Water_pollution_others_2019_unaudited, mef_public_power_others_2019_unaudited, mef_airport_gen_others_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_others_2019_unaudited)[1] <- '2019_unaudited - Others'
+names(f_others_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_others_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_others_2019_unaudited)[4] <- 'Division of Water'
+names(f_others_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_others_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_others_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Utilities section
+mef_div_Water_utilities_2019_unaudited <- df_03_div_water[38:47,  c(1,4)]
+mef_Water_pollution_utilities_2019_unaudited <- df_04_water_pollution_cont[33:41,  c(1,4)]
+mef_public_power_utilities_2019_unaudited <- df_05_cle_public_power[32:40,  c(1,4)]
+mef_airport_gen_utilities_2019_unaudited <- df_06_airport_gen_op[36:43,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_utilities_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_utilities_2019_unaudited, mef_Water_pollution_utilities_2019_unaudited, mef_public_power_utilities_2019_unaudited, mef_airport_gen_utilities_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_utilities_2019_unaudited)[1] <- '2019_unaudited - Utilities'
+names(f_utilities_2019_unaudited)[2] <- 'Division of Water'
+names(f_utilities_2019_unaudited)[3] <- 'Water Pollution Control'
+names(f_utilities_2019_unaudited)[4] <- 'Cleveland Public Power'
+names(f_utilities_2019_unaudited)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Contractual section
+mef_utilities_gen_contractual_2019_unaudited <- df_01_utilities_gen_admin[32:42,  c(1,4)]
+mef_utilities_fisc_contractual_2019_unaudited <- df_02_utilities_fisc_ctrl[30:36,  c(1,4)]
+mef_div_Water_contractual_2019_unaudited <- df_03_div_water[48:61,  c(1,4)]
+mef_Water_pollution_contractual_2019_unaudited <- df_04_water_pollution_cont[43:56,  c(1,4)]
+mef_public_power_contractual_2019_unaudited <- df_05_cle_public_power[41:54,  c(1,4)]
+mef_airport_gen_contractual_2019_unaudited <- df_06_airport_gen_op[44:62,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_contractual_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_contractual_2019_unaudited, mef_utilities_fisc_contractual_2019_unaudited, mef_div_Water_contractual_2019_unaudited, mef_Water_pollution_contractual_2019_unaudited, mef_public_power_contractual_2019_unaudited, mef_airport_gen_contractual_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_contractual_2019_unaudited)[1] <- '2019_unaudited - Contractual'
+names(f_contractual_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_contractual_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_contractual_2019_unaudited)[4] <- 'Division of Water'
+names(f_contractual_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_contractual_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_contractual_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Materials and Supplies section
+mef_utilities_gen_materials_2019_unaudited <- df_01_utilities_gen_admin[59:62,  c(1,4)]
+mef_utilities_fisc_materials_2019_unaudited <- df_02_utilities_fisc_ctrl[52:54,  c(1,4)]
+mef_div_Water_materials_2019_unaudited <- df_03_div_water[100:104,  c(1,4)]
+mef_Water_pollution_materials_2019_unaudited <- df_04_water_pollution_cont[83:86,  c(1,4)]
+mef_public_power_materials_2019_unaudited <- df_05_cle_public_power[85:88,  c(1,4)]
+mef_airport_gen_materials_2019_unaudited <- df_06_airport_gen_op[97:100,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_materials_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_materials_2019_unaudited, mef_utilities_fisc_materials_2019_unaudited, mef_div_Water_materials_2019_unaudited, mef_Water_pollution_materials_2019_unaudited, mef_public_power_materials_2019_unaudited, mef_airport_gen_materials_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_materials_2019_unaudited)[1] <- '2019_unaudited - Materials'
+names(f_materials_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_materials_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_materials_2019_unaudited)[4] <- 'Division of Water'
+names(f_materials_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_materials_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_materials_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Maintenance section
+mef_utilities_gen_maintenance_2019_unaudited <- df_01_utilities_gen_admin[53:58,  c(1,4)]
+mef_utilities_fisc_maintenance_2019_unaudited <- df_02_utilities_fisc_ctrl[47:51,  c(1,4)]
+mef_div_Water_maintenance_2019_unaudited <- df_03_div_water[88:99,  c(1,4)]
+mef_Water_pollution_maintenance_2019_unaudited <- df_04_water_pollution_cont[74:82,  c(1,4)]
+mef_public_power_maintenance_2019_unaudited <- df_05_cle_public_power[75:84,  c(1,4)]
+mef_airport_gen_maintenance_2019_unaudited <- df_06_airport_gen_op[88:96,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_maintenance_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_maintenance_2019_unaudited, mef_utilities_fisc_maintenance_2019_unaudited, mef_div_Water_maintenance_2019_unaudited, mef_Water_pollution_maintenance_2019_unaudited, mef_public_power_maintenance_2019_unaudited, mef_airport_gen_maintenance_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_maintenance_2019_unaudited)[1] <- '2019_unaudited - Maintenance'
+names(f_maintenance_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_maintenance_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_maintenance_2019_unaudited)[4] <- 'Division of Water'
+names(f_maintenance_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_maintenance_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_maintenance_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Claims, Refunds, and Maintenance section
+mef_utilities_gen_claims_2019_unaudited <- df_01_utilities_gen_admin[59:62,  c(1,4)]
+mef_utilities_fisc_claims_2019_unaudited <- df_02_utilities_fisc_ctrl[52:54,  c(1,4)]
+mef_div_Water_claims_2019_unaudited <- df_03_div_water[100:104,  c(1,4)]
+mef_Water_pollution_claims_2019_unaudited <- df_04_water_pollution_cont[83:86,  c(1,4)]
+mef_public_power_claims_2019_unaudited <- df_05_cle_public_power[85:88,  c(1,4)]
+mef_airport_gen_claims_2019_unaudited <- df_06_airport_gen_op[97:100,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_claims_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_claims_2019_unaudited, mef_utilities_fisc_claims_2019_unaudited, mef_div_Water_claims_2019_unaudited, mef_Water_pollution_claims_2019_unaudited, mef_public_power_claims_2019_unaudited, mef_airport_gen_claims_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_claims_2019_unaudited)[1] <- '2019_unaudited - Claims'
+names(f_claims_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_claims_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_claims_2019_unaudited)[4] <- 'Division of Water'
+names(f_claims_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_claims_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_claims_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Interdepart Service Charges section
+mef_utilities_gen_interdept_2019_unaudited <- df_01_utilities_gen_admin[63:68,  c(1,4)]
+mef_utilities_fisc_interdept_2019_unaudited <- df_02_utilities_fisc_ctrl[55:57,  c(1,4)]
+mef_div_Water_interdept_2019_unaudited <- df_03_div_water[105:117,  c(1,4)]
+mef_Water_pollution_interdept_2019_unaudited <- df_04_water_pollution_cont[87:97,  c(1,4)]
+mef_public_power_interdept_2019_unaudited <- df_05_cle_public_power[89:100,  c(1,4)]
+mef_airport_gen_interdept_2019_unaudited <- df_06_airport_gen_op[101:112,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_interdept_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_interdept_2019_unaudited, mef_utilities_fisc_interdept_2019_unaudited, mef_div_Water_interdept_2019_unaudited, mef_Water_pollution_interdept_2019_unaudited, mef_public_power_interdept_2019_unaudited, mef_airport_gen_interdept_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_interdept_2019_unaudited)[1] <- '2019_unaudited - Interdept Service Fees'
+names(f_interdept_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_interdept_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_interdept_2019_unaudited)[4] <- 'Division of Water'
+names(f_interdept_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_interdept_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_interdept_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Capital Outlay section
+mef_utilities_gen_outlay_2019_unaudited <- df_01_utilities_gen_admin[69:72,  c(1,4)]
+mef_utilities_fisc_outlay_2019_unaudited <- df_02_utilities_fisc_ctrl[58:60,  c(1,4)]
+mef_div_Water_outlay_2019_unaudited <- df_03_div_water[118:130,  c(1,4)]
+mef_Water_pollution_outlay_2019_unaudited <- df_04_water_pollution_cont[98:105,  c(1,4)]
+mef_public_power_outlay_2019_unaudited <- df_05_cle_public_power[101:112,  c(1,4)]
+mef_airport_gen_outlay_2019_unaudited <- df_06_airport_gen_op[113:115,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_outlay_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_outlay_2019_unaudited, mef_utilities_fisc_outlay_2019_unaudited, mef_div_Water_outlay_2019_unaudited, mef_Water_pollution_outlay_2019_unaudited, mef_public_power_outlay_2019_unaudited, mef_airport_gen_outlay_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_outlay_2019_unaudited)[1] <- '2019_unaudited - Outlay'
+names(f_outlay_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_outlay_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_outlay_2019_unaudited)[4] <- 'Division of Water'
+names(f_outlay_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_outlay_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_outlay_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Debt Service section
+mef_div_Water_debt_2019_unaudited <- df_03_div_water[131:135,  c(1,4)]
+mef_Water_pollution_debt_2019_unaudited <- df_04_water_pollution_cont[106:110,  c(1,4)]
+mef_public_power_debt_2019_unaudited <- df_05_cle_public_power[113:117,  c(1,4)]
+mef_airport_gen_debt_2019_unaudited <- df_06_airport_gen_op[116:119,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_debt_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_debt_2019_unaudited, mef_Water_pollution_debt_2019_unaudited, mef_public_power_debt_2019_unaudited, mef_airport_gen_debt_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_debt_2019_unaudited)[1] <- '2019_unaudited - Debt'
+names(f_debt_2019_unaudited)[2] <- 'Division of Water'
+names(f_debt_2019_unaudited)[3] <- 'Water Pollution Control'
+names(f_debt_2019_unaudited)[4] <- 'Cleveland Public Power'
+names(f_debt_2019_unaudited)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Expenditure Recovery section
+mef_div_Water_expenditure_2019_unaudited <- df_03_div_water[136:38,  c(1,4)]
+mef_public_power_expenditure_2019_unaudited <- df_05_cle_public_power[118:120,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_expenditure_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_outlay_2019_unaudited, mef_public_power_outlay_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_expenditure_2019_unaudited)[1] <- '2019_unaudited - Expenditure'
+names(f_expenditure_2019_unaudited)[2] <- 'Division of Water'
+names(f_expenditure_2019_unaudited)[3] <- 'Cleveland Public Power'
+```
+
+```{r}
+#Get the 2019_unaudited Values for the Revenue section
+mef_utilities_gen_revenue_2019_unaudited <- df_01_utilities_gen_admin[74:77,  c(1,4)]
+mef_utilities_fisc_revenue_2019_unaudited <- df_02_utilities_fisc_ctrl[62:67,  c(1,4)]
+mef_div_Water_revenue_2019_unaudited <- df_03_div_water[140:148,  c(1,4)]
+mef_Water_pollution_revenue_2019_unaudited <- df_04_water_pollution_cont[112:117,  c(1,4)]
+mef_public_power_revenue_2019_unaudited <- df_05_cle_public_power[122:131,  c(1,4)]
+mef_airport_gen_revenue_2019_unaudited <- df_06_airport_gen_op[121:128,  c(1,4)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_revenue_2019_unaudited <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_revenue_2019_unaudited, mef_utilities_fisc_revenue_2019_unaudited, mef_div_Water_revenue_2019_unaudited, mef_Water_pollution_revenue_2019_unaudited, mef_public_power_revenue_2019_unaudited, mef_airport_gen_revenue_2019_unaudited))
+```
+
+```{r}  
+#Rename first column
+names(f_revenue_2019_unaudited)[1] <- '2019_unaudited - Revenue'
+names(f_revenue_2019_unaudited)[2] <- 'Utilities - General Administration'
+names(f_revenue_2019_unaudited)[3] <- 'Utilities -Fiscal Control'
+names(f_revenue_2019_unaudited)[4] <- 'Division of Water'
+names(f_revenue_2019_unaudited)[5] <- 'Water Pollution Control'
+names(f_revenue_2019_unaudited)[6] <- 'Cleveland Public Power'
+names(f_revenue_2019_unaudited)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Salary section
+mef_utilities_gen_salary_2019_budget <- df_01_utilities_gen_admin[2:11, c(1,5)]
+mef_utilities_fisc_salary_2019_budget <- df_02_utilities_fisc_ctrl[2:9,  c(1,5)]
+mef_div_Water_salary_2019_budget <- df_03_div_water[2:14,  c(1,5)]
+mef_Water_pollution_salary_2019_budget <- df_04_water_pollution_cont[2:14,  c(1,5)]
+mef_public_power_salary_2019_budget <- df_05_cle_public_power[2:11,  c(1,5)]
+mef_airport_gen_salary_2019_budget <- df_06_airport_gen_op[2:13,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_salary_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_salary_2019_budget, mef_utilities_fisc_salary_2019_budget, mef_div_Water_salary_2019_budget, mef_Water_pollution_salary_2019_budget, mef_public_power_salary_2019_budget, mef_airport_gen_salary_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_salary_2019_budget)[1] <- '2019_budget - Salary and Wages'
+names(f_salary_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_salary_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_salary_2019_budget)[4] <- 'Division of Water'
+names(f_salary_2019_budget)[5] <- 'Water Pollution Control'
+names(f_salary_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_salary_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Benefits section
+mef_utilities_gen_benefits_2019_budget <- df_01_utilities_gen_admin[13:25,  c(1,5)]
+mef_utilities_fisc_benefits_2019_budget <- df_02_utilities_fisc_ctrl[11:23,  c(1,5)]
+mef_div_Water_benefits_2019_budget <- df_03_div_water[16:29,  c(1,5)]
+mef_Water_pollution_benefits_2019_budget <- df_04_water_pollution_cont[13:26,  c(1,5)]
+mef_public_power_benefits_2019_budget <- df_05_cle_public_power[13:26,  c(1,5)]
+mef_airport_gen_benefits_2019_budget <- df_06_airport_gen_op[15:28,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_benefits_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_benefits_2019_budget, mef_utilities_fisc_benefits_2019_budget, mef_div_Water_benefits_2019_budget, mef_Water_pollution_benefits_2019_budget, mef_public_power_benefits_2019_budget, mef_airport_gen_benefits_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_benefits_2019_budget)[1] <- '2019_budget - Benefits'
+names(f_benefits_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_benefits_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_benefits_2019_budget)[4] <- 'Division of Water'
+names(f_benefits_2019_budget)[5] <- 'Water Pollution Control'
+names(f_benefits_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_benefits_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Others section
+mef_utilities_gen_others_2019_budget <- df_01_utilities_gen_admin[26:31,  c(1,5)]
+mef_utilities_fisc_others_2019_budget <- df_02_utilities_fisc_ctrl[24:29,  c(1,5)]
+mef_div_Water_others_2019_budget <- df_03_div_water[30:37,  c(1,5)]
+mef_Water_pollution_others_2019_budget <- df_04_water_pollution_cont[27:32,  c(1,5)]
+mef_public_power_others_2019_budget <- df_05_cle_public_power[27:31,  c(1,5)]
+mef_airport_gen_others_2019_budget <- df_06_airport_gen_op[29:35,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_others_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_others_2019_budget, mef_utilities_fisc_others_2019_budget, mef_div_Water_others_2019_budget, mef_Water_pollution_others_2019_budget, mef_public_power_others_2019_budget, mef_airport_gen_others_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_others_2019_budget)[1] <- '2019_budget - Others'
+names(f_others_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_others_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_others_2019_budget)[4] <- 'Division of Water'
+names(f_others_2019_budget)[5] <- 'Water Pollution Control'
+names(f_others_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_others_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Utilities section
+mef_div_Water_utilities_2019_budget <- df_03_div_water[38:47,  c(1,5)]
+mef_Water_pollution_utilities_2019_budget <- df_04_water_pollution_cont[33:41,  c(1,5)]
+mef_public_power_utilities_2019_budget <- df_05_cle_public_power[32:40,  c(1,5)]
+mef_airport_gen_utilities_2019_budget <- df_06_airport_gen_op[36:43,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_utilities_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_utilities_2019_budget, mef_Water_pollution_utilities_2019_budget, mef_public_power_utilities_2019_budget, mef_airport_gen_utilities_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_utilities_2019_budget)[1] <- '2019_budget - Utilities'
+names(f_utilities_2019_budget)[2] <- 'Division of Water'
+names(f_utilities_2019_budget)[3] <- 'Water Pollution Control'
+names(f_utilities_2019_budget)[4] <- 'Cleveland Public Power'
+names(f_utilities_2019_budget)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Contractual section
+mef_utilities_gen_contractual_2019_budget <- df_01_utilities_gen_admin[32:42,  c(1,5)]
+mef_utilities_fisc_contractual_2019_budget <- df_02_utilities_fisc_ctrl[30:36,  c(1,5)]
+mef_div_Water_contractual_2019_budget <- df_03_div_water[48:61,  c(1,5)]
+mef_Water_pollution_contractual_2019_budget <- df_04_water_pollution_cont[43:56,  c(1,5)]
+mef_public_power_contractual_2019_budget <- df_05_cle_public_power[41:54,  c(1,5)]
+mef_airport_gen_contractual_2019_budget <- df_06_airport_gen_op[44:62,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_contractual_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_contractual_2019_budget, mef_utilities_fisc_contractual_2019_budget, mef_div_Water_contractual_2019_budget, mef_Water_pollution_contractual_2019_budget, mef_public_power_contractual_2019_budget, mef_airport_gen_contractual_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_contractual_2019_budget)[1] <- '2019_budget - Contractual'
+names(f_contractual_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_contractual_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_contractual_2019_budget)[4] <- 'Division of Water'
+names(f_contractual_2019_budget)[5] <- 'Water Pollution Control'
+names(f_contractual_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_contractual_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Materials and Supplies section
+mef_utilities_gen_materials_2019_budget <- df_01_utilities_gen_admin[59:62,  c(1,5)]
+mef_utilities_fisc_materials_2019_budget <- df_02_utilities_fisc_ctrl[52:54,  c(1,5)]
+mef_div_Water_materials_2019_budget <- df_03_div_water[100:104,  c(1,5)]
+mef_Water_pollution_materials_2019_budget <- df_04_water_pollution_cont[83:86,  c(1,5)]
+mef_public_power_materials_2019_budget <- df_05_cle_public_power[85:88,  c(1,5)]
+mef_airport_gen_materials_2019_budget <- df_06_airport_gen_op[97:100,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_materials_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_materials_2019_budget, mef_utilities_fisc_materials_2019_budget, mef_div_Water_materials_2019_budget, mef_Water_pollution_materials_2019_budget, mef_public_power_materials_2019_budget, mef_airport_gen_materials_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_materials_2019_budget)[1] <- '2019_budget - Materials'
+names(f_materials_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_materials_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_materials_2019_budget)[4] <- 'Division of Water'
+names(f_materials_2019_budget)[5] <- 'Water Pollution Control'
+names(f_materials_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_materials_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Maintenance section
+mef_utilities_gen_maintenance_2019_budget <- df_01_utilities_gen_admin[53:58,  c(1,5)]
+mef_utilities_fisc_maintenance_2019_budget <- df_02_utilities_fisc_ctrl[47:51,  c(1,5)]
+mef_div_Water_maintenance_2019_budget <- df_03_div_water[88:99,  c(1,5)]
+mef_Water_pollution_maintenance_2019_budget <- df_04_water_pollution_cont[74:82,  c(1,5)]
+mef_public_power_maintenance_2019_budget <- df_05_cle_public_power[75:84,  c(1,5)]
+mef_airport_gen_maintenance_2019_budget <- df_06_airport_gen_op[88:96,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_maintenance_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_maintenance_2019_budget, mef_utilities_fisc_maintenance_2019_budget, mef_div_Water_maintenance_2019_budget, mef_Water_pollution_maintenance_2019_budget, mef_public_power_maintenance_2019_budget, mef_airport_gen_maintenance_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_maintenance_2019_budget)[1] <- '2019_budget - Maintenance'
+names(f_maintenance_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_maintenance_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_maintenance_2019_budget)[4] <- 'Division of Water'
+names(f_maintenance_2019_budget)[5] <- 'Water Pollution Control'
+names(f_maintenance_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_maintenance_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Claims, Refunds, and Maintenance section
+mef_utilities_gen_claims_2019_budget <- df_01_utilities_gen_admin[59:62,  c(1,5)]
+mef_utilities_fisc_claims_2019_budget <- df_02_utilities_fisc_ctrl[52:54,  c(1,5)]
+mef_div_Water_claims_2019_budget <- df_03_div_water[100:104,  c(1,5)]
+mef_Water_pollution_claims_2019_budget <- df_04_water_pollution_cont[83:86,  c(1,5)]
+mef_public_power_claims_2019_budget <- df_05_cle_public_power[85:88,  c(1,5)]
+mef_airport_gen_claims_2019_budget <- df_06_airport_gen_op[97:100,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_claims_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_claims_2019_budget, mef_utilities_fisc_claims_2019_budget, mef_div_Water_claims_2019_budget, mef_Water_pollution_claims_2019_budget, mef_public_power_claims_2019_budget, mef_airport_gen_claims_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_claims_2019_budget)[1] <- '2019_budget - Claims'
+names(f_claims_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_claims_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_claims_2019_budget)[4] <- 'Division of Water'
+names(f_claims_2019_budget)[5] <- 'Water Pollution Control'
+names(f_claims_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_claims_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Interdepart Service Charges section
+mef_utilities_gen_interdept_2019_budget <- df_01_utilities_gen_admin[63:68,  c(1,5)]
+mef_utilities_fisc_interdept_2019_budget <- df_02_utilities_fisc_ctrl[55:57,  c(1,5)]
+mef_div_Water_interdept_2019_budget <- df_03_div_water[105:117,  c(1,5)]
+mef_Water_pollution_interdept_2019_budget <- df_04_water_pollution_cont[87:97,  c(1,5)]
+mef_public_power_interdept_2019_budget <- df_05_cle_public_power[89:100,  c(1,5)]
+mef_airport_gen_interdept_2019_budget <- df_06_airport_gen_op[101:112,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_interdept_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_interdept_2019_budget, mef_utilities_fisc_interdept_2019_budget, mef_div_Water_interdept_2019_budget, mef_Water_pollution_interdept_2019_budget, mef_public_power_interdept_2019_budget, mef_airport_gen_interdept_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_interdept_2019_budget)[1] <- '2019_budget - Interdept Service Fees'
+names(f_interdept_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_interdept_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_interdept_2019_budget)[4] <- 'Division of Water'
+names(f_interdept_2019_budget)[5] <- 'Water Pollution Control'
+names(f_interdept_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_interdept_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Capital Outlay section
+mef_utilities_gen_outlay_2019_budget <- df_01_utilities_gen_admin[69:72,  c(1,5)]
+mef_utilities_fisc_outlay_2019_budget <- df_02_utilities_fisc_ctrl[58:60,  c(1,5)]
+mef_div_Water_outlay_2019_budget <- df_03_div_water[118:130,  c(1,5)]
+mef_Water_pollution_outlay_2019_budget <- df_04_water_pollution_cont[98:105,  c(1,5)]
+mef_public_power_outlay_2019_budget <- df_05_cle_public_power[101:112,  c(1,5)]
+mef_airport_gen_outlay_2019_budget <- df_06_airport_gen_op[113:115,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_outlay_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_outlay_2019_budget, mef_utilities_fisc_outlay_2019_budget, mef_div_Water_outlay_2019_budget, mef_Water_pollution_outlay_2019_budget, mef_public_power_outlay_2019_budget, mef_airport_gen_outlay_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_outlay_2019_budget)[1] <- '2019_budget - Outlay'
+names(f_outlay_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_outlay_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_outlay_2019_budget)[4] <- 'Division of Water'
+names(f_outlay_2019_budget)[5] <- 'Water Pollution Control'
+names(f_outlay_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_outlay_2019_budget)[7] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Debt Service section
+mef_div_Water_debt_2019_budget <- df_03_div_water[131:135,  c(1,5)]
+mef_Water_pollution_debt_2019_budget <- df_04_water_pollution_cont[106:110,  c(1,5)]
+mef_public_power_debt_2019_budget <- df_05_cle_public_power[113:117,  c(1,5)]
+mef_airport_gen_debt_2019_budget <- df_06_airport_gen_op[116:119,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_debt_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_debt_2019_budget, mef_Water_pollution_debt_2019_budget, mef_public_power_debt_2019_budget, mef_airport_gen_debt_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_debt_2019_budget)[1] <- '2019_budget - Debt'
+names(f_debt_2019_budget)[2] <- 'Division of Water'
+names(f_debt_2019_budget)[3] <- 'Water Pollution Control'
+names(f_debt_2019_budget)[4] <- 'Cleveland Public Power'
+names(f_debt_2019_budget)[5] <- 'Airport General Operations'
+```
+
+```{r}
+#Get the 2019_budget Values for the Expenditure Recovery section
+mef_div_Water_expenditure_2019_budget <- df_03_div_water[136:38,  c(1,5)]
+mef_public_power_expenditure_2019_budget <- df_05_cle_public_power[118:120,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_expenditure_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_div_Water_outlay_2019_budget, mef_public_power_outlay_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_expenditure_2019_budget)[1] <- '2019_budget - Expenditure'
+names(f_expenditure_2019_budget)[2] <- 'Division of Water'
+names(f_expenditure_2019_budget)[3] <- 'Cleveland Public Power'
+```
+
+```{r}
+#Get the 2019_budget Values for the Revenue section
+mef_utilities_gen_revenue_2019_budget <- df_01_utilities_gen_admin[74:77,  c(1,5)]
+mef_utilities_fisc_revenue_2019_budget <- df_02_utilities_fisc_ctrl[62:67,  c(1,5)]
+mef_div_Water_revenue_2019_budget <- df_03_div_water[140:148,  c(1,5)]
+mef_Water_pollution_revenue_2019_budget <- df_04_water_pollution_cont[112:117,  c(1,5)]
+mef_public_power_revenue_2019_budget <- df_05_cle_public_power[122:131,  c(1,5)]
+mef_airport_gen_revenue_2019_budget <- df_06_airport_gen_op[121:128,  c(1,5)]
+```
+
+```{r}
+#Merge all the offices into one dataframe
+f_revenue_2019_budget <- Reduce(function(r_x,r_y) merge(x=r_x, y=r_y, by=1, all=TRUE),  
+  list(mef_utilities_gen_revenue_2019_budget, mef_utilities_fisc_revenue_2019_budget, mef_div_Water_revenue_2019_budget, mef_Water_pollution_revenue_2019_budget, mef_public_power_revenue_2019_budget, mef_airport_gen_revenue_2019_budget))
+```
+
+```{r}  
+#Rename first column
+names(f_revenue_2019_budget)[1] <- '2019_budget - Revenue'
+names(f_revenue_2019_budget)[2] <- 'Utilities - General Administration'
+names(f_revenue_2019_budget)[3] <- 'Utilities -Fiscal Control'
+names(f_revenue_2019_budget)[4] <- 'Division of Water'
+names(f_revenue_2019_budget)[5] <- 'Water Pollution Control'
+names(f_revenue_2019_budget)[6] <- 'Cleveland Public Power'
+names(f_revenue_2019_budget)[7] <- 'Airport General Operations'
+```
+

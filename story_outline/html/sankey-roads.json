@@ -1,0 +1,198 @@
+{
+  "nodes": [{
+      "name": "Small Enterprise fund",
+      "id": "animals",
+      "number": 0
+    },
+    {
+      "name": "Special Revenue fund",
+      "id": "environment",
+      "number": 1
+    },
+    {
+      "name": "Municipal parking facilities : $10,610,757",
+      "id": "social",
+      "number": 2
+    },
+    {
+      "name": "Public Auditorium : $2,921,089",
+      "id": "social",
+      "number": 3
+    },
+    {
+      "name": "West Side Market : $1,655,523",
+      "id": "social",
+      "number": 4
+    },
+    {
+      "name": "Cemeteries : $1,768,506",
+      "id": "social",
+      "number": 5
+    },
+    {
+      "name": "Golf courses : $1,395,670",
+      "id": "social",
+      "number": 6
+    },
+    {
+      "name": "Revenue - Municipal parking facilities : $10,610,757",
+      "id": "fallback",
+      "number": 7
+    },
+    {
+      "name": "Revenue - Public Auditorium : $2,921,089",
+      "id": "fallback",
+      "number": 8
+    },
+    {
+      "name": "Revenue - West Side Market : $1,379,619",
+      "id": "fallback",
+      "number": 9
+    },
+    {
+      "name": "Revenue - Cemeteries : $1,585,673",
+      "id": "fallback",
+      "number": 10
+    },
+    {
+      "name": "Revenue - Golf courses : $1,343,933",
+      "id": "fallback",
+      "number": 11
+    },
+    {
+      "name": "Restricted Income Tax Fund : $53,878,638",
+      "id": "environment",
+      "number": 12
+    },
+    {
+      "name": "Street Construction : $35,747,708 ",
+      "id": "environment",
+      "number": 13
+    },
+    {
+      "name": "Cleveland Stadium : $13,802,332",
+      "id": "environment",
+      "number": 14
+    },
+    {
+      "name": "Other Fund Expenses : $1,125,000",
+      "id": "environment",
+      "note": "Sum of Rainy Day Reserve Fund, school activities $5,630,026 +1,125,000",
+      "number": 15
+    },
+    {
+      "name": "Revenue - Restricted Income Tax Fund : $55,661,234",
+      "id": "fallback",
+      "number": 16
+    },
+    {
+      "name": "Revenue - Street Construction : $44,095,056",
+      "id": "fallback",
+      "number": 17
+    },
+    {
+      "name": "Revenue - Cleveland Stadium : $16,044,482",
+      "id": "fallback",
+      "number": 18
+    },
+    {
+      "name": "Revenue - Other : $6,755,026",
+      "id": "fallback",
+      "note": "Sum of Rainy Day Reserve Fund, school activities $0+1,125,000",
+      "number": 19
+    }
+  ],
+  "links": [
+    {
+      "source": 7,
+      "target": 0,
+      "value": 10610757
+    },
+    {
+      "source": 8,
+      "target": 0,
+      "value": 2921089
+    },
+    {
+      "source": 9,
+      "target": 0,
+      "value": 1379619
+    },
+
+    {
+      "source": 10,
+      "target": 0,
+      "value": 1585673
+    },
+    {
+      "source": 11,
+      "target": 0,
+      "value": 1343933
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "value": 10610757
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "value": 2921089
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "value": 1655523
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "value": 1768506
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "value": 1395670
+    },
+    {
+      "source": 1,
+      "target": 12,
+      "value": 53878638
+    },
+    {
+      "source": 1,
+      "target": 13,
+      "value": 35747708
+    },
+    {
+      "source": 1,
+      "target": 14,
+      "value": 13802332
+    },
+    {
+      "source": 1,
+      "target": 15,
+      "value": 1125000
+    },
+    {
+      "source": 16,
+      "target": 1,
+      "value": 55661234
+    },
+    {
+      "source": 17,
+      "target": 1,
+      "value": 44095056
+    },
+    {
+      "source": 18,
+      "target": 1,
+      "value": 16044482
+    },
+    {
+      "source": 19,
+      "target": 1,
+      "value": 6755026
+    }
+  ]
+}

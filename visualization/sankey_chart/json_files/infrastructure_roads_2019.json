@@ -1,0 +1,56 @@
+{
+"nodes":[
+  {"node":0,"name":"Small Enterprise fund"},
+  {"node":1,"name":"Special Revenue fund"},
+
+  {"node":2,"name":"Department of Public Works"},
+
+  {"node":3,"name":"Cemeteries"},
+  {"node":4,"name":"Golf courses"},
+  {"node":5,"name":"Municipal parking facilities"},
+  {"node":6,"name":"Public Auditorium"},
+  {"node":7,"name":"West Side Market"},
+
+  {"node":8,"name":"Revenue: Cemeteries"},
+  {"node":9,"name":"Revenue: Golf courses"},
+  {"node":10,"name":"Revenue: Municipal parking facilities"},
+  {"node":11,"name":"Revenue: Public Auditorium"},
+  {"node":12,"name":"Revenue: West Side Market"},
+  {"node":13,"name":"Contractual - Professional Services"},
+
+  {"node":14,"name":"Street Construction"},
+  {"node":15,"name":"Cleveland Stadium"},
+
+  {"node":16,"name":"Salt & De-Icer"},
+  {"node":17,"name":"Salaries"},
+
+  {"node":18,"name":"Revenue: Street Construction"},
+  {"node":19,"name":"Revenue: Cleveland Stadium"}
+
+
+],
+"links":[
+  {"source":8,"target":0,"value":1585673},
+  {"source":9,"target":0,"value":1343933},
+  {"source":10,"target":0,"value":10378257},
+  {"source":11,"target":0,"value":2687508},
+  {"source":12,"target":0,"value":1379619},
+
+  {"source":18,"target":1,"value":44095057},
+  {"source":19,"target":1,"value":16044482},
+
+  {"source":0,"target":3,"value":1768506},
+  {"source":0,"target":4,"value":1395670},
+  {"source":0,"target":5,"value":10610757},
+  {"source":0,"target":6,"value":2921089},
+  {"source":0,"target":7,"value":1655523},
+  {"source":5,"target":13,"value":2265163},
+
+  {"source":1,"target":14,"value":35747709},
+  {"source":1,"target":15,"value":13802332},
+
+  {"source":14,"target":16,"value":3359623},
+  {"source":14,"target":17,"value":14119197}
+
+  ]
+}

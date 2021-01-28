@@ -1,0 +1,252 @@
+{
+   "nodes" : [
+     {
+        "name" : "General fund : $685,651,943",
+        "id" : "animals",
+        "number":0
+     },
+     {
+        "id" : "fallback",
+        "name" : "Income tax : $441,753,856",
+        "number":1
+     },
+     {
+        "name" : "Other taxes : $44,823,233",
+        "id" : "fallback",
+        "number":2
+     },
+     {
+        "name" : "Misc. : $42,382,264",
+        "id" : "fallback",
+        "number":3
+     },
+     {
+        "name" : "Charges for services: $38,600,845",
+        "id" : "fallback",
+        "number":4
+     },
+     {
+        "name" : "State & local government fund : $26,072,779",
+        "id" : "fallback",
+        "number":5
+     },
+     {
+        "name" : "Licenses and permits : $19,518,635",
+        "id" : "fallback",
+        "number":6
+     },
+     {
+        "name" : "Shared revenue tax : $13,440,585",
+        "id" : "fallback",
+        "number":7
+     },
+     {
+        "name" : "Fines, forfeitures and settlements : $11,015,522",
+        "id" : "fallback",
+        "number":8
+     },
+     {
+        "name" : "Investment income : $5,495,262",
+        "id" : "fallback",
+        "number":9
+     },
+     {
+        "name" : "Transfers in : $3,731,113",
+        "id" : "fallback",
+        "number":10
+     },
+     {
+        "name" : "Grant revenue : $912,538",
+        "id" : "fallback",
+        "number":11
+     },
+     {
+        "name" : "Property tax : $37,905,311",
+        "id" : "environment",
+        "number":12
+     },
+      {
+         "id" : "social",
+         "name" : "Department of Public Safety : $353,797,612",
+         "number":13
+      },
+      {
+         "name" : "Division of Police : $206,566,800",
+         "id" : "social",
+         "number":14
+      },
+      {
+         "name" : "Division of Fire : $99,613,126",
+         "id" : "social",
+         "number":15
+      },
+      {
+         "name" : "Divisions: Other : $20,882,372",
+         "id" : "social",
+         "number":16,
+         "notes":"Sum of EMS, Animal Control,Prof Standards: 16,594,478 + 2,850,934 + 1,436,960 "
+      },
+      {
+         "name" : "Public Safety Administration : $5,884,768",
+         "id" : "social",
+         "number":17
+      },
+      {
+         "name" : "Division of Correction : $5,199,792",
+         "id" : "social",
+         "number":18
+      },
+      {
+         "name" : "Department of Justice : $3,130,455",
+         "id" : "social",
+         "number":19
+      },
+      {
+         "name" : "Community Police Commision: $393,198",
+         "id" : "social",
+         "number":20
+      },
+      {
+         "name" : "Civilian Police Review Board : $156,450",
+         "id" : "social",
+         "number":21
+      },
+      {
+         "name" : "Police Inspector General: $44,837",
+         "id" : "social",
+         "number":22
+      },
+      {
+         "name" : "Fire Pension : $1,503,060",
+         "id" : "social",
+         "number":23
+      },
+      {
+         "name" : "Police Pension : $1,503,060",
+         "id" : "social",
+         "number":24
+      }
+   ],
+   "links" : [
+     {
+        "source" : 1,
+        "value" : 441753856,
+        "target" : 0
+     },
+     {
+        "source" : 2,
+        "value" : 44823233,
+        "target" : 0
+     },
+     {
+        "source" : 3,
+        "value" : 38600845,
+        "target" : 0
+     },
+     {
+        "source" : 4,
+        "value" : 37905311,
+        "target" : 0
+     },
+     {
+        "source" : 5,
+        "value" : 26072779,
+        "target" : 0
+     },
+     {
+        "source" : 6,
+        "value" : 19518635,
+        "target" : 0
+     },
+     {
+        "source" : 7,
+        "value" : 13440585,
+        "target" : 0
+     },
+     {
+        "source" : 8,
+        "value" : 11015522,
+        "target" : 0
+     },
+     {
+        "source" : 9,
+        "value" : 5495262,
+        "target" : 0
+     },
+     {
+        "source" : 10,
+        "value" : 3731113,
+        "target" : 0
+     },
+     {
+        "source" : 11,
+        "value" : 912538,
+        "target" : 0
+     },
+     {
+        "source" : 12,
+        "value" : 42382264,
+        "target" : 0
+     },
+     {
+        "source" : 0,
+        "value" : 353797612,
+        "target" : 13
+     },
+     {
+        "source" : 13,
+        "value" : 206566800,
+        "target" : 14
+     },
+     {
+         "source" : 13,
+         "value" : 99613126,
+         "target" : 15
+      },
+      {
+         "source" : 13,
+         "value" : 20882372,
+         "target" : 16
+      },
+      {
+         "source" : 13,
+         "value" : 5884768,
+         "target" : 17
+      },
+      {
+         "source" : 13,
+         "value" : 5199792,
+         "target" : 18
+      },
+      {
+         "source" : 13,
+         "value" : 3130455,
+         "target" : 19
+      },
+      {
+         "source" : 13,
+         "value" : 393198,
+         "target" : 20
+      },
+      {
+         "source" : 13,
+         "value" : 156450,
+         "target" : 21
+      },
+      {
+         "source" : 13,
+         "value" : 44837,
+         "target" : 22
+      },
+      {
+         "source" : 12,
+         "value" : 1503060,
+         "target" : 23
+      },
+      {
+         "source" : 12,
+         "value" : 1503060,
+         "target" : 24
+      }
+   ]
+}

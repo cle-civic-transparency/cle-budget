@@ -1,0 +1,30 @@
+"0","## ZIP code to HSA to HRR crosswalk"
+"0","## Downloaded [ZipHsaHrr18.csv] from (https://atlasdata.dartmouth.edu/downloads/supplemental#crosswalks) to data folder."
+"0","## Note: Difference between HSA and HRR here - https://www.dartmouthatlas.org/faq/"
+"0","hsa_crosswalk <- read_csv(""data/ZipHsaHrr18.csv"") %>% "
+"0","  select(zipcode18, hsanum, hsacity, hsastate) ## I only want HSA"
+"2","
+[36m──[39m [1m[1mColumn specification[1m[22m [36m────────────────────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  zipcode18 = [31mcol_character()[39m,
+  hsanum = [32mcol_double()[39m,
+  hsacity = [31mcol_character()[39m,
+  hsastate = [31mcol_character()[39m,
+  hrrnum = [32mcol_double()[39m,
+  hrrcity = [31mcol_character()[39m,
+  hrrstate = [31mcol_character()[39m
+)
+
+"
+"0","## Join crosswalk to census data"
+"0","zctas_and_crosswalk_hospitals <- census_zctas_with_pcts %>%"
+"0","  inner_join(hsa_crosswalk, by = c(""zcta"" = ""zipcode18""))"
+"0",""
+"0","## Join new crosswalk to hospitals"
+"0","hospital_closures_with_hsa_crosswalk <- zctas_and_crosswalk_hospitals %>%"
+"0","  inner_join(hospital_closures_with_zctas, by = ""zcta"")"
+"0",""
+"0","## Closures in 2020 with crosswalk"
+"0","hospital_closures_with_hsa_crosswalk_2020 <- hospital_closures_with_hsa_crosswalk %>%"
+"0","  filter(closure_year == ""2020"") %>%"
+"0","  select(hospital, city, hsacity, state.x, closure_month, closure_year, total, white, non_white, pct_white, pct_non_white)"

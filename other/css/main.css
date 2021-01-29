@@ -30,9 +30,9 @@ h3 {
   padding-top: 15px;
 }
 
-/* p {
+p {
   font-size: 14px;
-} */
+}
 /* NAV */
 .nav-bg {
   background-color: none;
@@ -46,7 +46,7 @@ h3 {
 }
 
 .btn-color {
-  background-color: lightgray;
+  background-color: orange;
 }
 
 .btn-color:hover {

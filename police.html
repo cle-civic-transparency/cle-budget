@@ -46,24 +46,10 @@
       <div class="col-md-6 mx-auto">
         <div class="funds-content">
           <h3>Where does the money come from?</h3>
-          <p class="text">
-          </br>Funding for Public Safety comes from The General Fund. The General Fund covers expenses for what we typically think a city does - Mayor, city council, police and more.
-        </br></br> Specifically, the General Fund covers expenses for 11 departments which cover the following areas:
-          <ul>
-            <li>Judicial</li>
-            <li>Courts</li>
-            <li>Public Safety</li>
-            <li>Fire</li>
-            <li>Emergency Responders</li>
-            <li>Waste Collection</li>
-            <li>Recreation</li>
-            <li>Health Centers</li>
-            <li>Housing</li>
-            <li>City Council</li>
-            <li>the Mayor’s office</li>
-          </ul>
-        </br>The General Fund gets its money from many sources, but most of it (66%) comes from income taxes.
+          <p class="text">Funding for Public Safety comes from The General Fund. The General Fund covers expenses for what we typically think a city does - Mayor, city council, police and more.
+          </br></br> Specifically, the General Fund covers expenses for 11 departments which cover the following areas:
           </p>
+          <img class="image" src="images/icons.jpg"/>
         </div>
       </div>
     </div>
@@ -73,8 +59,8 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="visualization-content">
-          <h3> Where does the money go?</h3>
-          <p> The Department of Public Safety makes up 56.26% of the General Fund budget. The next largest Department is the Department of Public Works, which only takes up 12.13%.
+          <h3> Where does the money from and where does it go?</h3>
+          <p>The Department of Public Safety makes up 56.26% of the General Fund budget. The next largest Department is the Department of Public Works, which only takes up 12.13%. The General Fund gets its money from many sources, but most of it (66%) comes from income taxes.
         </div>
         <div id="sankey"></div>
       </div>
@@ -159,29 +145,32 @@
               <a href="https://case.edu/schubertcenter/sites/case.edu.schubertcenter/files/2020-04/Consent-Decree-Summary-Edited.pdf">Read the Consent Decree</a>
             </div>
           </div>
-        </div>
-        <div class="timeline-container left">
-          <div class="timeline-content">
-            <h3>2016</h3>
-            <p>The consent decree changed the budget by allocating new funding to support staffing for the Office of Professional Standards, Police Review Board, Community Police Commission, Police Inspector General, and Department of Justice. The support for these entities added approximately $7.7 M to the Public Safety budget each year, beginning in 2016.
-            </br></br>As a result, budgeted staffing levels fluctuated during ensuing years, reaching a low of 1,773 full time employees in 2016 despite a $13.2 M increase from the 2015 budget year. Adjusted for inflation, the 2016 budget year was equivalent to the 2010 funding year, despite the 2010 budget allowing for 90 more full time employees.</p>
-            <h4><b>$7.7 M added</b></h4>
-            <h4><b>5 offices added</b><h4>
+          <div class="timeline-container left">
+            <div class="timeline-content">
+              <h3>2016</h3>
+              <p>The consent decree changed the budget by allocating new funding to support staffing for the Office of Professional Standards, Police Review Board, Community Police Commission, Police Inspector General, and Department of Justice. The support for these entities added approximately $7.7 M to the Public Safety budget each year, beginning in 2016.
+              </br></br>As a result, budgeted staffing levels fluctuated during ensuing years, reaching a low of 1,773 full time employees in 2016 despite a $13.2 M increase from the 2015 budget year. Adjusted for inflation, the 2016 budget year was equivalent to the 2010 funding year, despite the 2010 budget allowing for 90 more full time employees.</p>
+              <h4><b>$7.7 M added</b></h4>
+              <h4><b>5 offices added</b><h4>
+            </div>
           </div>
-        </div>
-        <div class="timeline-container right">
+          <div class="timeline-container right">
           <div class="timeline-content">
             <h3>2020</h3>
             <p>The murders of George Floyd, Breonna Taylor and other unarmed Black Americans such as locals like Desmond Franklin, ignited widespread protests against police brutality, militarized police forces, and the larger institution of policing in the United States. Black lives matter has been at the forefront of this movement, inspiring widespread demands for cities to “Defund the Police.”</p>
           </div>
         </div>
-      </div>
+        </div>
       </div>
     </div>
+  </div>
+  
+  <section class="spending">
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div>
           <h3>What happened in Cleveland between Tamir Rice and Desmond Franklin?</h3>
+          <div id="line-graph"></div>
           <p class="text">
             <ul>
               <li> From 2004 to 2015,the Police budget gradually decreased. 2015 marked a 19.2% decrease from 2004 and 20.6% decrease from 2002. </li>
@@ -259,7 +248,8 @@
     $(function(){
         $("#header").load("header.html");
         $("#footer").load("footer.html");
-        $("#sankey").load("sankey-police.html")
+        $("#sankey").load("sankey-police.html");
+        $("#line-graph").load("line-graph-police.html");
       });
   </script>
 

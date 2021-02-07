@@ -27,7 +27,7 @@ h2 {
 
 h3 {
   font-size: 22px;
-  padding-top: 15px;
+  padding-top: 6%;
 }
 
 p {
@@ -42,7 +42,7 @@ p {
 .btn-group {
   margin: auto;
   width: 100%;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .btn-color {
@@ -70,6 +70,13 @@ p {
   text-align: center;
 }
 
+/* IMAGES */
+.image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 
 /* FUNDS SECTION */
 /* SANKEY SECTION */

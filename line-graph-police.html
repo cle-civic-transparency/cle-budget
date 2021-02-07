@@ -6,7 +6,7 @@
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <style>
       #line-graph-div {
-		    height: 500px;
+		    height: 300px;
 	    }
 
 	    text {
@@ -38,8 +38,8 @@ var parseDate = d3.time.format("%Y").parse;
 
 var margin = {left: 50, right: 20, top: 20, bottom: 50 };
 
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
+var width = 700 - margin.left - margin.right;
+var height = 300 - margin.top - margin.bottom;
 
 var min = 0;
 var max = 0;
@@ -65,7 +65,7 @@ d3.csv("line-graph-police.csv")
 
 		var x = d3.time.scale()
 					.domain([minDate,maxDate])
-					.range([0,width]);
+					.range([0,width-10]);
 
 		var yAxis = d3.svg.axis()
 						.orient("left")

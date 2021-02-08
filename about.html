@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -22,70 +23,26 @@
 <body>
   <!-- NAV BAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">CLE Civic Transparency Project</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  <section class="intro">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <div class="intro-content">
-            <h1>Understanding the </br>Cleveland City Budget</h1>
-            <p>
-              </br>Budgets are moral documents.
-              <b>They reflect what - and who - a city deems worthy of investment.</b>
-            </br></br>This is a civic accountability project by a small group of citizens of Cleveland who want to use the budget to hold our politicians accountable to their past promises.
-          </br></br>There were 4 steps to accomplish our goal:
-              <ol>
-                <li>Dive into the Cleveland Budget to understand how the city spends money.</li>
-                <li>Compare the budget to existing promises and visions put forth by civic groups in Cleveland.</li>
-                <li>Post the results online to promote transparency to all Clevelanders.</li>
-                <li>Work with activists and civic groups to use the results to promote concrete policy or budget changes.</li>
-              </ol>
-            </br>We spent the past few months diving deep into four categories of city spending: Public Safety (Policing), the Judicial System, Utilities, and Infrastructure.
-          </br></br>Our initial investigation is contained to the City of Cleveland’s annual budget book. This website does not cover topics such as education and public transit because their funding mechanisms are extremely complex and go beyond just the Cleveland city budget. For example, both the Cleveland Metropolitan School District and Greater Cleveland Regional Transit Authority have their own annual budget books with revenue exceeding $1 billion and $312 million, respectively.
-            </p>
-          </div>
-        </div>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CLE Civic Transparency Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- Button group -->
-  <section class="buttons">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <h3 class="align-center">Explore topic areas of the budget below:</h3>
-          <p class="align-center"><i>Use the four buttons below to switch between the different categories of Cleveland's spending.</i></p>
-          <div class="btn-group" role="group">
-            <a class="btn btn-color" href="police.html"> Public Safety</a>
-            <a class="btn btn-color" href="judicial.html"> Judicial Services</a>
-            <a class="btn btn-color" href="energy.html"> Utilities</a>
-            <a class="btn btn-color" href="roads.html"> Infrastructure</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </nav>
 
   <div id="footer"></div>
 
@@ -104,11 +61,10 @@
 
   <!-- Load Header Script -->
   <script>
-    $(function(){
-        $("#header").load("header.html");
-        $("#footer").load("footer.html");
-        $("#sankey").load("sankey-police.html")
-      });
+    $(function() {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html")
+    });
   </script>
 
 </body>

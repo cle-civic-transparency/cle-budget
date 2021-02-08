@@ -38,12 +38,10 @@
 
     <script>
       var colors = {
-            'environment':         '#edbd00',
-            'social':              '#367d85',
-            'animals':             '#97ba4c',
-            'health':              '#f5662b',
-            'research_ingredient': '#3f3e47',
-            'fallback':            '#9f9fa3'
+            'environment':         'var(--yellow)',
+            'social':              'var(--blue)',
+            'animals':             'var(--red)',
+            'fallback':            'var(--black)'
           };
       d3.json("sankey-police.json", function(error, json) {
         var chart = d3.select("#chart").append("svg").chart("Sankey.Path");

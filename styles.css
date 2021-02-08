@@ -1,3 +1,13 @@
+/* COLORS */
+:root {
+  --black: #2C3336;
+  --blue: #308695;
+  --red: #D45769;
+  --yellow: #E69D45;
+  --white: #D4CFC9;
+}
+
+
 /* GENERAL STYLES */
 html, body {
     max-width: 100%;
@@ -35,7 +45,7 @@ p {
 }
 /* NAV */
 .nav-bg {
-  background-color: none;
+  background-color: var(--black);
 }
 
 /* BUTTONS */
@@ -46,11 +56,11 @@ p {
 }
 
 .btn-color {
-  background-color: orange;
+  background-color: var(--yellow);
 }
 
 .btn-color:hover {
-  background-color: gray;
+  background-color: var(--white);
 }
 
 /* TEXT */

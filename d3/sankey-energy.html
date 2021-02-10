@@ -42,7 +42,7 @@
             'social':              'var(--blue)',
             'animals':             'var(--red)',
           };
-      d3.json("d3/sankey-energy.json", function(error, json) {
+      d3.json("d3/data/sankey-energy.json", function(error, json) {
         var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
         chart
           .name(label)

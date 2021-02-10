@@ -56,7 +56,7 @@
     var minDate = new Date();
     var maxDate = new Date();
 
-    d3.csv("d3/line-graph-police.csv")
+    d3.csv("d3/data/line-graph-police.csv")
       .row(function(d) {
         return {
           month: parseDate(d.month),

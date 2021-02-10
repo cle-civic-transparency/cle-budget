@@ -49,7 +49,7 @@
       'animals': 'var(--red)',
       'fallback': 'var(--black)'
     };
-    d3.json("sankey-police.json", function(error, json) {
+    d3.json("d3/sankey-police.json", function(error, json) {
       var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
       chart
         .name(label)

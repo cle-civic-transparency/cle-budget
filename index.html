@@ -22,6 +22,17 @@
 
   <title>Visualizing the Cleveland Budget</title>
 
+  <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Load Header Script -->
+  <script>
+    $(function() {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+      $("#sankey").load("sankey-police.html")
+    });
+
 </head>
 
 <body>
@@ -105,16 +116,6 @@
   <script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
   <script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
 
-  <!-- JavaScript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <!-- Load Header Script -->
-  <script>
-    $(function() {
-      $("#header").load("header.html");
-      $("#footer").load("footer.html");
-      $("#sankey").load("sankey-police.html")
-    });
   </script>
 
 </body>

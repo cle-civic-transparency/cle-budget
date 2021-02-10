@@ -37,12 +37,12 @@
     <div id="chart"></div>
 
     <script>
-      var colors = {
-            'environment':         'var(--yellow)',
-            'social':              'var(--blue)',
-            'animals':             'var(--red)',
-            'fallback':            'var(--black)'
-          };
+    var colors = {
+    'environment':         'var(--yellow)',
+    'social':              'var(--blue)',
+    'animals':             'var(--red)',
+    'fallback':            'var(--black)'
+    };
       d3.json("sankey-police.json", function(error, json) {
         var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
         chart

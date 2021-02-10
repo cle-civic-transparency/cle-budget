@@ -21,6 +21,15 @@
 
   <title>Visualizing the Cleveland Budget</title>
 
+  <!-- Load Header Script -->
+  <script>
+      $(function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+        $("#sankey").load("sankey-energy.html")
+      });
+  </script>
+
 </head>
 
 <body>
@@ -164,15 +173,6 @@
 
   <!-- JavaScript -->
   <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-
-  <!-- Load Header Script -->
-  <script>
-      $(function(){
-        $("#header").load("header.html");
-        $("#footer").load("footer.html");
-        $("#sankey").load("sankey-energy.html")
-      });
-  </script>
 
 </body>
 

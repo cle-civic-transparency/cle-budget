@@ -40,7 +40,7 @@
 </head>
 
 <body>
-  <div id="chart"></div>
+  <div id="sankey"></div>
 
   <script>
     var colors = {
@@ -50,7 +50,7 @@
       'fallback': 'var(--black)'
     };
     d3.json("d3/data/sankey-police.json", function(error, json) {
-      var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
+      var chart = d3.select("#sankey").append("svg").chart("Sankey.Path");
       chart
         .name(label)
         .colorNodes(function(name, node) {

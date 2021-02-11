@@ -50,7 +50,7 @@
       'fallback': 'var(--black)'
     };
     d3.json("d3/data/sankey-police.json", function(error, json) {
-      var chart = d3.select("#chart").append("svg").chart("Sankey");
+      var chart = d3.select("#chart").append("svg").attr("id", "svg").chart("Sankey.Path");
       chart
         .name(label)
         .colorNodes(function(name, node) {

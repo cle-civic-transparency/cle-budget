@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
   <style>
-    #line-graph-div {
+    #chart2 {
       height: 300px;
     }
 
@@ -32,7 +32,7 @@
 
 <body>
 
-  <div id="line-graph-div"></div>
+  <div id="chart2"></div>
 
   <script type="text/javascript">
     var parseDate = d3.time.format("%Y").parse;
@@ -104,8 +104,8 @@
           .interpolate("cardinal");
 
 
-        var svg = d3.select("#line-graph-div").append("svg").attr("id", "svg").attr("height", "100%").attr("width", "100%");
-        var chartGroup = svg.append("g").attr("class", "chartGroup").attr("transform", "translate(" + xNudge + "," + yNudge + ")");
+        var chart2 = d3.select("#chart2").append("svg").attr("id", "svg").attr("height", "100%").attr("width", "100%");
+        var chartGroup = chart2.append("g").attr("class", "chartGroup").attr("transform", "translate(" + xNudge + "," + yNudge + ")");
 
         chartGroup.append("path")
           .attr("class", "line")

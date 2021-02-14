@@ -1,82 +1,177 @@
-// set the dimensions and margins of the graph
-var margin = {
-    top: 10,
-    right: 30,
-    bottom: 20,
-    left: 50
-  },
-  width = 460 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
+// Setup svg using Bostock's margin convention
 
-// append the svg object to the body of the page
-var svg = d3.select("#bar-chart")
+var margin = {
+  top: 20,
+  right: 160,
+  bottom: 35,
+  left: 30
+};
+
+var width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("#chart3")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
-  .attr("transform",
-    "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
 
-  // List of subgroups = header of the csv files = soil condition here
-  var subgroups = data.columns.slice(1)
+/* Data in strings like it would be if imported from a csv */
 
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d) {
-    return (d.group)
-  }).keys()
+var data = [{
+    year: "2006",
+    redDelicious: "10",
+    mcintosh: "15",
+    oranges: "9",
+    pears: "6"
+  },
+  {
+    year: "2007",
+    redDelicious: "12",
+    mcintosh: "18",
+    oranges: "9",
+    pears: "4"
+  },
+  {
+    year: "2008",
+    redDelicious: "05",
+    mcintosh: "20",
+    oranges: "8",
+    pears: "2"
+  },
+  {
+    year: "2009",
+    redDelicious: "01",
+    mcintosh: "15",
+    oranges: "5",
+    pears: "4"
+  },
+  {
+    year: "2010",
+    redDelicious: "02",
+    mcintosh: "10",
+    oranges: "4",
+    pears: "2"
+  }
+];
 
-  // Add X axis
-  var x = d3.scaleBand()
-    .domain(groups)
-    .range([0, width])
-    .padding([0.2])
-  svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).tickSizeOuter(0));
+var parse = d3.time.format("%Y").parse;
 
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([0, 60])
-    .range([height, 0]);
-  svg.append("g")
-    .call(d3.axisLeft(y));
 
-  // color palette = one color per subgroup
-  var color = d3.scaleOrdinal()
-    .domain(subgroups)
-    .range(['#e41a1c', '#377eb8', '#4daf4a'])
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
+  return data.map(function(d) {
+    return {
+      x: parse(d.year),
+      y: +d[fruit]
+    };
+  });
+}));
 
-  //stack the data? --> stack per subgroup
-  var stackedData = d3.stack()
-    .keys(subgroups)
-    (data)
 
-  // Show the bars
-  svg.append("g")
-    .selectAll("g")
-    // Enter in the stack data = loop key per key = group per group
-    .data(stackedData)
-    .enter().append("g")
-    .attr("fill", function(d) {
-      return color(d.key);
-    })
-    .selectAll("rect")
-    // enter a second time = loop subgroup per subgroup to add all rectangles
-    .data(function(d) {
-      return d;
-    })
-    .enter().append("rect")
-    .attr("x", function(d) {
-      return x(d.data.group);
-    })
-    .attr("y", function(d) {
-      return y(d[1]);
-    })
-    .attr("height", function(d) {
-      return y(d[0]) - y(d[1]);
-    })
-    .attr("width", x.bandwidth())
-})
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) {
+    return d.x;
+  }))
+  .rangeRoundBands([10, width - 10], 0.02);
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {
+    return d3.max(d, function(d) {
+      return d.y0 + d.y;
+    });
+  })])
+  .range([height, 0]);
+
+var colorsBar = ["var(--red)", "var(--blue)", "var(--black)", "var(--yellow)"];
+
+
+// Define and draw axes
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .ticks(5)
+  .tickSize(-width, 0, 0)
+  .tickFormat(function(d) {
+    return d
+  });
+
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+  .tickFormat(d3.time.format("%Y"));
+
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
+
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+
+
+// Create groups for each series, rects for each segment
+var groups = svg.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) {
+    return colorsBar[i];
+  });
+
+var rect = groups.selectAll("rect")
+  .data(function(d) {
+    return d;
+  })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) {
+    return x(d.x);
+  })
+  .attr("y", function(d) {
+    return y(d.y0 + d.y);
+  })
+  .attr("height", function(d) {
+    return y(d.y0) - y(d.y0 + d.y);
+  })
+  .attr("width", x.rangeBand());
+
+
+// Draw legend
+var legend = svg.selectAll(".legend")
+  .data(colorsBar)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) {
+    return "translate(30," + i * 19 + ")";
+  });
+
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", function(d, i) {
+    return colorsBar.slice().reverse()[i];
+  });
+
+legend.append("text")
+  .attr("x", width + 5)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d, i) {
+    switch (i) {
+      case 0:
+        return "Anjou pears";
+      case 1:
+        return "Naval oranges";
+      case 2:
+        return "McIntosh apples";
+      case 3:
+        return "Red Delicious apples";
+    }
+  });

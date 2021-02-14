@@ -322,6 +322,16 @@ path.line {
   shape-rendering: crispEdges;
 }
 
+/* BAR CHART */
+
+path.domain {
+  stroke: none;
+}
+
+.y .tick line {
+  stroke: #ddd;
+}
+
 /*********************/
 /* MEDIA QUERIES */
 /*********************/

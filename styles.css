@@ -7,11 +7,10 @@
   --white: #D4CFC9;
 }
 
-
 /* GENERAL STYLES */
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -26,7 +25,6 @@ h1 {
   font-weight: bold;
   text-align: center;
   padding-top: 25px;
-
 }
 
 h2 {
@@ -35,7 +33,7 @@ h2 {
   color: var(--black);
   text-align: left;
   font-weight: bold;
-  padding-top: 25px;
+  /* padding-top: 25px; */
 }
 
 h3 {
@@ -64,10 +62,12 @@ u {
   text-decoration-style: dashed;
   text-underline-offset: 1.5px;
 }
+
 /* NAV */
 .nav-bg {
   background-color: var(--black);
 }
+
 .navbar-brand {
   font-family: 'Open Sans', sans-serif;
   font-weight: bolder;
@@ -122,22 +122,17 @@ u {
   padding: 20px;
 }
 
-.align-center{
+.align-center {
   text-align: center;
 }
 
 /* IMAGES */
-.image{
+.image {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
-
-/* FUNDS SECTION */
-/* SANKEY SECTION */
-/* SPENDING SECTION */
-/* VISION SECTION */
 
 /* FOOTER */
 .bg-color {
@@ -149,25 +144,24 @@ u {
 }
 
 /*********************/
-/* TIMELINE SECTION */
+/* PUBLIC SAFETY  */
 /*********************/
-.history{
+/* TIMELINE */
+.history {
   margin-top: 2%;
   margin-bottom: 2%;
 }
 
- * {
+* {
   box-sizing: border-box;
 }
 
-/* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
   max-width: 1200px;
   margin-top: 10%;
 }
 
-/* The actual timeline (the vertical ruler) */
 .timeline::after {
   content: '';
   position: absolute;
@@ -179,7 +173,6 @@ u {
   margin-left: -3px;
 }
 
-/* Container around content header */
 .timeline-header-container {
   padding: 10px 0px;
   position: relative;
@@ -187,17 +180,14 @@ u {
   width: 50%;
 }
 
-/* Place the container to the left */
 .header-left {
   left: 0;
 }
 
-/* Place the container to the right */
 .header-right {
   left: 50%;
 }
 
-/* Container around content */
 .timeline-container {
   padding: 10px 40px;
   position: relative;
@@ -205,7 +195,6 @@ u {
   width: 50%;
 }
 
-/* The circles on the timeline */
 .timeline-container::after {
   content: '';
   position: absolute;
@@ -219,17 +208,14 @@ u {
   z-index: 1;
 }
 
-/* Place the container to the left */
 .left {
   left: 0;
 }
 
-/* Place the container to the right */
 .right {
   left: 50%;
 }
 
-/* Add arrows to the left container (pointing right) */
 .left::before {
   content: " ";
   height: 0;
@@ -243,7 +229,6 @@ u {
   border-color: transparent transparent transparent #d3d3d3;
 }
 
-/* Add arrows to the right container (pointing left) */
 .right::before {
   content: " ";
   height: 0;
@@ -257,12 +242,10 @@ u {
   border-color: transparent #d3d3d3 transparent transparent;
 }
 
-/* Fix the circle for containers on the right side */
 .right::after {
   left: -13px;
 }
 
-/* The actual content */
 .timeline-content {
   padding: 20px 30px;
   background-color: #d3d3d3;
@@ -271,21 +254,38 @@ u {
   color: #474e5d;
 }
 
-/* Media queries - Responsive timeline on screens less than 600px wide */
+/* ACCORDION */
+.accordion {
+  padding-bottom: 30px;
+}
+
+h2.accordion-header {
+  font-size: 24px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--blue);
+  background-color: #3086952e;
+}
+
+.accordion-button:focus {
+  color: var(--blue)
+}
+
+/*********************/
+/* MEDIA QUERIES */
+/*********************/
 @media screen and (max-width: 600px) {
-/* Place the timelime to the left */
   .timeline::after {
     left: 31px;
   }
 
-/* Full-width containers */
   .timeline-container {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px;
   }
 
-/* Make sure that all arrows are pointing leftwards */
   .timeline-container::before {
     left: 60px;
     border: medium solid white;
@@ -293,13 +293,11 @@ u {
     border-color: transparent white transparent transparent;
   }
 
-/* Make sure all circles are at the same spot */
   .left::after, .right::after {
     left: 15px;
     right: -13px;
   }
 
-/* Make all right containers behave like the left ones */
   .right {
     left: 0%;
   }

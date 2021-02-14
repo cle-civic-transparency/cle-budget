@@ -100,7 +100,7 @@
           <p>The Department of Public Safety makes up 56.26% of the General Fund budget. The next largest department is the Department of Public Works, which only takes up 12.13%. The General Fund gets its money from many sources, but most of it
             (66%) comes from income taxes. </p>
         </div>
-        <div id="sankey"></div>
+        <div id="chart"></div>
       </div>
     </div>
   </section>
@@ -306,10 +306,13 @@
   <script>
     $(function() {
       $("#footer").load("footer.html");
-      $("#sankey").load("d3/sankey-police.html");
       $("#line-graph").load("d3/line-graph-police.html")
     });
   </script>
+
+  <!-- Sankey -->
+  <script src="d3/public-safety-sankey.js"></script>
+  <!-- LINE CHART -->
 
 </body>
 

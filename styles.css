@@ -298,6 +298,30 @@ h2.accordion-header {
   stroke-opacity: .2;
 }
 
+/* LINE CHART */
+#chart2 {
+  height: 300px;
+}
+
+text {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+}
+
+
+path.line {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: slategray;
+  shape-rendering: crispEdges;
+}
+
 /*********************/
 /* MEDIA QUERIES */
 /*********************/

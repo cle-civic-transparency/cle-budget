@@ -1,40 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
-  <style>
-    #chart2 {
-      height: 300px;
-    }
-
-    text {
-      font-family: 'Lato', sans-serif;
-      font-size: 12px;
-    }
-
-
-    path.line {
-      fill: none;
-      stroke: var(--red);
-      stroke-width: 3px;
-    }
-
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: slategray;
-      shape-rendering: crispEdges;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div id="chart2"></div>
-
-  <script type="text/javascript">
     var parseDate = d3.time.format("%Y").parse;
 
     var margin = {
@@ -123,7 +86,3 @@
           .attr("class", "axis y")
           .call(yAxis);
       });
-  </script>
-</body>
-
-</html>

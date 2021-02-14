@@ -192,7 +192,7 @@
         <div>
           <h3>What happened in Cleveland between Tamir Rice and Desmond Franklin?</h3>
           <p>The graph below shows the size of the Department of Public Safety Budget since 2002. The y axis represents the size of the budget in hundreds of millions of dollars.</p>
-          <div id="line-graph"></div>
+          <div id="chart2"></div>
           <p class="text">
             <ul>
               <li> From 2004 to 2015,the Police budget gradually decreased. 2015 marked a 19.2% decrease from 2004 and 20.6% decrease from 2002. </li>
@@ -305,14 +305,15 @@
   <!-- Load Header Script -->
   <script>
     $(function() {
-      $("#footer").load("footer.html");
-      $("#line-graph").load("d3/line-graph-police.html")
+      $("#footer").load("footer.html")
     });
   </script>
 
   <!-- Sankey -->
   <script src="d3/public-safety-sankey.js"></script>
+
   <!-- LINE CHART -->
+  <script src="d3/public-safety-line-chart.js"></script>
 
 </body>
 

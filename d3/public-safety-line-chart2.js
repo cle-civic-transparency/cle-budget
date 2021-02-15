@@ -19,7 +19,7 @@
     var minDate = new Date();
     var maxDate = new Date();
 
-    d3.csv("d3/data/line-graph-police.csv")
+    d3.csv("d3/data/line-graph-police-officers.csv")
       .row(function(d) {
         return {
           month: parseDate(d.month),
@@ -66,7 +66,7 @@
           })
           .interpolate("cardinal");
 
-        var chart2 = d3.select("#chart2").append("svg").attr("id", "svg").attr("height", "100%").attr("width", "100%");
+        var chart2 = d3.select("#chart4").append("svg").attr("id", "svg").attr("height", "100%").attr("width", "100%");
         var chartGroup = chart2.append("g").attr("class", "chartGroup").attr("transform", "translate(" + xNudge + "," + yNudge + ")");
 
         chartGroup.append("path")
@@ -90,5 +90,5 @@
           .attr("y", 10)
           .attr("yAxis", "1em")
           .attr("transform", "rotate(-90)")
-          .text("Department of Safety Budget (millions of dollars)");
+          .text("# of employees");
       });

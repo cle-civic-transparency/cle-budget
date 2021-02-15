@@ -5,6 +5,14 @@
   --red: #D45769;
   --yellow: #E69D45;
   --white: #D4CFC9;
+
+  --stacked-dark-blue: #0a043c;
+  --stacked-blue: #03506f;
+  --stacked-light-blue: #79a3b1;
+  --stacked-pale-blue: #d0e8f2;
+  --stacked-gray: #bbbbbb;
+  --stacked-pink-white: #ffe3d8;
+  --stacked-white: #f4eeed;
 }
 
 /* GENERAL STYLES */
@@ -146,6 +154,14 @@ u {
 /*********************/
 /* PUBLIC SAFETY  */
 /*********************/
+.visualization-content{
+  padding-left: 5%;
+}
+
+.visualization-content p {
+  font-size: 12px;
+}
+
 /* TIMELINE */
 .history {
   margin-top: 2%;
@@ -166,7 +182,7 @@ u {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: #474e5d;
+  background-color: var(--stacked-light-blue);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -247,11 +263,30 @@ u {
 }
 
 .timeline-content {
-  padding: 20px 30px;
+  padding: 10px 25px;
   background-color: #d3d3d3;
   position: relative;
   border-radius: 6px;
   color: #474e5d;
+}
+
+.timeline-content h3{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.0;
+}
+
+.timeline-content h4{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.0;
+}
+
+.timeline-content p{
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
 }
 
 /* ACCORDION */
@@ -311,7 +346,7 @@ text {
 
 path.line {
   fill: none;
-  stroke: var(--red);
+  stroke: var(--stacked-blue);
   stroke-width: 3px;
 }
 
@@ -323,6 +358,11 @@ path.line {
 }
 
 /* BAR CHART */
+
+/* LINE CHART */
+#chart3 {
+  height: 300px;
+}
 
 path.domain {
   stroke: none;

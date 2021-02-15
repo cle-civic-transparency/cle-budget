@@ -1,7 +1,7 @@
 {
    "nodes" : [
      {
-        "name" : "General fund : $685,651,943",
+        "name" : "General fund :$685,651,943",
         "id" : "animals",
         "number":0
      },
@@ -67,7 +67,7 @@
      },
       {
          "id" : "social",
-         "name" : "Department of Public Safety : $353,797,612",
+         "name" : "Dept. of Public Safety : $353,797,612",
          "number":13
       },
       {

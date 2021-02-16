@@ -151,16 +151,37 @@ u {
   color: var(--white);
 }
 
+.footer {
+  margin-top: 5%;
+}
+
+/* MARGINS */
+.margin-top-xs{
+  margin-top: 1%;
+}
+
+.margin-top-sm{
+  margin-top: 2%;
+}
+
+.margin-top-md{
+  margin-top: 3%;
+}
+
+.margin-top-lg{
+  margin-top: 5%;
+}
+
 /*********************/
 /* PUBLIC SAFETY  */
 /*********************/
-/* .visualization-content{
-  padding-left: 5%;
+.visualization-content{
+  padding-left: 2%;
 }
 
 .visualization-content p {
   font-size: 12px;
-} */
+}
 
 /* TIMELINE */
 .history {
@@ -175,7 +196,6 @@ u {
 .timeline {
   position: relative;
   max-width: 1200px;
-  margin-top: 10%;
 }
 
 .timeline::after {
@@ -315,7 +335,7 @@ h2.accordion-header {
   max-width: 100%;
   margin: auto;
 } */
-#chart {
+#police-chart1, #judicial-chart, #utilities-chart, #infrastructure-chart {
   height: 500px;
   font: 13px sans-serif;
 }
@@ -334,8 +354,9 @@ h2.accordion-header {
 }
 
 /* LINE CHART */
-#chart2 {
+#police-chart2, #police-chart3 {
   height: 300px;
+  width: 600px;
 }
 
 text {

@@ -5,7 +5,7 @@ var colors = {
   'fallback': 'var(--black)'
 };
 d3.json("d3/data/sankey-roads.json", function(error, json) {
-  var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
+  var chart = d3.select("#infrastructure-chart").append("svg").chart("Sankey.Path");
   chart
     .name(label)
     .colorNodes(function(name, node) {

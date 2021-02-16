@@ -10,7 +10,7 @@ var margin = {
 var width = 760 - margin.left - margin.right,
   height = 300 - margin.top - margin.bottom;
 
-var svg = d3.select("#police-chart4")
+var svg = d3.select("#chart2")
   .append("svg")
   .attr("id", "stacked-bar")
   .attr("width", width + margin.left + margin.right)
@@ -23,43 +23,35 @@ var svg = d3.select("#police-chart4")
 
 var data = [{
     year: "2020",
-    police: "206",
-    health: "10",
-    sustainbility: "1",
-    judicial: "10",
-    public_works: "17",
-    utilities:"0",
-    transit:"0"
+    nonrenewable:"1300",
+    hydro:"224",
+    solar:"1.1",
+    wind:"10",
+    quasar:"1"
   },
   {
-    year: "2021",
-    police: "175",
-    health: "20",
-    sustainbility: "2",
-    judicial: "10",
-    public_works: "17",
-    utilities:"20",
-    transit:"0"
+    year: "2022",
+    nonrenewable:"50",
+    hydro:"50",
+    solar:"50",
+    wind:"50",
+    quasar:"50"
   },
   {
-    year: "2023",
-    police: "155",
-    health: "20",
-    sustainbility: "2",
-    judicial: "10",
-    public_works: "17",
-    utilities:"30",
-    transit:"10"
+    year: "2030",
+    nonrenewable:"50",
+    hydro:"50",
+    solar:"50",
+    wind:"50",
+    quasar:"50"
   },
   {
-    year: "2025",
-    police: "103",
-    health: "20",
-    sustainbility: "10",
-    judicial: "20",
-    public_works: "31",
-    utilities:"40",
-    transit:"20"
+    year: "2050",
+    nonrenewable:"50",
+    hydro:"50",
+    solar:"50",
+    wind:"50",
+    quasar:"50"
   }
 ];
 
@@ -67,7 +59,7 @@ var parse = d3.time.format("%Y").parse;
 
 
 // Transpose the data into layers
-var dataset = d3.layout.stack()(["police","utilities","transit", "judicial","health", "public_works" ,"sustainbility"].map(function(fruit) {
+var dataset = d3.layout.stack()(["nonrenewable","hydro","solar", "wind","quasar"].map(function(fruit) {
   return data.map(function(d) {
     return {
       x: parse(d.year),
@@ -92,7 +84,7 @@ var y = d3.scale.linear()
   })])
   .range([height, 0]);
 
-var colorsBar = ["var(--stacked-white)", "var(--stacked-pink-white)", "var(--stacked-gray)", "var(--stacked-pale-blue)","var(--stacked-light-blue)", "var(--stacked-blue)", "var(--stacked-dark-blue)"];
+var colorsBar = ["var(--stacked-gray)", "var(--stacked-pale-blue)","var(--stacked-light-blue)", "var(--stacked-blue)", "var(--stacked-dark-blue)"];
 
 
 // Define and draw axes
@@ -172,18 +164,14 @@ legend.append("text")
   .text(function(d, i) {
     switch (i) {
       case 0:
-        return "Env. Justice: Fund Sustainability Office";
+        return "Biogas";
       case 1:
-        return "Parks: Fund Dept. Public Works";
+        return "Wind";
       case 2:
-        return "Public Health: Fund Dept. of Health";
+        return "Solar";
       case 3:
-      return "Free Pre-trial Services: Fund Courts";
+        return "Hydro";
       case 4:
-        return "Free Transit: Fund RTA";
-      case 5:
-        return "Free Utilities: Fund CPP";
-      case 6:
-        return "Division of Police";
+        return "Non-renewable Sources";
     }
   });

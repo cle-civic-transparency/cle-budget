@@ -5,7 +5,7 @@ var colors = {
   'fallback': 'var(--stacked-gray)'
 };
 d3.json("d3/data/sankey-police.json", function(error, json) {
-  var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
+  var chart = d3.select("#police-chart1").append("svg").chart("Sankey.Path");
   chart
     .name(label)
     .colorNodes(function(name, node) {

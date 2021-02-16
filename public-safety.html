@@ -27,38 +27,7 @@
 <body>
 
   <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg nav-bg">
-    <div class="container-fluid">
-      <div class="navbar-brand">CLE Civic Transparency Project</div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Explore the Budget
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="public-safety.html">Public Safety</a></li>
-              <li><a class="dropdown-item" href="judicial-services.html">Judicial Services</a></li>
-              <li><a class="dropdown-item" href="utilities.html">Utilities</a></li>
-              <li><a class="dropdown-item" href="infrastructure.html">Infrastructure</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <div id="menu-bar"></div>
 
   <!-- Button group -->
   <section class="buttons">
@@ -66,13 +35,7 @@
       <div class="row">
         <div class="col-md-8 mx-auto">
           <h1>How does Cleveland spend Money on <br> <u>PUBLIC SAFETY</u>?</h1>
-          <p class="align-center"><i>Use the four buttons below to switch between the different categories of Cleveland's spending.</i></p>
-          <div class="btn-group" role="group">
-            <a class="btn btn-color" href="public-safety.html"> Public Safety</a>
-            <a class="btn btn-color" href="judicial-services.html"> Judicial Services</a>
-            <a class="btn btn-color" href="utilities.html"> Utilities</a>
-            <a class="btn btn-color" href="infrastructure.html"> Infrastructure</a>
-          </div>
+          <div id="buttons-bar"></div>
         </div>
       </div>
     </div>
@@ -101,7 +64,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-6" id="chart"></div>
+      <div class="col-md-6" id="police-chart1"></div>
       <div class="col-md-2 visualization-content">
         <p>The first column shows all the sources of money for the General Fund. We can see 66% comes from income taxes.
           </br></br>The middle column shows that all money that gets spent on policing goes to The Department of Public Safety and this makes up 56.26% of the General Fund budget. In comparison, the next largest department, not shown, is the Department of Public Works and it only takes up 12.13%.
@@ -114,7 +77,7 @@
         <p> Here are some interesting numbers from the Division of Police budget not captured above:</p>
         <ul>
           <li>The division spends ~20M each year on hospilizations for officers. That's 10% of the Division of Police budget and twice the size of the Department of Health Budget.</li>
-          <li>The city spends ~200,000 each year on ammunitiion, a much smaller amount than we would have guessed.</li>
+          <li>The city spends ~200,000 each year on ammunition, a much smaller amount than we would have guessed.</li>
           <li>The largest expense for the Division of Police department overall are salaries of officers. In 2019, there were 1,336 officers. Each of these officers has a salary of ~$65k.</li>
         </ul>
       </div>
@@ -131,8 +94,8 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-5" id="chart2"></div>
-      <div class="col-md-2 visualization-content">
+      <div class="col-md-8 col-lg-5" id="police-chart2"></div>
+      <div class="col-md-8 col-lg-2 visualization-content">
         <p> 2004: After years of budget deficits, Cleveland city government was finally forced to make budget cuts to the police department. From 2004 to 2015,the Police budget gradually decreased with 2015 marking a 19.2% decrease from 2004.
         </br></br>2016: After Tamir Rice, the Federal Department of Justice issued a consent decree that increased the Department of Safety budget by ~$7.7 M each year.
       </div>
@@ -143,8 +106,8 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-5" id="chart4"></div>
-      <div class="col-md-2 visualization-content">
+      <div class="col-md-8 col-lg-5" id="police-chart3"></div>
+      <div class="col-md-8 col-lg-2 visualization-content">
         <p> 2004: Even thought 2004 faced huge budget cuts, the number of Division of Police employees increased by 38.
         </br></br>2006: More budget cuts, but 55 employees were added.
       </br></br>2017: Even the Federal Department of Justice's consent decree included an employee increase. Between 2016 and 2017, the Division of Police increased by almost 100 employees.
@@ -237,8 +200,6 @@
     </div>
   </section>
 
-
-
   <section class="vision">
     <div class="row">
       <div class="col-md-6 mx-auto">
@@ -250,26 +211,19 @@
           </p>
           <div class="row">
             <div class="col-md-4">
-              <h3>15% decrease</br>by 2022</h3>
+              <h3>15% decrease</br>in 1 year</h3>
             </div>
             <div class="col-md-4">
-              <h3>25% decrease</br>by 2024</h3>
+              <h3>25% decrease</br>in 3 years</h3>
             </div>
             <div class="col-md-4">
-              <h3>50% decrease</br>by 2026</h3>
+              <h3>50% decrease</br>in 5 years</h3>
             </div>
           </div>
           <p> Black Spring Cle's plan also asks to redirect that money to fund other services such as free city-wide wifi, free public transit, free pre-trial services, a tax abatement for public housing and an East Side Trauma Clinic.
             </br> Below we have visualized where those cut funds could be redirects to me those goals.
           </p>
-          <div id="chart3"></div>
-          <!-- <p>In the end the city would be funding RTA</p>
-          <ul>
-            <li>$10M to the Department of Health.</li>
-            <li>$1M to the Office of Sustainability</li>
-            <li>$10M to Judicial Branch (potentially to set up free pre trial services)</li>
-            <li>$10M to the Deparment of Public Works to increase the parks budget</li>
-          </ul> -->
+          <div id="police-chart4"></div>
           <h3>What happens to the Division of Police Budget?</h3>
           <p>A <b>15%</b> decrease to the Division of Police means a cut of <b>~$31M.</b> That's <b>3x</b> the current Department of Health Budget!</p>
           <br>The Division of Police could meet those budget cuts by:
@@ -277,6 +231,41 @@
             <li>Cuting ~467 police officers. That would still leave 869 polices officers in the city.</li>
             <li>Cut the hospitalization cost in half and cut ~318 police officers. That would still leave over 1,000 officers in the city.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="vision-content">
+          <h3>How you can be involved?</h3>
+          <p class="text">
+            Tell your city council member you want to defund the division of police by 15%.
+            </br>Join Black Spring CLE.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sources margin-top-md">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <b>Sources: </b>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul>
+                  <li>First Source</li>
+                  <li>Second Source</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -300,7 +289,13 @@
   <!-- Load Header Script -->
   <script>
     $(function() {
-      $("#footer").load("footer.html")
+      $("#footer").load("components/footer.html")
+    });
+    $(function() {
+      $("#menu-bar").load("components/menu-bar.html")
+    });
+    $(function() {
+      $("#buttons-bar").load("components/button-bar.html")
     });
   </script>
 

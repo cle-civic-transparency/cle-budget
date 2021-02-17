@@ -76,6 +76,10 @@ a {
   margin: 0 0 10px;
 }
 
+.note {
+  font-size: 12px;
+}
+
 u {
   text-decoration-color: var(--yellow);
   text-decoration-thickness: .125em;

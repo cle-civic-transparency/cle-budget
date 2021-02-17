@@ -54,13 +54,20 @@ h3 {
   padding-top: 2%;
 }
 
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 1%;
+}
+
 p {
   font-size: 18px;
   font-family: 'Lato', sans-serif;
 }
 
 a {
-  text-decoration-color: var(--blue);
+  text-decoration-color: var(--yellow);
   text-decoration-thickness: .125em;
   /* text-decoration-style: dashed; */
   text-underline-offset: 1.5px;

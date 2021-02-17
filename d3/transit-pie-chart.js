@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var w = 1000;
+var w = 700;
 var h = 300;
 var r = h/2;
 var labelHeight = 18;
@@ -17,8 +17,13 @@ var data = [
     {"label":"$5.28M: Advertising + Other", "value":1.9, "index":3}
 ];
 
-
-var vis = d3.select('#pie-chart').append("svg:svg").data([data]).attr("width", w).attr("height", h).append("svg:g").attr("transform", "translate(" + r + "," + r + ")");
+var vis = d3.select('#pie-chart')
+.append("svg:svg")
+.data([data])
+.attr("width", w)
+.attr("height", h)
+.append("svg:g")
+.attr("transform", "translate(" + r + "," + r + ")");
 
 var pie = d3.layout.pie().value(function(d){return d.value;});
 
@@ -68,5 +73,5 @@ const legend = vis
     .text(d => d.label)
     .attr('x', labelHeight * 1.2)
     .attr('y', d => labelHeight * d.index * 1.8 + labelHeight)
-    .style('font-family', 'sans-serif')
+    .style('font-family', 'Lato')
     .style('font-size', `${labelHeight}px`);

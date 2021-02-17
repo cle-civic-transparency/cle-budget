@@ -341,9 +341,16 @@ h2.accordion-header {
 
 /* D3 CHARTS */
 /* SANKEY */
+.svg {
+    display: block;
+    margin: auto;
+    width: 700px;
+}
+
+
 #police-chart1, #judicial-chart, #utilities-chart, #infrastructure-chart {
   height: 500px;
-  font: 13px sans-serif;
+  font: 13px 'Lato', sans-serif;
 }
 .node rect {
   fill-opacity: .9;
@@ -360,7 +367,6 @@ h2.accordion-header {
 }
 
 /* LINE CHART */
-
 #police-chart2, #police-chart3 {
   height: 300px;
   width: 700px;
@@ -389,11 +395,6 @@ path.line {
   stroke: slategray;
   shape-rendering: crispEdges;
 }
-
-/* BAR CHART */
-
-/* LINE CHARTS */
-
 
 path.domain {
   stroke: none;

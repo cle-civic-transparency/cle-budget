@@ -61,11 +61,6 @@ h4 {
   padding-top: 1%;
 }
 
-p {
-  font-size: 18px;
-  font-family: 'Lato', sans-serif;
-}
-
 a {
   text-decoration-color: var(--yellow);
   text-decoration-thickness: .125em;
@@ -78,7 +73,7 @@ a {
   text-align: left;
   font-family: 'Lato', sans-serif;
   font-size: 18px;
-  margin: auto 0;
+  margin: 0 0 10px;
 }
 
 u {

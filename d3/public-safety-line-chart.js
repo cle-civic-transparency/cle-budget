@@ -2,12 +2,12 @@
 
     var margin = {
       left: 70,
-      right: 20,
+      right: 0,
       top: 20,
       bottom: 50
     };
 
-    var width = 900 - margin.left - margin.right;
+    var width = 700 - margin.left - margin.right;
     var height = 300 - margin.top - margin.bottom;
 
     var min = 0;
@@ -66,7 +66,7 @@
           })
           .interpolate("cardinal");
 
-        var chart2 = d3.select("#chart2").append("svg").attr("id", "svg").attr("height", "100%").attr("width", "100%");
+        var chart2 = d3.select("#police-chart2").append("svg").attr("id", "svg").attr("height", "100%").attr("width", "100%");
         var chartGroup = chart2.append("g").attr("class", "chartGroup").attr("transform", "translate(" + xNudge + "," + yNudge + ")");
 
         chartGroup.append("path")

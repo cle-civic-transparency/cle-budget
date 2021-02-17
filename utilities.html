@@ -26,40 +26,7 @@
 <body>
 
   <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg nav-bg">
-  <div class="container-fluid">
-    <div class="navbar-brand">CLE Civic Transparency Project</div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Explore the Budget
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="public-safety.html">Public Safety</a></li>
-            <li><a class="dropdown-item" href="judicial-services.html">Judicial Services</a></li>
-            <li><a class="dropdown-item" href="utilities.html">Utilities</a></li>
-            <li><a class="dropdown-item" href="infrastructure.html">Infrastructure</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  <div id="header"></div>
+  <div id="menu-bar"></div>
 
   <!-- Button group -->
   <section class="buttons">
@@ -67,13 +34,7 @@
       <div class="row">
         <div class="col-md-8 mx-auto">
           <h2 class="align-center">How does Cleveland spend Money on <br><u>UTILITIES</u>?</h2>
-          <p class="align-center"><i>Use the four buttons below to switch between the different categories of Cleveland's spending.</i></p>
-          <div class="btn-group" role="group">
-            <a class="btn btn-color" href="public-safety.html"> Public Safety</a>
-            <a class="btn btn-color" href="judicial-services.html"> Judicial Services</a>
-            <a class="btn btn-color" href="utilities.html"> Utilities</a>
-            <a class="btn btn-color" href="infrastructure.html"> Infrastructure</a>
-          </div>
+          <div id="buttons-bar"></div>
         </div>
       </div>
     </div>
@@ -105,7 +66,7 @@
         <div class="visualization-content">
           <h3> Where does the money go?</h3>
         </div>
-        <div id="chart"></div>
+        <div id="utilities-chart"></div>
       </div>
     </div>
   </section>
@@ -118,12 +79,21 @@
             <b>Increased Renewable Energy Utilities:</b>
             <p>Some local outlines for transitioning energy generation can be found in the <a href="https://drive.google.com/file/d/1Z3234sMp7S7MjaXvMgcZtcAaYs4x2oHE/view">Cleveland Climate Action Plan -2018 version</a> and the more recent <a href="https://theoec.org/publications/clevelandenviropolicyplatform/">2021 Cleveland Comprehensive Environmental Policy Platform</a>.
             <br><br>These plans have stated goals of:
-            <ul>
-              <li>15% of electricity is by renewable sources 2022</li>
-              <li>25% of electricity is by renewable sources by 2030</li>
-              <li>100% of electricity is by renewable sources by 2050</li>
-            </ul>
-            <b>Are we still on track to get to 15% by 2022?</b>
+            </p>
+            <div class="row">
+              <div class="col-md-4">
+                <h3>15% renewable</br>by 2022</h3>
+              </div>
+              <div class="col-md-4">
+                <h3>25% renewable</br>by 2030</h3>
+              </div>
+              <div class="col-md-4">
+                <h3>100% renewable</br>by 2050</h3>
+              </div>
+            </div>
+            <div id="chart2"></div>
+            <p>
+            <!-- <b>Are we still on track to get to 15% by 2022?</b>
             <br>According to Cleveland Public Power, the following projects have recently received funding:
             <ul>
               <li>Quasar - Anaerobic digestion</li>
@@ -137,6 +107,7 @@
                 </ul>
             </ul>
             It is unclear how much has been spent on these projects thus far, but a rough calculation shows that combined they have been generating 81.7 MW, which is ~27% of Cleveland's Energy 300 MW usage. This mean Cleveland is on track for it's 25% goal, but does not have more in the pipeline to get us to 100%.
+          -->
             <br><br><b>Utilities Shut-offs:</b>
             </br>The COVID-19 pandemic has placed many households at risk of losing access to basic utilities, compounding an already tenuous financial situation for lower income households. The city said there were 89,470 Cleveland Water customers behind on their utility bills with an average of $481.02 owed. As many as 28,545 Cleveland Public Power customers are behind on their monthly bills with an average amount of $281.39 owed.
           </br><br>Let's run some hypotheticals:
@@ -164,6 +135,39 @@
     </div>
   </section>
 
+  <section class="sources margin-top-md">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <b>Sources: </b>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul>
+                  <li><a href="https://database.aceee.org/city/cleveland-oh">American Council for Energy Efficent Economy Rating Cleveland Climate Plan</a></li>
+                  <li><a href="https://www.cpp.org/index.php/Initiatives/Green-Projects">CPP Green Energy Projects</a></li>
+                  <li><a href="https://www.news5cleveland.com/news/local-news/in-depth/in-depth-delinquent-cleveland-public-power-water-customers-top-100-000-city-says">News 5 - End of halt on utilities</a></li>
+                  <li><a href="https://www.ideastream.org/news/clevelanders-utility-bills-come-due-as-pandemic-worsens-winter-arrives">Clevelander's Utility bills come as pandemic worsens</a></li>
+                  <li><a href="https://www.communitysolutions.com/cleveland-now-poorest-big-city-country/#:~:text=Although%20Cleveland%27s%20overall%20poverty%20rate,is%20a%20high%2Dpoverty%20city">Percent of Cleveland below poverty line</a></li>
+                  <li><a href="https://www.census.gov/quickfacts/clevelandcityohio">Cleveland Census Facts</a></li>
+                  <li><a href="https://www.bls.gov/regions/midwest/news-release/averageenergyprices_cleveland.htm#:~:text=Cleveland%20area%20households%20paid%20an,per%20therm%20a%20year%20earlier">Cost of Utilities</a></li>
+                  <li><a href="https://drive.google.com/file/d/1Z3234sMp7S7MjaXvMgcZtcAaYs4x2oHE/view">Cleveland Climate Action Plan -2018 version</a></li>
+                  <li><a href="https://theoec.org/publications/clevelandenviropolicyplatform/">2021 Cleveland Comprehensive Environmental Policy Platform</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
 
   <div id="footer"></div>
 
@@ -183,13 +187,21 @@
   <!-- Load Header Script -->
   <script>
       $(function(){
-        $("#footer").load("footer.html")
+        $("#footer").load("components/footer.html")
+      });
+      $(function() {
+        $("#menu-bar").load("components/menu-bar.html")
+      });
+      $(function() {
+        $("#buttons-bar").load("components/button-bar.html")
       });
   </script>
 
   <!-- Sankey -->
   <script src="d3/utilities-sankey.js"></script>
 
+  <!-- Stacked Bar Chart -->
+  <script src="d3/utilities-stacked-bar-chart.js"></script>
 
 </body>
 

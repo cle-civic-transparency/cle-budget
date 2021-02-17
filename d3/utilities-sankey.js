@@ -4,7 +4,7 @@ var colors = {
   'animals': 'var(--red)',
 };
 d3.json("d3/data/sankey-energy.json", function(error, json) {
-  var chart = d3.select("#chart").append("svg").chart("Sankey.Path");
+  var chart = d3.select("#utilities-chart").append("svg").chart("Sankey.Path");
   chart
     .name(label)
     .colorNodes(function(name, node) {

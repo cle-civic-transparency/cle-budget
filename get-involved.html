@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Website description goes here" />
+  <meta name="keywords" content="Keywords go here" />
+  <meta name="twitter:image:src" content="#" />
+  <meta property="og:image" content="#" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Visualizing the Cleveland Budget</title>
+
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <div id="menu-bar"></div>
+
+  <section class="header">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h1>Get Involved</h1>
+        <p> There are many ways to get involved!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="header">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <!-- Contact Us -->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <b>Contact Us</b>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body form-container">
+                <form action="action_page.php">
+
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                  <label for="email">Email</label>
+                  <input type="text" id="email" name="email" placeholder="Your email..">
+
+                  <label for="subject">Subject</label>
+                  <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+                  <input type="submit" value="Submit">
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tell your council member-->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                <b>Tell your council member your ideal budget</b>
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body form-container">
+                <a href="https://www.refundcleveland.com/change-the-budget/">
+                  <img width="100%" src="images/refundcle.png">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Join an org-->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <b>Join an organization</b>
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body form-container">
+                <p> Public Safety</p>
+                <ul>
+                  <li><a href="">Black Spring CLE</a></li>
+                  <li><a href="">Black Lives Matter</a></li>
+                </ul>
+                <p> Judicial Services</p>
+                <ul>
+                  <li><a href="https://lasclev.org/">Legal Aid Cleveland</a></li>
+                  <li></li>
+                </ul>
+                <p> Environment/Renewable Energy</p>
+                <ul>
+                  <li><a href="https://www.ohiocitizen.org/">Ohio Citizen Action</a></li>
+                  <li><a href="https://www.clevelandowns.coop/">Cleveland Owns</a></li>
+                  <li><a href="http://be-leaders.org/">Black Environmental Leaders</a></li>
+                  <li><a href="https://theoec.org/">Ohio Environmental Council</a></li>
+                  <li><a href="https://www.ohioconsumerspoweralliance.com/about">Ohio Consumers Power Alliance</a></li>
+                </ul>
+                <p> Free Utilities</p>
+                <ul>
+                  <li><a href="https://lasclev.org/">Legal Aid Cleveland</a></li>
+                  <li></li>
+                </ul>
+                <p> Infrastructure</p>
+                <ul>
+                  <li><a href="https://www.bikecleveland.org/">Bike Cleveland</a></li>
+                </ul>
+                <p> Public Transit</p>
+                <ul>
+                  <li><a href="">Clevelanders for Public Transit</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper/Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+  <!-- D3.js -->
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//cdn.rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+  <script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+  <script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+
+  <!-- Load Header Script -->
+  <script>
+    $(function() {
+      $("#footer").load("components/footer.html")
+    });
+    $(function() {
+      $("#menu-bar").load("components/menu-bar.html")
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,7 +1,7 @@
     var parseDate = d3.time.format("%Y").parse;
 
     var margin = {
-      left: 70,
+      left: 120,
       right: 20,
       top: 20,
       bottom: 50
@@ -13,7 +13,7 @@
     var min = 0;
     var max = 0;
 
-    var xNudge = 50;
+    var xNudge = 60;
     var yNudge = 20;
 
     var minDate = new Date();
@@ -84,11 +84,12 @@
           .attr("class", "axis y")
           .call(yAxis);
 
-        chart2.append("text")
-          .attr("class", "y label")
-          .attr("text-anchor", "end")
-          .attr("y", 10)
-          .attr("yAxis", "1em")
-          .attr("transform", "rotate(-90)")
-          .text("# of employees");
-      });
+          chart2.append("text")
+            .attr("class", "y-label")
+            .attr("text-anchor", "end")
+            .attr("y", 12)
+            .attr("x", -80)
+            .attr("yAxis", "1em")
+            .attr("transform", "rotate(-90)")
+            .text("Number of Employees");
+        });

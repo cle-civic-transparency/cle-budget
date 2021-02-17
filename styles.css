@@ -2,9 +2,13 @@
 :root {
   --black: #2C3336;
   --blue: #308695;
+  --dark-blue: #004d59;
   --red: #D45769;
+  --light-yellow: #e69d4570;
   --yellow: #E69D45;
+  --dark-yellow: #c1843a;
   --white: #D4CFC9;
+
 
   --stacked-dark-blue: #0a043c;
   --stacked-blue: #03506f;
@@ -41,14 +45,13 @@ h2 {
   color: var(--black);
   text-align: left;
   font-weight: bold;
-  /* padding-top: 25px; */
 }
 
 h3 {
   font-family: 'Open Sans', sans-serif;
   font-size: 22px;
   font-weight: bold;
-  padding-top: 6%;
+  padding-top: 2%;
 }
 
 p {
@@ -64,10 +67,16 @@ a {
   color: inherit;
 }
 
+.text {
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  margin: auto 0;
+}
+
 u {
-  text-decoration-color: var(--blue);
+  text-decoration-color: var(--yellow);
   text-decoration-thickness: .125em;
-  /* text-decoration-style: dashed; */
   text-underline-offset: 1.5px;
 }
 
@@ -102,7 +111,7 @@ u {
 }
 
 .btn-color:hover {
-  background-color: #004d59;
+  background-color: var(--dark-blue);
 }
 
 .btn {
@@ -117,17 +126,13 @@ u {
   color: white;
 }
 
-/* TEXT */
-.text {
+/* INTRO */
+.intro-content {
+  padding: 20px;
   text-align: left;
   font-family: 'Lato', sans-serif;
   font-size: 18px;
   margin: auto 0;
-}
-
-/* INTRO */
-.intro-content {
-  padding: 20px;
 }
 
 .align-center {
@@ -175,20 +180,13 @@ u {
 /*********************/
 /* PUBLIC SAFETY  */
 /*********************/
-.visualization-content{
-  padding-left: 2%;
-}
-
-.visualization-content p {
-  font-size: 15px;
-}
+.year {
+  color: var(--red);
+  font-weight: bold;
+  font-size: 20px;
+  }
 
 /* TIMELINE */
-.history {
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -314,27 +312,28 @@ u {
   padding-bottom: 30px;
 }
 
+.accordion-body p {
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  margin: auto 0;
+}
+
 h2.accordion-header {
   font-size: 24px;
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--blue);
-  background-color: #3086952e;
+  color: var(--black);
+  background-color: var(--light-yellow);
 }
 
 .accordion-button:focus {
-  color: var(--blue)
+  color: var(--black);
 }
 
 /* D3 CHARTS */
 /* SANKEY */
-/* body {
-  padding: 10px;
-  min-width: 600px;
-  max-width: 100%;
-  margin: auto;
-} */
 #police-chart1, #judicial-chart, #utilities-chart, #infrastructure-chart {
   height: 500px;
   font: 13px sans-serif;
@@ -354,20 +353,26 @@ h2.accordion-header {
 }
 
 /* LINE CHART */
+
 #police-chart2, #police-chart3 {
   height: 300px;
   width: 700px;
 }
 
+.y-label {
+  font-size: 14px;
+}
+
+
 text {
   font-family: 'Lato', sans-serif;
-  font-size: 12px;
+  font-size: 11.5px;
 }
 
 
 path.line {
   fill: none;
-  stroke: var(--stacked-blue);
+  stroke: var(--red);
   stroke-width: 3px;
 }
 
@@ -380,10 +385,8 @@ path.line {
 
 /* BAR CHART */
 
-/* LINE CHART */
-#chart3 {
-  height: 300px;
-}
+/* LINE CHARTS */
+
 
 path.domain {
   stroke: none;

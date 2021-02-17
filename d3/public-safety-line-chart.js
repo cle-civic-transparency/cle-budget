@@ -13,7 +13,7 @@
     var min = 0;
     var max = 0;
 
-    var xNudge = 50;
+    var xNudge = 60;
     var yNudge = 20;
 
     var minDate = new Date();
@@ -85,10 +85,11 @@
           .call(yAxis);
 
         chart2.append("text")
-          .attr("class", "y label")
-          .attr("text-anchor", "end")
-          .attr("y", 10)
+          .attr("class", "y-label")
+          .attr("text-anchor", "center")
+          .attr("y", 12)
+          .attr("x", -265)
           .attr("yAxis", "1em")
           .attr("transform", "rotate(-90)")
-          .text("Department of Safety Budget (millions of dollars)");
+          .text("Department of Safety Budget (millions)");
       });

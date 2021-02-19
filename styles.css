@@ -8,6 +8,7 @@
   --yellow: #E69D45;
   --dark-yellow: #c1843a;
   --white: #D4CFC9;
+  --lightgray: #efefef;
 
 
   --stacked-dark-blue: #0a043c;
@@ -405,8 +406,43 @@ path.domain {
 }
 
 /*********************/
+/* UTILITIES */
+/*********************/
+.horizontal {
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.horizontal-text {
+  padding-bottom: 1%;
+}
+
+.card-body {
+}
+
+.card {
+  background-color: var(--lightgray);
+}
+
+.card-text {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.card-subtext {
+  margin-top: -2%;
+  font-size: 18px;
+}
+
+
+/*********************/
 /* MEDIA QUERIES */
 /*********************/
+@media screen and (max-width: 575px) {
+  .card {
+    margin-bottom: 4%;
+  }
+}
 @media screen and (max-width: 600px) {
   .timeline::after {
     left: 31px;

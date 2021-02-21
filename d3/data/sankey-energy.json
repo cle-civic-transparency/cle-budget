@@ -16,62 +16,62 @@
         "number": 2
      },
      {
-        "name" : "Water : $330,916,318",
+        "name" : "2020 Water : $330,916,318",
         "id" : "environment",
         "number": 3
      },
      {
-        "name" : "Cleveland Public Power : $206,037,051",
+        "name" : "2020 Cleveland Public Power : $206,037,051",
         "id" : "environment",
         "number": 4
      },
      {
-        "name" : "Water Pollution Control : $29,232,917",
+        "name" : "2020 Water Pollution Control : $29,232,917",
         "id" : "environment",
         "number": 5
      },
      {
-        "name" : "Fiscal Control : $7,300,586",
+        "name" : "2020 Fiscal Control : $7,300,586",
         "id" : "environment",
         "number": 6
      },
      {
-        "name" : "Utilities Admin : $6,488,211",
+        "name" : "2020 Utilities Admin : $6,488,211",
         "id" : "environment",
         "number": 7
      },
      {
-        "name" : "Fee - Water : $330,939,381",
+        "name" : "2019 Fee - Water : $330,939,381",
         "id" : "environment",
         "number": 8
      },
      {
-        "name" : "Fee - Cleveland Public Power : $209,564,532",
+        "name" : "2019 Fee - Cleveland Public Power : $209,564,532",
         "id" : "environment",
         "number": 9
      },
      {
-        "name" : "Fee - Water Pollution Control : $32,699,000",
+        "name" : "2019 Fee - Water Pollution Control : $32,699,000",
         "id" : "environment",
         "number": 10
      },
      {
-        "name" : "Fee - Fiscal Control : $7,232,424",
+        "name" : "2019 Fee - Fiscal Control : $7,232,424",
         "id" : "environment",
         "number": 11
      },
      {
-        "name" : "Fee - Utilities Admin : $6,570,040",
+        "name" : "2019 Fee - Utilities Admin : $6,570,040",
         "id" : "environment",
         "number": 12
      },
      {
         "id" : "social",
-        "name" : "Airport : $165,421,443",
+        "name" : "2020 Airport : $165,421,443",
         "number": 13
      },
      {
-        "name" : "Fee - Airport : $165,398,867",
+        "name" : "2019 Fee - Airport : $165,398,867",
         "id" : "social",
         "number": 14
      }

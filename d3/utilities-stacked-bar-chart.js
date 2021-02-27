@@ -28,30 +28,6 @@ var data = [{
     solar:"1.1",
     wind:"10",
     quasar:"1"
-  },
-  {
-    year: "2022",
-    nonrenewable:"50",
-    hydro:"50",
-    solar:"50",
-    wind:"50",
-    quasar:"50"
-  },
-  {
-    year: "2030",
-    nonrenewable:"50",
-    hydro:"50",
-    solar:"50",
-    wind:"50",
-    quasar:"50"
-  },
-  {
-    year: "2050",
-    nonrenewable:"50",
-    hydro:"50",
-    solar:"50",
-    wind:"50",
-    quasar:"50"
   }
 ];
 

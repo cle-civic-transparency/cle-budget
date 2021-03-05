@@ -126,7 +126,6 @@ u {
   font-weight: bold;
   color: white;
   border-radius: 0 !important;
-
 }
 
 .btn:hover {
@@ -154,6 +153,33 @@ u {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+
+/* ICONS */
+.icons-container {
+  text-align: center;
+}
+
+.icons-container .icon {
+  display: inline-block;
+  margin: 20px 20px;
+}
+
+.icon img {
+  height: 100px;
+}
+
+.caption {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+.icon-attribution {
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  margin: 0 0 10px;
 }
 
 /* FOOTNOTES */

@@ -257,6 +257,21 @@ color: inherit;
   font-size: 20px;
 }
 
+/* PROGRESS BARS */
+.progress {
+  margin-top: 10px;
+}
+
+.progress-text {
+  font-family: 'Lato', sans-serif;
+  padding-left: 5px;
+  padding-top: 2.5px;
+}
+
+.bg-progress {
+  background-color: var(--red)
+}
+
 /* TIMELINE */
 * {
   box-sizing: border-box;

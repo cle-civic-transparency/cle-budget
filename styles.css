@@ -126,7 +126,6 @@ u {
   font-weight: bold;
   color: white;
   border-radius: 0 !important;
-
 }
 
 .btn:hover {
@@ -156,6 +155,33 @@ u {
   width: 100%;
 }
 
+/* ICONS */
+.icons-container {
+  text-align: center;
+}
+
+.icons-container .icon {
+  display: inline-block;
+  margin: 10px 12px;
+}
+
+.icon img {
+  height: 100px;
+}
+
+.caption {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+.icon-attribution {
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  margin: 0 0 10px;
+}
+
 /* FOOTNOTES */
 .footnotes {
   margin-top: 50px;
@@ -166,83 +192,30 @@ u {
   padding-left: 20px;
 }
 
-/**
- * Initialiazing a `footnotes` counter on the wrapper
- */
-article {
-  counter-reset: footnotes;
-}
-
-/**
- * Inline footnotes references
- * 1. Increment the counter at each new reference
- * 2. Reset link styles to make it appear like regular text
- */
-[aria-describedby="footnote-label"] {
-  counter-increment: footnotes;
-  /* 1 */
-  text-decoration: none;
-  /* 2 */
-  color: inherit;
-  /* 2 */
-  cursor: default;
-  /* 2 */
-  outline: none;
-  /* 2 */
-}
-
-/**
- * Actual numbered references
- * 1. Display the current state of the counter (e.g. `[1]`)
- * 2. Align text as superscript
- * 3. Make the number smaller (since it's superscript)
- * 4. Slightly offset the number from the text
- * 5. Reset link styles on the number to show it's usable
- */
-[aria-describedby="footnote-label"]::after {
-  content: '['counter(footnotes) ']';
-  /* 1 */
-  vertical-align: super;
-  /* 2 */
-  font-size: 0.5em;
-  /* 3 */
-  margin-left: 2px;
-  /* 4 */
+sup {
   color: var(--blue);
-  /* 5 */
-  text-decoration: underline;
-  /* 5 */
-  cursor: pointer;
-  /* 5 */
 }
 
-/**
- * Resetting the default focused styles on the number
- */
-[aria-describedby="footnote-label"]:focus::after {
-  outline: thin dotted;
-  outline-offset: 2px;
+sup a {
+text-decoration-color: var(--blue);
+text-decoration-thickness: .125em;
+text-underline-offset: 1.5px;
+color: inherit;
 }
 
-[aria-label="Back to content"] {
-  font-size: 0.8em;
+#footnote a {
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+  color: inherit;}
+
+#footnote a:hover {
+  color: var(--dark-blue);
 }
 
-/**
- * Highlight target note
- */
-footer :target {
-  background: yellow;
-}
+#footnote-url {
+  text-decoration: none;
 
-/**
- * Visually hidden yet accessible content
- */
-.visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  visibility: hidden;
-  opacity: 0;
 }
 
 /* FOOTER */
@@ -282,6 +255,21 @@ footer :target {
   color: var(--red);
   font-weight: bold;
   font-size: 20px;
+}
+
+/* PROGRESS BARS */
+.progress {
+  margin-top: 10px;
+}
+
+.progress-text {
+  font-family: 'Lato', sans-serif;
+  padding-left: 5px;
+  padding-top: 2.5px;
+}
+
+.bg-progress {
+  background-color: var(--red)
 }
 
 /* TIMELINE */

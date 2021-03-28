@@ -36,7 +36,6 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
 body {
   margin: 0px;
   padding: 0px !important;
@@ -436,6 +435,11 @@ h2.accordion-header {
 .accordion-button.police-color:not(.collapsed) {
   color: #fff;
   background-color: var(--blue);
+}
+
+.accordion-button.judicial-color:not(.collapsed) {
+  color: #fff;
+  background-color: var(--red);
 }
 
 .accordion-button:focus {

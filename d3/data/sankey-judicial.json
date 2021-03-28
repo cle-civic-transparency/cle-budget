@@ -2,7 +2,7 @@
    "nodes" : [
      {
         "name" : "General fund : $685,651,943",
-        "id" : "animals",
+        "id" : "id1",
         "number":0
      },
      {
@@ -67,17 +67,17 @@
      },
      {
         "name" : "Cleveland Municipal Court - Judges Division : $22,532,563",
-        "id" : "social",
+        "id" : "id2",
         "number":13
      },
      {
         "name" : "Cleveland Municipal Court - Clerk's Division : $11,705,770",
-        "id" : "social",
+        "id" : "id2",
         "number":14
      },
      {
         "name" : "Cleveland Municipal Court - Housing Division : $4,496,048",
-        "id" : "social",
+        "id" : "id2",
         "number":15
      }
    ],

@@ -3,7 +3,7 @@
   /* POLICE */
   --dark-blue: #002c39;
   --blue: #025967;
-  --medium-blue #338897;
+  --medium-blue: #338897;
   --light-blue: #69b9c9;
   --very-light-blue: #9dedfd;
   /* JUDICIAL */
@@ -26,7 +26,8 @@
   --very-light-yellow: #ffd076;
   /* OTHER */
   --black: #2C3336;
-  --lightgray: #efefef;
+  --dark-gray: #575e62;
+  --light-gray: #b7bfc3;
   --white: #D4CFC9;
 }
 
@@ -74,11 +75,13 @@ h4 {
 }
 
 a {
-  text-decoration-color: var(--yellow);
   text-decoration-thickness: .125em;
-  /* text-decoration-style: dashed; */
   text-underline-offset: 1.5px;
   color: inherit;
+}
+
+a:hover {
+  color: var(--light-gray);
 }
 
 .text {
@@ -92,8 +95,14 @@ a {
   font-size: 12px;
 }
 
-u {
-  text-decoration-color: var(--yellow);
+.public-safety-u {
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+}
+
+.judicial-services-u {
+  text-decoration-color: var(--red);
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
 }
@@ -126,11 +135,11 @@ u {
 }
 
 .btn-color {
-  background-color: var(--blue);
+  background-color: var(--black);
 }
 
 .btn-color:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--light-gray);
 }
 
 .btn {
@@ -205,25 +214,25 @@ u {
 }
 
 sup {
-  color: var(--blue);
+  color: var(--black);
 }
 
 sup a {
-  text-decoration-color: var(--blue);
+  text-decoration-color: var(--black);
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
   color: inherit;
 }
 
 #footnote a {
-  text-decoration-color: var(--blue);
+  text-decoration-color: var(--black);
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
   color: inherit;
 }
 
 #footnote a:hover {
-  color: var(--dark-blue);
+  color: var(--black);
 }
 
 #footnote-url {
@@ -264,7 +273,7 @@ sup a {
 /* PUBLIC SAFETY  */
 /*********************/
 .year {
-  color: var(--red);
+  color: var(--blue);
   font-weight: bold;
   font-size: 20px;
 }
@@ -280,6 +289,9 @@ sup a {
   padding-top: 2.5px;
 }
 
+.bg-progress-police {
+  background-color: var(--blue)
+}
 .bg-progress {
   background-color: var(--red)
 }
@@ -421,9 +433,9 @@ h2.accordion-header {
   font-size: 24px;
 }
 
-.accordion-button:not(.collapsed) {
-  color: var(--black);
-  background-color: var(--light-yellow);
+.accordion-button.police-color:not(.collapsed) {
+  color: #fff;
+  background-color: var(--blue);
 }
 
 .accordion-button:focus {
@@ -476,7 +488,7 @@ text {
 
 path.line {
   fill: none;
-  stroke: var(--red);
+  stroke: var(--light-blue);
   stroke-width: 3px;
 }
 
@@ -507,14 +519,12 @@ path.domain {
   padding-bottom: 1%;
 }
 
-.card-body {}
-
 .card {
   background-color: var(--lightgray);
 }
 
 .card-text {
-  color: var(--red);
+  color: var(--medium-blue);
   font-weight: bold;
 }
 

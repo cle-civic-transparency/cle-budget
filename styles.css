@@ -1,21 +1,33 @@
 /* COLORS */
 :root {
+  /* POLICE */
+  --dark-blue: #002c39;
+  --blue: #025967;
+  --medium-blue #338897;
+  --light-blue: #69b9c9;
+  --very-light-blue: #9dedfd;
+  /* JUDICIAL */
+  --dark-red: #660016;
+  --red: #9d233e;
+  --medium-red: #cd5063;
+  --light-red: #f6808f;
+  --very-light-red: #ffbecb;
+  /* UTILITIES */
+  --dark-green: #001b04;
+  --green: #034434;
+  --medium-green: #20725f;
+  --light-green: #53a08c;
+  --very-light-green: #84d2bc;
+  /* INFRASTRUCTURE */
+  --dark-yellow: #491500;
+  --yellow: #773f00;
+  --medium-yellow: #aa6a10;
+  --light-yellow: #df973f;
+  --very-light-yellow: #ffd076;
+  /* OTHER */
   --black: #2C3336;
-  --blue: #308695;
-  --dark-blue: #004d59;
-  --red: #D45769;
-  --light-yellow: #e69d4570;
-  --yellow: #E69D45;
-  --dark-yellow: #c1843a;
-  --white: #D4CFC9;
   --lightgray: #efefef;
-  --stacked-dark-blue: #0a043c;
-  --stacked-blue: #03506f;
-  --stacked-light-blue: #79a3b1;
-  --stacked-pale-blue: #d0e8f2;
-  --stacked-gray: #bbbbbb;
-  --stacked-pink-white: #ffe3d8;
-  --stacked-white: #f4eeed;
+  --white: #D4CFC9;
 }
 
 /* GENERAL STYLES */
@@ -197,17 +209,18 @@ sup {
 }
 
 sup a {
-text-decoration-color: var(--blue);
-text-decoration-thickness: .125em;
-text-underline-offset: 1.5px;
-color: inherit;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+  color: inherit;
 }
 
 #footnote a {
   text-decoration-color: var(--blue);
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
-  color: inherit;}
+  color: inherit;
+}
 
 #footnote a:hover {
   color: var(--dark-blue);
@@ -215,7 +228,6 @@ color: inherit;
 
 #footnote-url {
   text-decoration: none;
-
 }
 
 /* FOOTER */

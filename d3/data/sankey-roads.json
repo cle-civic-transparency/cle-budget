@@ -1,37 +1,37 @@
 {
   "nodes": [{
       "name": "Small Enterprise fund",
-      "id": "animals",
+      "id": "id3",
       "number": 0
     },
     {
       "name": "Special Revenue fund",
-      "id": "environment",
+      "id": "id1",
       "number": 1
     },
     {
       "name": "Municipal parking facilities : $10,610,757",
-      "id": "social",
+      "id": "id2",
       "number": 2
     },
     {
       "name": "Public Auditorium : $2,921,089",
-      "id": "social",
+      "id": "id2",
       "number": 3
     },
     {
       "name": "West Side Market : $1,655,523",
-      "id": "social",
+      "id": "id2",
       "number": 4
     },
     {
       "name": "Cemeteries : $1,768,506",
-      "id": "social",
+      "id": "id2",
       "number": 5
     },
     {
       "name": "Golf courses : $1,395,670",
-      "id": "social",
+      "id": "id2",
       "number": 6
     },
     {
@@ -61,22 +61,22 @@
     },
     {
       "name": "Restricted Income Tax Fund : $53,878,638",
-      "id": "environment",
+      "id": "id1",
       "number": 12
     },
     {
       "name": "Street Construction : $35,747,708 ",
-      "id": "environment",
+      "id": "id1",
       "number": 13
     },
     {
       "name": "Cleveland Stadium : $13,802,332",
-      "id": "environment",
+      "id": "id1",
       "number": 14
     },
     {
       "name": "School Activies : $1,125,000",
-      "id": "environment",
+      "id": "id1",
       "note": "Sum of Rainy Day Reserve Fund, school activities $5,630,026 +1,125,000",
       "number": 15
     },
@@ -103,7 +103,7 @@
     },
     {
       "name": "Rainy Day Fund : $37,073,185",
-      "id": "environment",
+      "id": "id1",
       "number": 20
     },
     {

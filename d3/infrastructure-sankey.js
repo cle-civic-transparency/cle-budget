@@ -1,8 +1,8 @@
 var colors = {
-  'environment': 'var(--yellow)',
-  'social': 'var(--blue)',
-  'animals': 'var(--red)',
-  'fallback': 'var(--black)'
+  'id1': 'var(--dark-yellow)',
+  'id2': 'var(--yellow)',
+  'id3': 'var(--light-yellow)',
+  'fallback': 'var(--light-gray)'
 };
 d3.json("d3/data/sankey-roads.json", function(error, json) {
   var chart = d3.select("#infrastructure-chart").append("svg").chart("Sankey.Path");

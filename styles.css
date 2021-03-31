@@ -135,6 +135,26 @@ a:hover {
   color: var(--red);
 }
 
+a.public-safety-btn:hover {
+  background-color: var(--blue);
+  color: white;
+}
+
+a.judicial-services-btn:hover {
+  background-color: var(--red);
+  color: white;
+}
+
+a.utilities-btn:hover {
+  background-color: var(--green);
+  color: white;
+}
+
+a.infrastructure-btn:hover {
+  background-color: var(--yellow);
+  color: white;
+}
+
 .nav-link {
   color: var(--white);
   font-size: 20px;

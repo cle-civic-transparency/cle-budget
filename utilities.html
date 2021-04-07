@@ -2,14 +2,30 @@
 <html lang="en">
 
 <head>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <!-- Google analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZMLVHFKM9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GZMLVHFKM9');
+  </script>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Website description goes here" />
-  <meta name="keywords" content="Keywords go here" />
-  <meta name="twitter:image:src" content="#" />
-  <meta property="og:image" content="#" />
-
+  <meta name="description" content="A civic accountability project by a small group of Cleveland residents who want to use the budget to hold our politicians accountable to their past promises." />
+  <meta name="keywords" content="cleveland ohio city budget civic accountability utilities water sewer aiport electricity" />
+  <meta name="twitter:image:src" content="https://github.com/cle-civic-transparency/cle-budget/blob/master/images/preview-img.jpg?raw=true" />
+  <meta property="og:image" content="https://github.com/cle-civic-transparency/cle-budget/blob/master/images/preview-img.jpg?raw=true" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -22,7 +38,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <title>Visualizing the Cleveland Budget</title>
+  <title>Exploring the Budget | Utilities</title>
 
 </head>
 
@@ -36,7 +52,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="align-center">How does Cleveland spend Money on <br><u>UTILITIES</u>?</h2>
+          <h2 class="align-center">How does Cleveland spend Money on <br><u class="utilities-u">UTILITIES</u>?</h2>
           <div id="buttons-bar"></div>
         </div>
       </div>
@@ -47,9 +63,9 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="funds-content">
-          <h3>Where does the money come from?</h3>
-          <p class="text">Money for utilities comes from the Major Enterprise Fund. The Major Enterprise Fund pays for the city's public utilities which includes: <sup><a href="#footnote-1"
-                id="ref-footnote-1">[1]</a></sup></li></p>
+          <h3 class="margin-top-md">Where does the money come from?</h3>
+          <p class="text">Money for utilities comes from the Major Enterprise Fund. The Major Enterprise Fund pays for the city's public utilities which include: <sup><a href="#footnote-1" id="ref-footnote-1">[1]</a></sup></li>
+          </p>
           <div class="icons-container">
             <div class="icon">
               <img src="images/icons/water.svg" alt="icon of water droplets" />
@@ -79,44 +95,48 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="visualization-content">
-          <h3> Where does the money go?</h3>
+          <h3 class="margin-top-md">Where does the money go?</h3>
         </div>
         <div id="utilities-chart"></div>
         <!-- Sankey Explanation -->
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="accordion-button utilities-color" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <b>Need help understanding the graph?</b>
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p class="text">Unlike other funds that are paid for through tax dollars, the services in the Major Enterprise fund are mostly paid for by user fees.
+                <p class="text">Unlike other funds that are paid for through tax dollars, the services in the Major Enterprise Fund are mostly paid for by user fees.
                 </p>
-                <p class="text margin-top-lg"></br> It is for that reason that this graph looks more symmetrical than the Department of Safety's. Each department here largely pays for itself. The revenue made from fees charged the previous year pay for
+                <p class="text"> It is for that reason that this graph looks more symmetrical than the Department of Safety's. Each department here largely pays for itself. The revenue made from fees charged the previous year pay
+                  for
                   the expenditures of the current year.
                 </p>
-                <p class="text margin-top-lg"></br>What you should look for is when the number in the left column is lower than the number in the right column. This means that department is spending more money than it raised. When this happens, money is
+                <p class="text">What you should look for is when the number in the left column is lower than the number in the right column. This means that department is spending more money than it raised. When this happens, money
+                  is
                   transferred from the General Fund to cover the difference.
                 </p>
-                <p class="text margin-top-lg"></br>In 2019, only the Utilities Fiscal Control spent more than it made.
-                <b></br></br>Glossary</b>
+                <p class="text">In 2019, only the Utilities Fiscal Control spent more than it made.
+                  <h4>Glossary</h4>
                 </p>
-                <ul class="text">
-                  <li><b>Water:</b> To provide a reliable supply of high quality water and customer services to promote public health and safety, economy, and quality of life of Greater Cleveland. <sup><a href="#footnote-2"
+                <p class="text">
+                <ul>
+                  <li><b>Water:</b> To provide a reliable supply of high-quality water and customer services to promote public health and safety, economy and quality of life of Greater Cleveland. <sup><a href="#footnote-2"
                         id="ref-footnote-2">[2]</a></sup></li>
-                  <li><b>Cleveland Public Power:</b> The Division of Water Pollution Control manages the sanitary sewage, stormwater drainage, and combined collections systems in the City of Cleveland. <sup><a href="#footnote-3"
+                  <li><b>Cleveland Public Power:</b> The Division of Water Pollution Control manages the sanitary sewage, stormwater drainage and combined collections systems in the City of Cleveland. <sup><a href="#footnote-3"
                         id="ref-footnote-3">[3]</a></sup></a></li>
-                  <li><b>Water Pollution Control:</b> The Division of Water Pollution Control manages the sanitary sewage, stormwater drainage, and combined collections systems in the City of Cleveland. <sup><a href="#footnote-4"
+                  <li><b>Water Pollution Control:</b> The Division of Water Pollution Control manages the sanitary sewage, stormwater drainage and combined collections systems in the City of Cleveland. <sup><a href="#footnote-4"
                         id="ref-footnote-4">[4]</a></sup></a></li>
                   <li><b>Fiscal Control:</b> To provide professional financial management services and protect the fiscal integrity of funds and assets for all divisions of the City of Cleveland, Department of Public Utilities. <sup><a
                         href="#footnote-5" id="ref-footnote-5">[5]</a></sup></li>
-                  <li><b>Utilities Administration:</b> The Division of Utilities Administration is specifically designed to have administrative charge, control, and supervision over the Divisions of Utilities Fiscal Control, Water, Water Pollution
+                  <li><b>Utilities Administration:</b> The Division of Utilities Administration is specifically designed to have administrative charge, control and supervision over the Divisions of Utilities Fiscal Control, Water, Water Pollution
                     Control, Cleveland Public Power and the Office of Radio Communications. <sup><a href="#footnote-6" id="ref-footnote-6">[6]</a></sup></li>
-                  <li><b>Airport:</b> The Department of Port Control is responsible for the administration and control of all activities at Cleveland Hopkins International and Burke Lakefront Airports as well as the use of City owned land along Lake
+                  <li><b>Airport:</b> The Department of Port Control is responsible for the administration and control of all activities at Cleveland Hopkins International and Burke Lakefront Airports as well as the use of city-owned land along Lake
                     Erie and the Cuyahoga River. <sup><a href="#footnote-7" id="ref-footnote-7">[7]</a></sup></li>
                 </ul>
+              </p>
               </div>
             </div>
           </div>
@@ -129,7 +149,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="vision-content">
-          <h3>What reforms are being asked for?</h3>
+          <h3 class="margin-top-md">What reforms are being asked for?</h3>
           <p class="text"><b>Increased Renewable Energy Utilities:</b></p>
           <p class="text">Some local outlines for transitioning energy generation can be found in the <a href="https://drive.google.com/file/d/1Z3234sMp7S7MjaXvMgcZtcAaYs4x2oHE/view" target="_blank">2018 Cleveland Climate Action Plan</a> and the more
             recent <a href="https://theoec.org/publications/clevelandenviropolicyplatform/" target="_blank">2021 Cleveland Comprehensive Environmental Policy Platform</a>.
@@ -147,24 +167,25 @@
               <h3>100% renewable</br>by 2050</h3>
             </div>
           </div>
-          <p class="text"> Are we on track to hit 15% by 2022? Here is a energy source breakdown for CPP from 2018.</p>
+          <p class="text"> Are we on track to hit 15% by 2022? An energy source breakdown for CPP from 2018:</p>
           <div id="chart2"></div>
-          <p class="text"><i class="note">* Numbers only go to 2018 because that is the latest publically available data we could find.</i> <sup><a href="#footnote-8" id="ref-footnote-8">[8]</a></sup></p>
-          <p class="text"><i class="note">*REC stands for renewable energy credits. This is when the city pays for renewable energy from another location that Cleveland cannot use itself. It is often seen as a way to subsidize renewable energy but can be controversial.</i></p>
-          <p class="text margin-top-lg"><b>Utilities as a Basic Right:</b></p>
+          <p class="text"><i class="note">* Numbers only go to 2018 because that is the latest publicly available data we could find.</i> <sup><a href="#footnote-8" id="ref-footnote-8">[8]</a></sup></p>
+          <p class="text"><i class="note">*REC stands for renewable energy credits. This is when the city pays for renewable energy from another location that Cleveland cannot use itself. It is often seen as a way to subsidize renewable energy but
+              can be controversial.</i></p>
+          <p class="text margin-top-md"><b style="color:var(--medium-green);">Utilities as a basic right:</b></p>
           <p class="text">
-            The COVID-19 pandemic has placed many households at risk of losing access to basic utilities, compounding an already tenuous financial situation for lower income households.
+            The COVID-19 pandemic has placed many households at risk of losing access to basic utilities, compounding an already tenuous financial situation for lower-income households.
           </p>
           <div class="row">
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title align-center">Water Utilities</h3>
-                  <h4 class="card-text align-center">89,470 PEOPLE</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">89,470 CLEVELANDERS</h4>
                   <p class="card-subtext align-center">are behind on their bills</p>
-                  <h4 class="card-text align-center">$481.02</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">$481.02</h4>
                   <p class="card-subtext align-center">is the average amount they are behind</p>
-                  <h4 class="card-text align-center">$43 MILLION</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">$43 MILLION</h4>
                   <p class="card-subtext align-center">is what it would cost the City of Cleveland to pay this debt in full</p>
                 </div>
               </div>
@@ -173,11 +194,11 @@
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title align-center">Energy Utilities</h3>
-                  <h4 class="card-text align-center">28,545 PEOPLE</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">28,545 PEOPLE</h4>
                   <p class="card-subtext align-center">are behind on their bills</p>
-                  <h4 class="card-text align-center">$281.39</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">$281.39</h4>
                   <p class="card-subtext align-center">is the average amount they are behind</p>
-                  <h4 class="card-text align-center">$8 MILLION</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">$8 MILLION</h4>
                   <p class="card-subtext align-center">is what it would cost the City of Cleveland to pay this debt in full</p>
                 </div>
               </div>
@@ -185,7 +206,7 @@
             <div class="col-sm-12">
               <div class="card horizontal">
                 <div class="card-body">
-                  <h4 class="card-text align-center horizontal-text">$51 MILLION</h4>
+                  <h4 class="card-text align-center horizontal-text" style="color:var(--medium-green);">$51 MILLION</h4>
                   <p class="card-subtext align-center">is what it would cost the City of Cleveland to pay this debt in full
                     <sup><a href="#footnote-9" id="ref-footnote-9">[9]</a></sup>
                     <sup><a href="#footnote-10" id="ref-footnote-10">[10]</a></sup>
@@ -193,32 +214,33 @@
                 </div>
               </div>
             </div>
-            <p class="text margin-top-lg">
-              However, the cost of the utilities was an issue even before COVID, especially for the 30% of Cleveland's population who lives below the poverty line.
+            <p class="text margin-top-md">
+              The cost of the utilities was an issue even before COVID, especially for the 30% of Cleveland's population who live below the poverty line.
             </p>
             <p class="text">Let's run some hypotheticals:</p>
             <div class="col-sm-12">
               <div class="card horizontal">
                 <div class="card-body">
-                  <h4 class="card-text align-center">114,000 households</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">114,000 households</h4>
                   <p class="card-subtext align-center">are living below the poverty line in Cleveland.</p>
-                  <h4 class="card-text align-center">$700</h4>
+                  <h4 class="card-text align-center" style="color:var(--medium-green);">$700</h4>
                   <p class="card-subtext align-center">per household would cover most of the average water and energy costs.</p>
-                  <h4 class="card-text align-center horizontal-text"><u>$79.8 MILLION</u></h4>
+                  <h4 class="card-text align-center horizontal-text" style="color:var(--medium-green);"><u>$79.8 MILLION</u></h4>
                   <p class="card-subtext align-center">per year is what it would cost to cover those bills.
                     <sup><a href="#footnote-11" id="ref-footnote-11">[11]</a></sup>
                     <sup><a href="#footnote-12" id="ref-footnote-12">[12]</a></sup>
                     <sup><a href="#footnote-13" id="ref-footnote-13">[13]</a></sup>
                     <sup><a href="#footnote-14" id="ref-footnote-14">[14]</a></sup>
                   </p>
-                  <p class="card-subtext align-center">That's <b>20%</b> the Department of Public Safety budget in 2020.</p>
+                  <p class="card-subtext align-center">That's <b>20%</b> of the Department of Public Safety budget in 2020.</p>
                 </div>
               </div>
             </div>
           </div>
-          <p class="text margin-top-lg"><b>Clean Water Infrastructure:</b></p>
-          <p class="text">Since utilities also include water, we also want to highlight the Cleveland Action Plans water goals. The city has set a goal of having the Cuyahoga River delisted as an area of concern by 2025.</p>
-          <p class="text">Some of the most aggressive infrastructure projects comprise NEORSD’s Project Clean Lake which aims to capture and treat 98% of all stormwater. This project represents a $3 billion investment over the course of 25 years, with a planned completion in 2036.</p>
+          <p class="text margin-top-md"><b style="color:var(--medium-green);">Clean Water Infrastructure:</b></p>
+          <p class="text">Since utilities also include water, we also want to highlight the Cleveland Action Plan's water goals. The city has set a goal of having the Cuyahoga River delisted as an area of concern by 2025.</p>
+          <p class="text">Some of the most aggressive infrastructure projects comprise NEORSD’s Project Clean Lake which aims to capture and treat 98% of all stormwater. This project represents a $3 billion investment over the course of 25 years,
+            with a planned completion in 2036.</p>
           <p class="text">Additional projects, such as the restoration of Doan Brook, represent a focus on green infrastructure. This, along with several other projects from local climate groups means the city is on track for hitting this goal.
           </p>
         </div>
@@ -230,25 +252,25 @@
   <section class="vision">
     <div class="row">
       <div class="col-md-6 mx-auto">
-          <h3>What do these numbers mean?</h3>
-          <p class="text">Let's put these numbers in perspective.</p>
-          <div class="progress-container">
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 100%" aria-valuenow="206" aria-valuemin="0" aria-valuemax="100">$206M = 2020 Division of Police Budget</div>
-            </div>
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 20%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">$43M</div>
-              <p class="progress-text">Cost to cover Water Utilities for households in financial stress due to COVID</p>
-            </div>
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 4%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">$8M</div>
-              <p class="progress-text">Cost to cover Energy Utilities for households in financial stress due to COVID</p>
-            </div>
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 39%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">$79.8M</div>
-              <p class="progress-text">Estimated Cost for covering all utilities for households under the poverty line</p>
+        <h3 class="margin-top-md">What do these numbers mean?</h3>
+        <p class="text">Let's put these numbers in perspective.</p>
+        <div class="progress-container">
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-utilities" role="progressbar" style="width: 100%" aria-valuenow="206" aria-valuemin="0" aria-valuemax="100">$206M = 2020 Division of Police budget</div>
           </div>
-          <p class="text"><i class="note">*We are comparing these numbers to the size of the Division of Police budget since it is the largest division in the General Fund.</i></p>
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-utilities" role="progressbar" style="width: 20%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">$43M</div>
+            <p class="progress-text">Cost to cover Water Utilities for households in financial stress due to COVID</p>
+          </div>
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-utilities" role="progressbar" style="width: 4%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">$8M</div>
+            <p class="progress-text">Cost to cover Energy Utilities for households in financial stress due to COVID</p>
+          </div>
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-utilities" role="progressbar" style="width: 39%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">$79.8M</div>
+            <p class="progress-text">Estimated Cost for covering all utilities for households under the poverty line</p>
+          </div>
+          <p class="text"><i class="note">*We are comparing these numbers to the size of the Division of Police budget because it is the largest division in the General Fund.</i></p>
         </div>
         <h3 class="margin-top-lg">How can you be involved?</h3>
         <p class="text">
@@ -263,23 +285,35 @@
       <div class="col-md-6 mx-auto">
         <hr class="footnote-line">
         <ol id="footnote">
-          <li id="footnote-1">Major Enterprise: Page 389 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=389" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-1" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-2">Division of Water: Page 404 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=404" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-2" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-3">CPP: Page 423 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=423" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-3" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-4">Water Pollution: Page 415 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=415" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-4" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-5">Utilities Fiscal: Page 398 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=398" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-5" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-6">Utilities General: Page 392 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=392" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-6" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-7">Airport: Page 431 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=431" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-7" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-1">Major Enterprise: Page 389 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=389" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-1"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-2">Division of Water: Page 404 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=404" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-2"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-3">CPP: Page 423 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=423" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-3"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-4">Water Pollution: Page 415 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=415" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-4"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-5">Utilities Fiscal: Page 398 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=398" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-5"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-6">Utilities General: Page 392 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=392" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-6"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-7">Airport: Page 431 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=431" target="_blank">2020 Mayor's Estimate</a> <a href="#ref-footnote-7"
+              id="footnote-url"><b>←</b></a></li>
           <li id="footnote-8"><a href="https://www.sustainablecleveland.org/dashboard#natural_dashboard" target="_blank">Sustainable Cleveland Dashboard - Renewable energy numbers</a> <a href="#ref-footnote-7" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-9"><a href="https://www.news5cleveland.com/news/local-news/in-depth/in-depth-delinquent-cleveland-public-power-water-customers-top-100-000-city-says" target="_blank">News 5 Cleveland - "In-Depth: Delinquent Cleveland power, water customers top 100,000 as temporary disconnect halt ends"</a> <a href="#ref-footnote-8" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-10"><a href="https://www.ideastream.org/news/clevelanders-utility-bills-come-due-as-pandemic-worsens-winter-arrives" target="_blank">Ideastream - "Clevelanders' Utility Bills Come Due As Pandemic Worsens, Winter Arrives"</a> <a href="#ref-footnote-9" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-11"><a href="https://www.communitysolutions.com/cleveland-now-poorest-big-city-country#:~:text=Although%20Cleveland%27s%20overall%20poverty%20rate,is%20a%20high%2Dpoverty%20city" target="_blank">The Center for Community Solutions - "Cleveland is now the poorest big city in the country"</a> <a href="#ref-footnote-10" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-9"><a href="https://www.news5cleveland.com/news/local-news/in-depth/in-depth-delinquent-cleveland-public-power-water-customers-top-100-000-city-says" target="_blank">News 5 Cleveland - "In-Depth: Delinquent Cleveland power,
+              water customers top 100,000 as temporary disconnect halt ends"</a> <a href="#ref-footnote-8" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-10"><a href="https://www.ideastream.org/news/clevelanders-utility-bills-come-due-as-pandemic-worsens-winter-arrives" target="_blank">Ideastream - "Clevelanders' Utility Bills Come Due As Pandemic Worsens, Winter
+              Arrives"</a> <a href="#ref-footnote-9" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-11"><a href="https://www.communitysolutions.com/cleveland-now-poorest-big-city-country#:~:text=Although%20Cleveland%27s%20overall%20poverty%20rate,is%20a%20high%2Dpoverty%20city" target="_blank">The Center for Community
+              Solutions - "Cleveland is now the poorest big city in the country"</a> <a href="#ref-footnote-10" id="footnote-url"><b>←</b></a></li>
           <li id="footnote-12"><a href="https://www.census.gov/quickfacts/clevelandcityohio" target="_blank">U.S. Census Bureau Cleveland QuickFacts</a> <a href="#ref-footnote-11" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-13"><a href="https://database.aceee.org/city/cleveland-oh" target="_blank">American Council for Energy Efficent Economy Rating Cleveland Climate Plan</a> <a href="#ref-footnote-12" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-13"><a href="https://database.aceee.org/city/cleveland-oh" target="_blank">American Council for Energy Efficient Economy Rating Cleveland Climate Plan</a> <a href="#ref-footnote-12" id="footnote-url"><b>←</b></a></li>
           <li id="footnote-14"><a href="https://www.cpp.org/index.php/Initiatives/Green-Projects" target="_blank">Cleveland Public Power Green Energy Projects</a> <a href="#ref-footnote-13" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-15"><a href="https://www.bls.gov/regions/midwest/news-release/averageenergyprices_cleveland.htm#:~:text=Cleveland%20area%20households%20paid%20an,per%20therm%20a%20year%20earlier" target="_blank">U.S. Bureau of Labor Statistics Average Energy Prices (Cleveland-Akron-Lorain)</a> <a href="#ref-footnote-14" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-15"><a href="https://www.bls.gov/regions/midwest/news-release/averageenergyprices_cleveland.htm#:~:text=Cleveland%20area%20households%20paid%20an,per%20therm%20a%20year%20earlier" target="_blank">U.S. Bureau of Labor
+              Statistics Average Energy Prices (Cleveland-Akron-Lorain)</a> <a href="#ref-footnote-14" id="footnote-url"><b>←</b></a></li>
           <li id="footnote-16"><a href="https://drive.google.com/file/d/1Z3234sMp7S7MjaXvMgcZtcAaYs4x2oHE/view" target="_blank">Cleveland Climate Action Plan 2018 Update</a> <a href="#ref-footnote-15" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-17"><a href="https://theoec.org/publications/clevelandenviropolicyplatform/" target="_blank">Ohio Environmental Council - 2021 Cleveland Comprehensive Environmental Policy Platform</a> <a href="#ref-footnote-16" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-17"><a href="https://theoec.org/publications/clevelandenviropolicyplatform/" target="_blank">Ohio Environmental Council - 2021 Cleveland Comprehensive Environmental Policy Platform</a> <a href="#ref-footnote-16"
+              id="footnote-url"><b>←</b></a></li>
         </ol>
       </div>
     </div>

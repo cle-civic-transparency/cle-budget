@@ -1,4 +1,4 @@
-var myData = "date	w/out RECs	w/ RECs\n\
+var myData = "date	w/o RECs	w/ RECs\n\
 20130101	4.0	4.0\n\
 20140101	5.0	9.5\n\
 20150101	5.0	9.0\n\
@@ -23,7 +23,7 @@ var x = d3.time.scale()
 var y = d3.scale.linear()
   .range([height, 0]);
 
-var color = d3.scale.category10();
+var color = d3.scale.category20();
 
 var xAxis = d3.svg.axis()
   .scale(x)
@@ -86,31 +86,6 @@ y.domain([
   })
 ]);
 
-// var legend = svg.selectAll('g')
-//   .data(cities)
-//   .enter()
-//   .append('g')
-//   .attr('class', 'legend');
-//
-// legend.append('rect')
-//   .attr('x', width - 20)
-//   .attr('y', function(d, i) {
-//     return i * 20;
-//   })
-//   .attr('width', 10)
-//   .attr('height', 10)
-//   .style('fill', function(d) {
-//     return color(d.name);
-//   });
-//
-// legend.append('text')
-//   .attr('x', width - 8)
-//   .attr('y', function(d, i) {
-//     return (i * 20) + 9;
-//   })
-//   .text(function(d) {
-//     return d.name;
-//   });
 
 svg.append("g")
   .attr("class", "x axis")
@@ -122,8 +97,9 @@ svg.append("g")
   .call(yAxis)
   .append("text")
   .attr("transform", "rotate(-90)")
-  .attr("y", 10)
-  .attr("dy", ".71em")
+  .attr("y", 20)
+  .attr("dy", "-4.5em")
+  .attr("dx", "-4.5em")
   .style("text-anchor", "end")
   .text("% Renewable Energy");
 

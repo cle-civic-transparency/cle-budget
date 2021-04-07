@@ -2,13 +2,30 @@
 <html lang="en">
 
 <head>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <!-- Google analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZMLVHFKM9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GZMLVHFKM9');
+  </script>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Website description goes here" />
-  <meta name="keywords" content="Keywords go here" />
-  <meta name="twitter:image:src" content="#" />
-  <meta property="og:image" content="#" />
+  <meta name="description" content="A civic accountability project by a small group of Cleveland residents who want to use the budget to hold our politicians accountable to their past promises." />
+  <meta name="keywords" content="cleveland ohio city budget civic accountability infrastructure stadium schools streets roads" />
+  <meta name="twitter:image:src" content="https://github.com/cle-civic-transparency/cle-budget/blob/master/images/preview-img.jpg?raw=true" />
+  <meta property="og:image" content="https://github.com/cle-civic-transparency/cle-budget/blob/master/images/preview-img.jpg?raw=true" />
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -20,7 +37,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <title>Visualizing the Cleveland Budget</title>
+  <title>Exploring the Budget | Infrastructure</title>
 
 </head>
 
@@ -34,7 +51,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="align-center">How does Cleveland spend Money on <br><u>INFRASTRUCTURE</u>?</h2>
+          <h2 class="align-center">How does Cleveland spend Money on <br><u class="infrastructure-u">INFRASTRUCTURE</u>?</h2>
           <div id="buttons-bar"></div>
         </div>
       </div>
@@ -45,7 +62,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="funds-content">
-          <h3>Where does the money come from?</h3>
+          <h3 class="margin-top-md">Where does the money come from?</h3>
           <p class="text">There are two funds that spend money on *infrastructure:
             </br><i class="note">*We are defining infrastructure as roads and buildings.</i>
             <p class="margin-top-md"><b>The Small Enterprise Fund</b></p>
@@ -77,9 +94,9 @@
               from the General
               Fund.</p>
             <p class="margin-top-md"><b>Special Revenue Fund</b></p>
-            <p class="text">This fund is a bit tricky to understand, because the Special Revenue Fund is a restricted fund. This means the money that goes into the fund is restricted on what it can be spent on.
+            <p class="text">This fund is a bit tricky to understand because the Special Revenue Fund is a restricted fund. This means the money that goes into the fund is restricted on what it can be spent on.
               </br></br>
-              In this case, spending from the Special Revenue fund is restricted to capital improvements and debt. Capital improvements is a fancy way of saying any improvements done to city property. To be specific, this fund is used to:
+              In this case, spending from the Special Revenue Fund is restricted to capital improvements and debt. Capital improvements is a fancy way of saying any improvements done to city property. To be specific, this fund is used for:
             </p>
             <div class="icons-container">
               <div class="icon">
@@ -109,28 +126,30 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="visualization-content">
-          <h3>Where does the money go?</h3>
+          <h3 class="margin-top-md">Where does the money go?</h3>
         </div>
         <div id="infrastructure-chart"></div>
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="accordion-button infrastructure-color" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <b>Need help understanding the graph?</b>
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p> The chart shows two of Cleveland's funds: the Small Enterprise fund (in pink) and the Special Revenue fund (in orange).
-                </br></br> Like it's bigger counterpart on the utilites page, the Small Enterprise is mostly paid for by user fees. Each department here largely pays for itself with revenues from the previous year. That is why the pink section up top looks fairly symmetrical.
-              </br></br> The bottom half in orange, the Special Revenue Fund, is different. It is made up of 4 restricted funds, each with their own sources of income and rules for fund spending.
-                <ul>
-                  <li><u>Restricted Income Tax Fund:</u> This fund receives 1/9 of the City’s income tax collections. These funds are restricted by law to expenditures for capital improvements and debt service. Capital improvements is a fancy way of saying any improvements done to city property.<a href="#fn-special-rev" aria-describedby="footnote-label" id="ref-special-rev"></a></li>
-                  <li><u>Street Construction:</u> This fund supports basic street maintenance including snow removal, street repairs, and resurfacing. The primary revenue sources are the State Auto License and Gasoline taxes and an operating transfer from the General Fund.<a href="#fn-special-rev" aria-describedby="footnote-label" id="ref-special-rev"></a></li>
-                  <li><u>Cleveland Stadium:</u> Funding for the stadium comes from a sin tax on cigarette and liquor, charges for stadium services (such as selling tickets), and transfers from the General Fund. The Stadium under the city of Cleveland is the Cleveland Municipal Stadium, aka the First Energy Stadium.<a href="#fn-special-rev" aria-describedby="footnote-label" id="ref-special-rev"></a></li>
-                  <li><u>Rainy Day Reserve Fund:</u> When the General Fund expenditures are less than the revenues for that year, then that excess money is placed in this Rainy Day Fund. This fund is to be used only during periods of significant economic downturns or to fund unanticipated one-time General Fund obligations. This is why the orange number is so much larger than the gray number.<a href="#fn-special-rev" aria-describedby="footnote-label" id="ref-special-rev"></a></li>
-                  <li><u>School Activities:</u> A while ago we said the revenue from parking and vehicle lessor taxes should go towards after school payments for recreation and cultural activities.<a href="#fn-special-rev" aria-describedby="footnote-label" id="ref-special-rev"></a></li>
-                </ul>
+                <p class="text">The chart shows two of Cleveland's funds: the Small Enterprise Fund (in pink) and the Special Revenue Fund (in orange).</p>
+                <p class="text">Its bigger counterpart on the utilities page, the Small Enterprise is mostly paid for by user fees. Each department here largely pays for itself with revenues from the previous year. That is why the pink section up top looks fairly symmetrical. </p>
+                <p class="text">
+                  The bottom half in orange, the Special Revenue Fund, is different. It is made up of four restricted funds, each with their own sources of income and rules for fund spending.
+                  <ul>
+                    <li><u>Restricted Income Tax Fund:</u> This fund receives 1/9 of the city’s income tax collections. These funds are restricted by law to expenditures for capital improvements and debt service. Capital improvements is a fancy way of saying any improvements done to city property.</li>
+                    <li><u>Street Construction:</u> This fund supports basic street maintenance including snow removal, street repairs and resurfacing. The primary revenue sources are the State Auto License and Gasoline taxes and an operating transfer from the General Fund. </li>
+                    <li><u>Cleveland Stadium:</u> Funding for the stadium comes from a sin tax on cigarette and liquor, charges for stadium services (such as selling tickets), and transfers from the General Fund. The Stadium under the city of Cleveland is the Cleveland Municipal Stadium, aka the First Energy Stadium. </li>
+                    <li><u>Rainy Day Reserve Fund:</u> When the General Fund expenditures are less than the revenues for that year, then that excess money is placed in this Rainy Day Fund. This fund is to be used only during periods of significant economic downturns or to fund unanticipated one-time General Fund obligations. This is why the orange number is so much larger than the gray number.</li>
+                    <li><u>School Activities:</u> A while ago we said the revenue from parking and vehicle lessor taxes should go toward after-school payments for recreation and cultural activities.</li>
+                  </ul>
+                  <sup><a href="#footnote-1" id="ref-footnote-1">[1]</a></sup> <sup><a href="#footnote-2" id="ref-footnote-2">[2]</a></sup>
                 </p>
               </div>
             </div>
@@ -144,32 +163,36 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="vision-content">
-          <p class="margin-top-md"><b>Green Investment</b></p>
+          <p class="text margin-top-md"><b style="color:var(--yellow);">Green Investment</b></p>
           <p class="text">
-            Investment is underway to increase tree plantings throughout the city with an aim of restoring the city’s tree canopy. Legislation has existed since 2018 to protect existing trees <sup><a href="#footnote-1" id="ref-footnote-1">[1]</a></sup>, though the degree to which this legislation has been enforced is questionable.
+            Investment is underway to increase tree plantings throughout the city with an aim of restoring the city’s tree canopy. Legislation has existed since 2018 to protect existing trees <sup><a href="#footnote-3"
+                id="ref-footnote-3">[3]</a></sup>, though the degree to which this legislation has been enforced is questionable.
           </p>
           <p class="text">
-            Additionally, these aggressive goals are sometimes at odds with City contractors’ propensity to destroy or remove mature shade trees for utility work and sidewalk repair <sup><a href="#footnote-2" id="ref-footnote-2">[2]</a></sup>. Removal of existing mature trees tends to reduce the effectiveness of the commitment to spend $10M to restore the tree canopy <sup><a href="#footnote-3" id="ref-footnote-3">[3]</a></sup> which,
-            according to the 2019 Urban Tree Canopy Assessment <sup><a href="#footnote-4" id="ref-footnote-4">[4]</a></sup>, is in a dire state.
+            Additionally, these aggressive goals are sometimes at odds with city contractors’ propensity to destroy or remove mature shade trees for utility work and sidewalk repair <sup><a href="#footnote-4" id="ref-footnote-4">[4]</a></sup>.
+            Removal of existing mature trees tends to reduce the effectiveness of the commitment to spend $1M a year over 10 years to restore the tree canopy <sup><a href="#footnote-5" id="ref-footnote-5">[5]</a></sup> which,
+            according to the 2019 Urban Tree Canopy Assessment <sup><a href="#footnote-6" id="ref-footnote-6">[6]</a></sup>, is in a dire state.
           </p>
           <p class="text">
-            Hopefully initiatives like the Cleveland Tree Coalition and Healthy Urban Tree Canopy Grant Program are able to harness this support for green investment and honor “the Forest City.”
+            Hopefully, initiatives like the Cleveland Tree Coalition and Healthy Urban Tree Canopy Grant Program are able to harness this support for green investment and honor “the Forest City.”
           </p>
-          <p class="margin-top-md"><b>Buildings, like the West Side Market</b></p>
+          <p class="text margin-top-md"><b style="color:var(--yellow);">Buildings, like the West Side Market</b></p>
           <p class="text">
-            In recent years, the West Side Market has experienced significant attention focusing on vendor complaints about neglectful City management, deferred maintenance, and a general climate that is not conducive to their businesses succeeding <sup><a href="#footnote-5" id="ref-footnote-5">[5]</a></sup>. Recently, the City announced hiring of a consultant to evaluate market operations, while some vendors continue to call for management of the market to be handed over
-            to a nonprofit entity <sup><a href="#footnote-6" id="ref-footnote-6">[6]</a></sup>
-            <sup><a href="#footnote-7" id="ref-footnote-7">[7]</a></sup>.
+            In recent years, the West Side Market has experienced significant attention focusing on vendor complaints about neglectful city management, deferred maintenance and a general climate that is not conducive to their businesses succeeding
+            <sup><a href="#footnote-7" id="ref-footnote-7">[7]</a></sup>. Recently, the city announced hiring of a consultant to evaluate market operations, while some vendors continue to call for management of the market to be handed over
+            to a nonprofit entity <sup><a href="#footnote-8" id="ref-footnote-8">[8]</a></sup>
+            <sup><a href="#footnote-9" id="ref-footnote-9">[9]</a></sup>.
           </p>
           <p class="text">
-            How does current market funding stack up against other facilities? The West Side Market currently receives approximately $1.6M annually. Municipal parking facilities receive $10.6M annually while Public Auditorium and cemeteries receive
+            How does current market funding stack up against other facilities? The West Side Market currently receives approximately $1.6M annually. Municipal parking facilities receive $10.6M annually while public auditoriums and cemeteries receive
             $2.9M and $1.7M, respectively. Most of these facilities also have commensurate revenues, as seen above. Funding for the West Side Market is about 15.6% of current municipal parking revenues.
           </p>
-          <p class="margin-top-md"><b>Street Construction</b></p>
+          <p class="text margin-top-md"><b style="color:var(--yellow);">Street Construction</b></p>
           <p class="text">Beyond just repairing and maintaining streets, what other initiatives are underway? The Cuyahoga County Greenways Plan and the City of Cleveland’s Complete and Green Streets Ordinance outline standards for incorporating
-            pedestrian, biking, and sustainable infrastructure when performing street work. More recently, Vision Zero aims to eliminate all traffic fatalities and severe injuries while enhancing safety.
+            pedestrian, biking and sustainable infrastructure when performing street work. More recently, Vision Zero aims to eliminate all traffic fatalities and severe injuries while enhancing safety.
           </p>
-          <p class="text">Proposed and partially-funded projects such as the Midway <sup><a href="#footnote-8" id="ref-footnote-8">[8]</a></sup> and the Lorain Avenue Cycle Track <sup><a href="#footnote-9" id="ref-footnote-9">[9]</a></sup> present new concepts for Cleveland - fully protected bike lanes. Protected bike lanes fully separate bikes and vehicles, allowing for maximized safety for bicycles. The full Midway proposal can be thought of as a
+          <p class="text">Proposed and partially-funded projects such as the Midway <sup><a href="#footnote-10" id="ref-footnote-10">[10]</a></sup> and the Lorain Avenue Cycle Track <sup><a href="#footnote-11" id="ref-footnote-11">[11]</a></sup> present
+            new concepts for Cleveland - fully protected bike lanes. Protected bike lanes fully separate bikes and vehicles, allowing for maximized safety for bicycles. The full Midway proposal can be thought of as a
             true bicycle highway network. Initial estimates projected a full, 100-mile network could cost anywhere from $40M to $150M. What are some projections for different versions of this project and how do those financing needs compare to the
             current budget?
           </p>
@@ -178,12 +201,12 @@
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title align-center">Building the Midway</h3>
-                  <h4 class="card-text align-center">$950,000</h4>
+                  <h4 class="card-text align-center" style="color:var(--yellow);">$950,000</h4>
                   <p class="card-subtext align-center">was the average cost per mile</p>
-                  <h4 class="card-text align-center">$95M</h4>
+                  <h4 class="card-text align-center" style="color:var(--yellow);">$95M</h4>
                   <p class="card-subtext align-center">was the total cost</p>
                   <!-- of the street construction budget is equivalent to the cost to build one mile -->
-                  <h4 class="card-text align-center">26.5%</h4>
+                  <h4 class="card-text align-center" style="color:var(--yellow);">26.5%</h4>
                   <p class="card-subtext align-center">of the current annual street construction budget would be required to fully build this network in 10 years</p>
                 </div>
               </div>
@@ -192,26 +215,26 @@
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title align-center">Keeping it simple</h3>
-                  <h4 class="card-text align-center">100 miles</h4>
+                  <h4 class="card-text align-center" style="color:var(--yellow);">100 miles</h4>
                   <p class="card-subtext align-center">of simple protected bike lanes</p>
-                  <h4 class="card-text align-center">$40M</h4>
+                  <h4 class="card-text align-center" style="color:var(--yellow);">$40M</h4>
                   <p class="card-subtext align-center">will be the total project cost</p>
-                  <h4 class="card-text align-center">11.2%</h4>
+                  <h4 class="card-text align-center" style="color:var(--yellow);">11.2%</h4>
                   <p class="card-subtext align-center">of the current annual street construction budget would be required to fully build this network in the next 10 years</p>
                 </div>
               </div>
             </div>
             <p class="margin-top-lg"><b>What about basic bike lanes?</b></p>
-            <p class="text">The Federal Highway Authority <sup><a href="#footnote-10" id="ref-footnote-10">[10]</a></sup> states that bike lanes can be constructed for as low as $5,000 per mile or as high as $50,000 per mile, depending on the
+            <p class="text">The Federal Highway Authority <sup><a href="#footnote-12" id="ref-footnote-12">[12]</a></sup> states that bike lanes can be constructed for as low as $5,000 per mile or as high as $50,000 per mile, depending on the
               condition of the streets. We all know Cleveland has some very difficult streets, so let's assume an average cost of $27,500 per mile.
             </p>
             <div class="col-sm-12">
               <div class="card horizontal">
                 <div class="card-body">
-                  <h4 class="card-text align-center horizontal-text">$30.25 MILLION</h4>
+                  <h4 class="card-text align-center horizontal-text" style="color:var(--yellow);">$30.25 MILLION</h4>
                   <p class="card-subtext align-center">is what it would cost the City of Cleveland to install basic bike lanes on
-                    <h4 class="card-text align-center horizontal-text">1,100 lane-miles of city streets</h4>
-                    <p class="card-subtext align-center">which is the approximate total of all streets in the city <sup><a href="#footnote-11" id="ref-footnote-11">[11]</a></sup>
+                    <h4 class="card-text align-center horizontal-text" style="color:var(--yellow);">1,100 lane-miles of city streets</h4>
+                    <p class="card-subtext align-center">which is the approximate total of all streets in the city <sup><a href="#footnote-13" id="ref-footnote-13">[13]</a></sup>
                     </p>
                 </div>
               </div>
@@ -220,11 +243,13 @@
               compared to many other budget items!
             </p>
             <p class="text">Thankfully, Cleveland doesn’t have to go at it alone when constructing some of these projects. With the assistance of the Northeast Ohio Areawide Coordinating Authority (NOACA), there is some financial support for the
-              first segments of the Midway project. In 2017 NOACA dedicated $14.4M to cycle tracks on Superior Avenue and Lorain Avenue with construction projected to begin in 2020 <sup><a href="#footnote-12" id="ref-footnote-12">[12]</a></sup>. Construction has yet to begin on these projects.
+              first segments of the Midway project. In 2017, NOACA dedicated $14.4M to cycle tracks on Superior Avenue and Lorain Avenue with construction projected to begin in 2020 <sup><a href="#footnote-14" id="ref-footnote-14">[14]</a></sup>.
+              Construction has yet to begin on these projects.
             </p>
             <p class="margin-top-md"><b>Why so much talk about bikes? What about the potholes?</b></p>
-            <p class="text">Obviously road maintenance is critical, and Cleveland already has a road maintenance backlog. In 2016 it was estimated that the City had a need of $300M <sup><a href="#footnote-13" id="ref-footnote-13">[13]</a></sup> for full, immediate road resurfacing - that’s almost the size of the entire Public Safety budget or about 181 West Side Markets! For comparison, the current street construction budget is only equivalent to
-              about 10% of the Public Safety budget. It's worth noting that in 2018, NOACA's projected backlog estimated a 5-year total requirement of under $145M <sup><a href="#footnote-14" id="ref-footnote-14">[14]</a></sup>.
+            <p class="text">Road maintenance is critical, and Cleveland already has a road maintenance backlog. In 2016 it was estimated that the city needed $300M <sup><a href="#footnote-15" id="ref-footnote-15">[15]</a></sup> for
+              full, immediate road resurfacing - that’s almost the size of the entire Public Safety budget or about 181 West Side Markets! For comparison, the current street construction budget is only equivalent to
+              about 10% of the Public Safety budget. It's worth noting that in 2018, NOACA's projected backlog estimated a 5-year total requirement of under $145M <sup><a href="#footnote-16" id="ref-footnote-16">[16]</a></sup>.
             </p>
           </div>
 
@@ -236,23 +261,23 @@
   <section class="vision">
     <div class="row">
       <div class="col-md-6 mx-auto">
-          <h3>What do these numbers mean?</h3>
-          <p class="text">Let's put these numbers in perspective.</p>
-          <div class="progress-container">
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 100%" aria-valuenow="206" aria-valuemin="0" aria-valuemax="100">$206M = 2020 Division of Police Budget</div>
-            </div>
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 46%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">$95M</div>
-              <p class="progress-text">Cost of building the Midway</p>
-            </div>
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 17%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">$35M</div>
-              <p class="progress-text">Spending on Street Construction in 2020</p>
-            </div>
-            <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 14%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">$30.25M</div>
-              <p class="progress-text">Estimated Cost for bike lanes on every Cleveland Street</p>
+        <h3 class="margin-top-md">What do these numbers mean?</h3>
+        <p class="text">Let's put these numbers in perspective.</p>
+        <div class="progress-container">
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-infrastructure" role="progressbar" style="width: 100%" aria-valuenow="206" aria-valuemin="0" aria-valuemax="100">$206M = 2019 Division of Police budget</div>
+          </div>
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-infrastructure" role="progressbar" style="width: 46%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">$95M</div>
+            <p class="progress-text">Cost of building the Midway</p>
+          </div>
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-infrastructure" role="progressbar" style="width: 17%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">$35M</div>
+            <p class="progress-text">Spending on Street Construction in 2020</p>
+          </div>
+          <div class="progress" style="height: 25px">
+            <div class="progress-bar progress-bar bg-progress-infrastructure" role="progressbar" style="width: 14%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">$30.25M</div>
+            <p class="progress-text">Estimated Cost for bike lanes on every Cleveland Street</p>
           </div>
         </div>
         <h3 class="margin-top-lg">How can you be involved?</h3>
@@ -268,20 +293,33 @@
       <div class="col-md-6 mx-auto">
         <hr class="footnote-line">
         <ol id="footnote">
-          <li id="footnote-1"><a href="https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh/0-0-0-48663" target="_blank">Cleveland Code of Ordinances - § 341.052 Tree Preservation General Requirements</a> <a href="#ref-footnote-1" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-2"><a href="https://www.news5cleveland.com/news/local-news/cleveland-metro/contractors-cut-down-trees-during-invasive-work-on-fulton-rd-project-in-ohio-city-councilman-says" target="_blank">News 5 Cleveland - "Contractors cut down trees during 'invasive work' on Fulton Rd. project in Ohio City, councilman says"</a> <a href="#ref-footnote-2" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-3"><a href="https://www.cleveland.com/metro/2019/10/cleveland-commits-to-spending-up-to-1-million-each-year-for-10-years-toward-restoring-the-forest-citys-tree-canopy.html" target="_blank">Cleveland.com - "Cleveland commits to spending up to $1 million each year for 10 years toward restoring the Forest City’s tree canopy"</a> <a href="#ref-footnote-3" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-4"><a href="https://www.countyplanning.us/projects/urban-tree-canopy-assessment/" target="_blank">Cuyahoga County Planning Commission 2019 Urban Tree Canopy Assessment</a> <a href="#ref-footnote-4" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-5"><a href="https://www.wkyc.com/article/news/local/cuyahoga-county/councilman-wants-west-side-market-to-be-run-as-nonprofit/95-72d548ef-e015-4c2e-83e6-942120a03fdf" target="_blank">WKYC - "Cleveland councilman wants West Side Market to be run by nonprofit"</a> <a href="#ref-footnote-5" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-6"><a href="https://www.cleveland.com/cityhall/2021/02/cleveland-hires-consultant-in-effort-to-boost-west-side-market.html" target="_blank">Cleveland.com - "Cleveland hires consultant in effort to boost West Side Market"</a> <a href="#ref-footnote-6" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-7"><a href="https://www.wkyc.com/article/life/food/doug-trattner/west-side-market-tenants-concerned-doug-trattner-reports/95-74566697-e532-4d92-baf6-e413d3df37a6" target="_blank">WKYC - "West Side Market tenants worry 2021 will be more of the same"</a> <a href="#ref-footnote-7" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-8"><a href="http://www.bikecleveland.org/midway/" target="_blank">Bike Cleveland - Midway Protected Bike Network</a> <a href="#ref-footnote-8" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-9"><a href="https://www.bikecleveland.org/bike-cle/news/cleveland-planning-commission-approves-lorain-ave-plan/2015/10/" target="_blank">Bike Cleveland - "Cleveland Planning Commission approves Lorain Avenue plan"</a> <a href="#ref-footnote-9" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-10"><a href="https://safety.fhwa.dot.gov/saferjourney1/library/countermeasures/10.htm#:~:text=The%20cost%20of%20installing%20a,adjust%20signalization%2C%20and%20other%20factors." target="_blank">U.S. Department of Transportation Federal Highway Administration - Estimated cost of biycycle lanes</a> <a href="#ref-footnote-10" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-11"><a href="https://safety.fhwa.dot.gov/saferjourney1/library/countermeasures/10.htm#:~:text=The%20cost%20of%20installing%20a,adjust%20signalization%2C%20and%20other%20factors." target="_blank">Page 2 of <a href="https://www.noaca.org/home/showdocument?id=22446" target="_blank">Northeast Ohio Areawide Coordinating Agency (NOACA) 2018 Roadway Pavement Maintenance Report</a> <a href="#ref-footnote-11" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-12"><a href="https://www.cleveland.com/architecture/2017/12/noaca_boosts_protected_bike_la.html" target="_blank">Cleveland.com - "NOACA Boosts Protected Bike Lane Projects"</a> <a href="#ref-footnote-12" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-13"><a href="https://www.cityclub.org/blog/2016/01/04/what-would-it-take-to-fix-cleveland-s-roads" target="_blank">The City Club of Cleveland - "What would it take to fix Cleveland's roads?"</a> <a href="#ref-footnote-13" id="footnote-url"><b>←</b></a></li>
-          <li id="footnote-14">Page 38 of <a href="https://www.noaca.org/home/showdocument?id=22446" target="_blank">NOACA 2018 Roadway Pavement Maintenance Report</a> <a href="#ref-footnote-14" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-1">Page 375 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=375" target="_blank">Special Revenue Fund Summary in 2020 Mayor's Estimate</a> <a href="#ref-footnote-1" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-2">Page 441 of <a href="http://www.city.cleveland.oh.us/sites/default/files/forms_publications/2020BudgetBook.pdf#page=441" target="_blank">Small Enterprise Funds Summary in 2020 Mayor's Estimate</a> <a href="#ref-footnote-2" id="footnote-url"><b>←</b></a></li>
+
+          <li id="footnote-3"><a href="https://codelibrary.amlegal.com/codes/cleveland/latest/cleveland_oh/0-0-0-48663" target="_blank">Cleveland Code of Ordinances - § 341.052 Tree Preservation General Requirements</a> <a href="#ref-footnote-3" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-4"><a href="https://www.news5cleveland.com/news/local-news/cleveland-metro/contractors-cut-down-trees-during-invasive-work-on-fulton-rd-project-in-ohio-city-councilman-says" target="_blank">News 5 Cleveland - "Contractors cut down trees during 'invasive work' on Fulton Rd. project in Ohio City, councilman says"</a> <a href="#ref-footnote-4" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-5"><a href="https://www.cleveland.com/metro/2019/10/cleveland-commits-to-spending-up-to-1-million-each-year-for-10-years-toward-restoring-the-forest-citys-tree-canopy.html" target="_blank">Cleveland.com - "Cleveland commits
+              to spending up to $1 million each year for 10 years toward restoring the Forest City’s tree canopy"</a> <a href="#ref-footnote-4" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-6"><a href="https://www.countyplanning.us/projects/urban-tree-canopy-assessment/" target="_blank">Cuyahoga County Planning Commission 2019 Urban Tree Canopy Assessment</a> <a href="#ref-footnote-6"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-7"><a href="https://www.wkyc.com/article/news/local/cuyahoga-county/councilman-wants-west-side-market-to-be-run-as-nonprofit/95-72d548ef-e015-4c2e-83e6-942120a03fdf" target="_blank">WKYC - "Cleveland councilman wants West
+              Side Market to be run by nonprofit"</a> <a href="#ref-footnote-7" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-8"><a href="https://www.cleveland.com/cityhall/2021/02/cleveland-hires-consultant-in-effort-to-boost-west-side-market.html" target="_blank">Cleveland.com - "Cleveland hires consultant in effort to boost West Side
+              Market"</a> <a href="#ref-footnote-8" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-9"><a href="https://www.wkyc.com/article/life/food/doug-trattner/west-side-market-tenants-concerned-doug-trattner-reports/95-74566697-e532-4d92-baf6-e413d3df37a6" target="_blank">WKYC - "West Side Market tenants worry 2021
+              will be more of the same"</a> <a href="#ref-footnote-9" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-10"><a href="http://www.bikecleveland.org/midway/" target="_blank">Bike Cleveland - Midway Protected Bike Network</a> <a href="#ref-footnote-10" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-11"><a href="https://www.bikecleveland.org/bike-cle/news/cleveland-planning-commission-approves-lorain-ave-plan/2015/10/" target="_blank">Bike Cleveland - "Cleveland Planning Commission approves Lorain Avenue plan"</a> <a
+              href="#ref-footnote-11" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-12"><a href="https://safety.fhwa.dot.gov/saferjourney1/library/countermeasures/10.htm#:~:text=The%20cost%20of%20installing%20a,adjust%20signalization%2C%20and%20other%20factors." target="_blank">U.S. Department of
+              Transportation Federal Highway Administration - Estimated cost of bicycle lanes</a> <a href="#ref-footnote-12" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-13"><a href="https://safety.fhwa.dot.gov/saferjourney1/library/countermeasures/10.htm#:~:text=The%20cost%20of%20installing%20a,adjust%20signalization%2C%20and%20other%20factors." target="_blank">Page 2 of <a
+                href="https://www.noaca.org/home/showdocument?id=22446" target="_blank">Northeast Ohio Areawide Coordinating Agency (NOACA) 2018 Roadway Pavement Maintenance Report</a> <a href="#ref-footnote-13" id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-14"><a href="https://www.cleveland.com/architecture/2017/12/noaca_boosts_protected_bike_la.html" target="_blank">Cleveland.com - "NOACA Boosts Protected Bike Lane Projects"</a> <a href="#ref-footnote-14"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-15"><a href="https://www.cityclub.org/blog/2016/01/04/what-would-it-take-to-fix-cleveland-s-roads" target="_blank">The City Club of Cleveland - "What would it take to fix Cleveland's roads?"</a> <a href="#ref-footnote-15"
+              id="footnote-url"><b>←</b></a></li>
+          <li id="footnote-16">Page 38 of <a href="https://www.noaca.org/home/showdocument?id=22446" target="_blank">NOACA 2018 Roadway Pavement Maintenance Report</a> <a href="#ref-footnote-16" id="footnote-url"><b>←</b></a></li>
         </ol>
       </div>
     </div>

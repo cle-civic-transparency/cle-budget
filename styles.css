@@ -1,21 +1,34 @@
 /* COLORS */
 :root {
+  /* POLICE */
+  --dark-blue: #002c39;
+  --blue: #025967;
+  --medium-blue: #338897;
+  --light-blue: #69b9c9;
+  --very-light-blue: #9dedfd;
+  /* JUDICIAL */
+  --dark-red: #660016;
+  --red: #9d233e;
+  --medium-red: #cd5063;
+  --light-red: #f6808f;
+  --very-light-red: #ffbecb;
+  /* UTILITIES */
+  --dark-green: #001b04;
+  --green: #034434;
+  --medium-green: #20725f;
+  --light-green: #53a08c;
+  --very-light-green: #84d2bc;
+  /* INFRASTRUCTURE */
+  --dark-yellow: #491500;
+  --yellow: #773f00;
+  --medium-yellow: #aa6a10;
+  --light-yellow: #df973f;
+  --very-light-yellow: #ffd076;
+  /* OTHER */
   --black: #2C3336;
-  --blue: #308695;
-  --dark-blue: #004d59;
-  --red: #D45769;
-  --light-yellow: #e69d4570;
-  --yellow: #E69D45;
-  --dark-yellow: #c1843a;
+  --dark-gray: #575e62;
+  --light-gray: #b7bfc3;
   --white: #D4CFC9;
-  --lightgray: #efefef;
-  --stacked-dark-blue: #0a043c;
-  --stacked-blue: #03506f;
-  --stacked-light-blue: #79a3b1;
-  --stacked-pale-blue: #d0e8f2;
-  --stacked-gray: #bbbbbb;
-  --stacked-pink-white: #ffe3d8;
-  --stacked-white: #f4eeed;
 }
 
 /* GENERAL STYLES */
@@ -23,10 +36,10 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
 body {
   margin: 0px;
-  padding: 0px !important;
+  /* padding: 0px !important; */
+  padding-bottom: 70px;
 }
 
 h1 {
@@ -62,11 +75,18 @@ h4 {
 }
 
 a {
-  text-decoration-color: var(--yellow);
   text-decoration-thickness: .125em;
-  /* text-decoration-style: dashed; */
   text-underline-offset: 1.5px;
   color: inherit;
+}
+
+.logo {
+  width: auto;
+height: 70px;
+}
+
+a:hover {
+  color: var(--light-gray);
 }
 
 .text {
@@ -80,8 +100,26 @@ a {
   font-size: 12px;
 }
 
-u {
-  text-decoration-color: var(--yellow);
+.public-safety-u {
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+}
+
+.judicial-services-u {
+  text-decoration-color: var(--red);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+}
+
+.utilities-u {
+  text-decoration-color: var(--medium-green);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+}
+
+.infrastructure-u {
+  text-decoration-color: var(--medium-yellow);
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
 }
@@ -97,8 +135,29 @@ u {
   color: var(--red);
 }
 
+a.public-safety-btn:hover {
+  background-color: var(--blue);
+  color: white;
+}
+
+a.judicial-services-btn:hover {
+  background-color: var(--red);
+  color: white;
+}
+
+a.utilities-btn:hover {
+  background-color: var(--green);
+  color: white;
+}
+
+a.infrastructure-btn:hover {
+  background-color: var(--yellow);
+  color: white;
+}
+
 .nav-link {
   color: var(--white);
+  font-size: 20px;
 }
 
 .nav-link:hover {
@@ -114,11 +173,11 @@ u {
 }
 
 .btn-color {
-  background-color: var(--blue);
+  background-color: var(--black);
 }
 
 .btn-color:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--light-gray);
 }
 
 .btn {
@@ -193,29 +252,29 @@ u {
 }
 
 sup {
-  color: var(--blue);
+  color: var(--black);
 }
 
 sup a {
-text-decoration-color: var(--blue);
-text-decoration-thickness: .125em;
-text-underline-offset: 1.5px;
-color: inherit;
+  text-decoration-color: var(--black);
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+  color: inherit;
 }
 
 #footnote a {
-  text-decoration-color: var(--blue);
+  text-decoration-color: var(--black);
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
-  color: inherit;}
+  color: inherit;
+}
 
 #footnote a:hover {
-  color: var(--dark-blue);
+  color: var(--black);
 }
 
 #footnote-url {
   text-decoration: none;
-
 }
 
 /* FOOTER */
@@ -252,7 +311,7 @@ color: inherit;
 /* PUBLIC SAFETY  */
 /*********************/
 .year {
-  color: var(--red);
+  color: var(--blue);
   font-weight: bold;
   font-size: 20px;
 }
@@ -268,130 +327,19 @@ color: inherit;
   padding-top: 2.5px;
 }
 
-.bg-progress {
+.bg-progress-police {
+  background-color: var(--blue)
+}
+.bg-progress-judicial {
   background-color: var(--red)
 }
-
-/* TIMELINE */
-* {
-  box-sizing: border-box;
+.bg-progress-utilities {
+  background-color: var(--green)
+}
+.bg-progress-infrastructure {
+  background-color: var(--yellow)
 }
 
-.timeline {
-  position: relative;
-  max-width: 1200px;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: var(--stacked-light-blue);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-
-.timeline-header-container {
-  padding: 10px 0px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-
-.header-left {
-  left: 0;
-}
-
-.header-right {
-  left: 50%;
-}
-
-.timeline-container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-
-.timeline-container::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -13px;
-  background-color: white;
-  border: 4px solid #474e5d;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.left {
-  left: 0;
-}
-
-.right {
-  left: 50%;
-}
-
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid var(--black);
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #d3d3d3;
-}
-
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid #474e5d;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #d3d3d3 transparent transparent;
-}
-
-.right::after {
-  left: -13px;
-}
-
-.timeline-content {
-  padding: 10px 25px;
-  background-color: #d3d3d3;
-  position: relative;
-  border-radius: 6px;
-  color: #474e5d;
-}
-
-.timeline-content h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.0;
-}
-
-.timeline-content h4 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  line-height: 1.0;
-}
-
-.timeline-content p {
-  font-size: 15px;
-  font-family: 'Lato', sans-serif;
-}
 
 /* ACCORDION */
 .accordion {
@@ -402,21 +350,44 @@ color: inherit;
   text-align: left;
   font-family: 'Lato', sans-serif;
   font-size: 16px;
-  margin: auto 0;
+  margin: auto 18;
 }
 
 h2.accordion-header {
   font-size: 24px;
 }
 
-.accordion-button:not(.collapsed) {
-  color: var(--black);
-  background-color: var(--light-yellow);
+.accordion-button.police-color:not(.collapsed) {
+  color: #fff;
+  background-color: var(--blue);
+}
+
+.accordion-button.judicial-color:not(.collapsed) {
+  color: #fff;
+  background-color: var(--red);
+}
+
+.accordion-button.utilities-color:not(.collapsed) {
+  color: #fff;
+  background-color: var(--green);
+}
+
+.accordion-button.infrastructure-color:not(.collapsed) {
+  color: #fff;
+  background-color: var(--yellow);
 }
 
 .accordion-button:focus {
   color: var(--black);
 }
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(
+180deg
+);
+}
+
 
 /* D3 CHARTS */
 /* SANKEY */
@@ -464,7 +435,7 @@ text {
 
 path.line {
   fill: none;
-  stroke: var(--red);
+  stroke: var(--light-blue);
   stroke-width: 3px;
 }
 
@@ -495,14 +466,12 @@ path.domain {
   padding-bottom: 1%;
 }
 
-.card-body {}
-
 .card {
   background-color: var(--lightgray);
 }
 
 .card-text {
-  color: var(--red);
+  color: var(--medium-blue);
   font-weight: bold;
 }
 

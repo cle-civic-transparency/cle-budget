@@ -2,13 +2,30 @@
 <html lang="en">
 
 <head>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <!-- Google analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZMLVHFKM9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GZMLVHFKM9');
+  </script>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Website description goes here" />
-  <meta name="keywords" content="Keywords go here" />
-  <meta name="twitter:image:src" content="#" />
-  <meta property="og:image" content="#" />
+  <meta name="description" content="A civic accountability project by a small group of Cleveland residents who want to use the budget to hold our politicians accountable to their past promises." />
+  <meta name="keywords" content="cleveland ohio city budget civic accountability judicial services mayor city council police fire department courts housing waste" />
+  <meta name="twitter:image:src" content="https://github.com/cle-civic-transparency/cle-budget/blob/master/images/preview-img.jpg?raw=true" />
+  <meta property="og:image" content="https://github.com/cle-civic-transparency/cle-budget/blob/master/images/preview-img.jpg?raw=true" />
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -21,7 +38,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <title>Visualizing the Cleveland Budget</title>
+  <title>Exploring the Budget | Judicial Services</title>
 
 </head>
 
@@ -35,7 +52,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="align-center">How does Cleveland spend Money on <br><u>JUDICIAL SERVICES</u>?</h2>
+          <h2 class="align-center">How does Cleveland spend Money on <br><u class="judicial-services-u">JUDICIAL SERVICES</u>?</h2>
           <div id="buttons-bar"></div>
         </div>
       </div>
@@ -46,8 +63,8 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="funds-content">
-          <h3>Where does the money come from?</h3>
-          <p class="text">Funding for <b>judicial services</b> comes from the General Fund. The General Fund covers expenses for what we typically think a city does - Mayor, city council, police and more.
+          <h3 class="margin-top-md">Where does the money come from?</h3>
+          <p class="text">Funding for <b>judicial services</b> comes from the General Fund. The General Fund covers expenses for what we typically think a city does - the mayor, city council, police and more.
             </br></br> Specifically, the General Fund covers expenses for 11 departments which cover the following areas:
           </p>
           <div class="icons-container">
@@ -69,11 +86,7 @@
             </div>
             <div class="icon">
               <img src="images/icons/ambulance.svg" alt="icon of ambulance" />
-              <div class="caption">Emergency Responders</div>
-            </div>
-            <div class="icon">
-              <img src="images/icons/court-hammer.svg" alt="icon of judge gavel" />
-              <div class="caption">Judicial</div>
+              <div class="caption">EMS</div>
             </div>
             <div class="icon">
               <img src="images/icons/court.svg" alt="icon of court building" />
@@ -106,7 +119,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="visualization-content">
-          <h3> Where does the money go?</h3>
+          <h3 class="margin-top-md"> Where does the money go?</h3>
           <p>The chart below shows how money goes from income taxes to judicial services through the General Fund. The numbers are for the 2019 unaudited budget.<sup><a href="#footnote-1" id="ref-footnote-1">[1]</a></sup>
 
         </div>
@@ -114,18 +127,19 @@
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="accordion-button judicial-color" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <b>Need help understanding the graph?</b>
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p>The first column shows all the sources of money for the General Fund. We can see 66% comes from income taxes.
-                </br></br>The middle column shows that all money that gets spent on judicial services to Cleveland Municipal Court with 3 divisions.
+                <p class="text">The first column shows all the sources of money for the General Fund. We can see 66% comes from income taxes.<p>
+                <p class="text">The middle column shows that all money that gets spent on judicial services to Cleveland Municipal Court with 3 divisions. </p>
+                <p class="text">
                 <ul>
-                  <li><b>Judge's Division:</b> The court conducts preliminary hearings and sets bonds in felony cases committed in the City of Cleveland. In civil matters, the Small Claims Division of the Court can determine actions where the amount in controversy does not exceed $6,000.00. The General Division of the Court can determine civil cases where the amount in controversy does not exceed $15,000.00. These civil cases can include, but are not limited to, actions for the recovery of property, injunctions, contracts, personal injury, collection proceedings, and transferred judgments. <sup><a href="#footnote-2" id="ref-footnote-2">[2]</a></sup></li>
-                  <li><b>Clerk's Division:</b> To provide a reliable supply of high quality water and customer services to promote public health and safety, economy, and quality of life of Greater Cleveland. <sup><a href="#footnote-3" id="ref-footnote-3">[3]</a></sup></li>
-                  <li><b>Housin Division:</b> To provide a reliable supply of high quality water and customer services to promote public health and safety, economy, and quality of life of Greater Cleveland. <sup><a href="#footnote-4" id="ref-footnote-4">[4]</a></sup></li>
+                  <li ><b>Judge's Division:</b> The court conducts preliminary hearings and sets bonds in felony cases committed in the City of Cleveland. In civil matters, the Small Claims Division of the Court can determine actions where the amount in controversy does not exceed $6,000.00. The General Division of the Court can determine civil cases where the amount in controversy does not exceed $15,000.00. These civil cases can include, but are not limited to, actions for the recovery of property, injunctions, contracts, personal injury, collection proceedings and transferred judgments. <sup><a href="#footnote-2" id="ref-footnote-2">[2]</a></sup></li>
+                  <li><b>Clerk's Division:</b> To provide a reliable supply of high quality water and customer services to promote public health and safety, economy and quality of life of Greater Cleveland. <sup><a href="#footnote-3" id="ref-footnote-3">[3]</a></sup></li>
+                  <li><b>Housin Division:</b> To provide a reliable supply of high quality water and customer services to promote public health and safety, economy and quality of life of Greater Cleveland. <sup><a href="#footnote-4" id="ref-footnote-4">[4]</a></sup></li>
                 </ul>
                 </p>
               </div>
@@ -139,43 +153,46 @@
   <section class="asks">
     <div class="row">
       <div class="col-md-6 mx-auto">
-        <div class="vision-content margin-top-md">
+        <div class="vision-content">
           <h3>What is being asked for today?</h3>
-          <p class="text margin-top-md"><b>Expanded Municipal Pretrial Services</b></p>
-          <p class="text">There are a number of ongoing reforms centered on Judicial Services. The primary focuses are bail reform, pretrial services, and right to counsel for people facing eviction. What exactly do these terms mean?</p>
-          <p class="text margin-top-lg"><b>Bail reform</b> generally deals with overhauling the bail process. Traditionally, without bail someone will remain in jail after their arrest until their trial. Bail amounts vary depending on the nature of the offense and act as collateral that ensures the person will show up for their trial. </p>
-          <p class="text margin-top-lg">This system may make sense on the surface, but allows for significant disparities because of the already inequitable structure of our society. Low income, Black, and POC individuals are more likely to face difficulties when trying to post bail which can result in additional fallout for their families and dependents.</p>
-          <p class="text margin-top-lg"><b>Pretrial services</b> go hand-in-hand with bail reform. In support of ongoing bail reform, the City of Cleveland created the Pretrial Services Department to assist in supporting individuals prior to their trial dates and aiding in the decision process for the individual - including detention, release, and post-release treatment options and monitoring.</p>
-          <p class="text margin-top-lg"><b>Right-to-counsel</b> is one of the more straightforward terms, meaning that anyone facing an eviction hearing is automatically provided with legal assistance. This type of resource allows for intervention in illegal or unjust evictions that may otherwise fly under the radar.</p>
-          <p class="text margin-top-lg">In 2018, the City of Cleveland appropriated $250,000 to support bail reform and provided another $700,000 to extend the services through 2019. During the first six months where individuals were freed with minimal or no bond, the number of criminal suspects failing to appear for hearings in Cleveland Municipal Court dropped 19%. Cleveland Municipal Court no longer requires bail for non-violent offenders. For all other defendants, including those charged with felonies or violent misdemeanors, a risk-assessment method is used to help determine the likelihood of them committing crimes if released from jail.</p>
-          <p class="text margin-top-lg">Cleveland launched its pretrial services program Sept. 24, 2018, contracting with the nonprofit Oriana House to remind defendants of court dates and monitor them while they await trial. 1,144 defendants participated in this initial program. During this same period, enhanced pretrial services allowed 521 people accused of violent misdemeanors - assault, domestic violence, etc. - to be released with GPS monitoring or supervision. <sup><a href="#footnote-5" id="ref-footnote-5">[5]</a></sup><sup><a href="#footnote-6" id="ref-footnote-6">[6]</a></sup></p>
+          <p class="text margin-top-md"><b style="color:var(--red);">Expanded Municipal Pretrial Services:</b></p>
+          <p class="text">There are a number of ongoing reforms centered on Judicial Services. The primary focuses are bail reform, pretrial services and right to counsel for people facing eviction. What exactly do these terms mean?</p>
+          <br>
+          <p class="text"><b style="color:var(--red);">Bail reform</b> generally deals with overhauling the bail process. Traditionally, without bail, someone will remain in jail after their arrest until their trial. Bail amounts vary depending on the nature of the offense and act as collateral that ensures the person will show up for their trial. </p>
+          <p class="text">This system may make sense on the surface but allows for significant disparities because of the already inequitable structure of our society. Low-income, Black and POC individuals are more likely to face difficulties when trying to post bail which can result in additional fallout for their families and dependents.</p>
+          <br>
+          <p class="text"><b style="color:var(--red);">Pretrial services</b> go hand-in-hand with bail reform. In support of ongoing bail reform, the City of Cleveland created the Pretrial Services Department to assist in supporting individuals prior to their trial dates and aiding in the decision process for the individual - including detention, release, and post-release treatment options and monitoring.</p>
+          <br>
+          <p class="text"><b style="color:var(--red);">Right-to-counsel</b> is one of the more straightforward terms, meaning that anyone facing an eviction hearing is automatically provided with legal assistance. This type of resource allows for intervention in illegal or unjust evictions that may otherwise fly under the radar.</p>
+          <p class="text">In 2018, the City of Cleveland appropriated $250,000 to support bail reform and provided another $700,000 to extend the services through 2019. During the first six months when individuals were freed with minimal or no bond, the number of criminal suspects failing to appear for hearings in Cleveland Municipal Court dropped 19%. Cleveland Municipal Court no longer requires bail for non-violent offenders. For all other defendants, including those charged with felonies or violent misdemeanors, a risk-assessment method is used to help determine the likelihood of them committing crimes if released from jail.</p>
+          <p class="text">Cleveland launched its pretrial services program Sept. 24, 2018, contracting with the nonprofit Oriana House to remind defendants of court dates and monitor them while they await trial. 1,144 defendants participated in this initial program. During this same period, enhanced pretrial services allowed 521 people accused of violent misdemeanors - assault, domestic violence, etc. - to be released with GPS monitoring or supervision. <sup><a href="#footnote-5" id="ref-footnote-5">[5]</a></sup><sup><a href="#footnote-6" id="ref-footnote-6">[6]</a></sup></p>
           <div class="row margin-top-lg">
             <div class="col-sm-12">
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title align-center">Support for Pretrial Services</h3>
-                  <h4 class="card-text align-center judge-color">$250,000</h4>
-                  <p class="card-subtext align-center">became available from city of Cleveland to the court's 12 judges in Fall 2018</p>
-                  <h4 class="card-text align-center judge-color">$700,000</h4>
+                  <h4 class="card-text align-center" style="color:var(--red);">$250,000</h4>
+                  <p class="card-subtext align-center">became available from the City of Cleveland to the court's 12 judges in Fall 2018</p>
+                  <h4 class="card-text align-center" style="color:var(--red);">$700,000</h4>
                   <p class="card-subtext align-center">additional dollars from City of Cleveland given to extend services to 2019 <sup><a href="#footnote-6" id="ref-footnote-6">[6]</a></sup></p></p>
-                  <h4 class="card-text align-center judge-color">19% decrease</h4>
-                  <p class="card-subtext align-center">in the number of criminal suspects failing to appear for hearings during the first six months where individuals were freed with minimal or no bond.</p>
+                  <h4 class="card-text align-center" style="color:var(--red);">19% decrease</h4>
+                  <p class="card-subtext align-center">in the number of criminal suspects failing to appear for hearings during the first six months when individuals were freed with minimal or no bond.</p>
                 </div>
               </div>
               </div>
             </div>
           </div>
           <div class="vision-content margin-top-lg">
-            <p><b>Tenants Right to Legal Aid</b></p>
+            <p><b style="color:var(--red);">Tenant's Right to Legal Aid:</b></p>
             <p class="text">In the City of Cleveland, tenants with one or more child living at or below the federal poverty line are entitled to right to counsel when facing eviction. Right to Counsel-Cleveland (RTC-C), a partnership between The Legal Aid Society of Cleveland and United Way of Greater Cleveland, provides this free legal help.</p>
-            <p class="text margin-top-lg">This initiative followed legislation passed by Cleveland City Council in 2019 which make these resources and support a legal right. Cleveland is the fourth city in the nation and the first midwestern city to pass such legislation. <sup><a href="#footnote-7" id="ref-footnote-7">[7]</a></sup></p></p>
+            <p class="text">This initiative followed legislation passed by Cleveland City Council in 2019 which made these resources and support a legal right. Cleveland is the fourth city in the nation and the first midwestern city to pass such legislation. <sup><a href="#footnote-7" id="ref-footnote-7">[7]</a></sup></p></p>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
                     <h3 class="card-title align-center">Support for Legal Aid</h3>
-                    <h4 class="card-text align-center judge-color">$2.25M</h4>
-                    <p class="card-subtext align-center">grant from Cleveland Foundation given to Legal Aid for 3 year program</p>
+                    <h4 class="card-text align-center" style="color:var(--red);">$2.25M</h4>
+                    <p class="card-subtext align-center">grant from Cleveland Foundation given to Legal Aid for three-year program</p>
                   </div>
                 </div>
                 </div>
@@ -190,23 +207,23 @@
   <section class="vision">
     <div class="row">
       <div class="col-md-6 mx-auto">
-          <h3>What do these numbers mean?</h3>
+          <h3 class="margin-top-md">What do these numbers mean?</h3>
           <p class="text">Let's put these numbers in perspective.</p>
           <div class="progress-container">
             <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 100%" aria-valuenow="206" aria-valuemin="0" aria-valuemax="100">$206M = 2020 Division of Police Budget</div>
+              <div class="progress-bar progress-bar bg-progress-judicial" role="progressbar" style="width: 100%" aria-valuenow="206" aria-valuemin="0" aria-valuemax="100">$206M = 2019 Division of Police budget</div>
             </div>
             <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 1%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar progress-bar bg-progress-judicial" role="progressbar" style="width: 1%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
               <p class="progress-text">$2.25M = Size of Legal Aid's grant for tenants</p>
             </div>
             <div class="progress" style="height: 25px">
-              <div class="progress-bar progress-bar-striped bg-progress" role="progressbar" style="width: 0.5%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar progress-bar bg-progress-judicial" role="progressbar" style="width: 0.5%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
               <p class="progress-text">$0.95M = Total dollars given to pre-trial services in 2019</p>
             </div>
-            <p class="text"><i class="note">*We are comparing these numbers to the size of the Divison of Police budget since it is the largest division in the General Fund.</i></p>
+            <p class="text"><i class="note">*We are comparing these numbers to the size of the Division of Police budget because it is the largest division in the General Fund.</i></p>
           </div>
-          <h3 class="margin-top-lg">How can you be involved?</h3>
+          <h3 class="margin-top-md">How can you be involved?</h3>
           <p class="text">
             <a href="get-involved.html">Tell your city council member your vision of judicial spending.</a>
           </p>

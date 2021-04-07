@@ -1,7 +1,7 @@
 var colors = {
-  'social': 'var(--blue)',
-  'animals': 'var(--red)',
-  'fallback': 'var(--black)'
+  'id2': 'var(--dark-red)',
+  'id1': 'var(--red)',
+  'fallback': 'var(--light-gray)'
 };
 
 d3.json("d3/data/sankey-judicial.json", function(error, json) {

@@ -1,7 +1,8 @@
 var colors = {
-  'environment': 'var(--yellow)',
-  'social': 'var(--blue)',
-  'animals': 'var(--red)',
+  'id1': 'var(--dark-green)',
+  'id2': 'var(--medium-green)',
+  'id3': 'var(--light-green)',
+  'fallback': 'var(--light-gray)'
 };
 d3.json("d3/data/sankey-energy.json", function(error, json) {
   var chart = d3.select("#utilities-chart").append("svg").chart("Sankey.Path");

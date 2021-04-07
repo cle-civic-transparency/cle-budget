@@ -2,7 +2,7 @@
    "nodes" : [
      {
         "name" : "General fund :$685,651,943",
-        "id" : "animals",
+        "id" : "id1",
         "number":0
      },
      {
@@ -62,68 +62,68 @@
      },
      {
         "name" : "Property tax : $37,905,311",
-        "id" : "environment",
+        "id" : "id2",
         "number":12
      },
       {
-         "id" : "social",
+         "id" : "id3",
          "name" : "Dept. of Public Safety : $353,797,612",
          "number":13
       },
       {
          "name" : "Division of Police : $206,566,800",
-         "id" : "social",
+         "id" : "id3",
          "number":14
       },
       {
          "name" : "Division of Fire : $99,613,126",
-         "id" : "social",
+         "id" : "id3",
          "number":15
       },
       {
          "name" : "Divisions: Other : $20,882,372",
-         "id" : "social",
+         "id" : "id3",
          "number":16,
          "notes":"Sum of EMS, Animal Control,Prof Standards: 16,594,478 + 2,850,934 + 1,436,960 "
       },
       {
          "name" : "Public Safety Administration : $5,884,768",
-         "id" : "social",
+         "id" : "id3",
          "number":17
       },
       {
          "name" : "Division of Correction : $5,199,792",
-         "id" : "social",
+         "id" : "id3",
          "number":18
       },
       {
          "name" : "Department of Justice : $3,130,455",
-         "id" : "social",
+         "id" : "id3",
          "number":19
       },
       {
          "name" : "Community Police Commision: $393,198",
-         "id" : "social",
+         "id" : "id3",
          "number":20
       },
       {
          "name" : "Civilian Police Review Board : $156,450",
-         "id" : "social",
+         "id" : "id3",
          "number":21
       },
       {
          "name" : "Police Inspector General: $44,837",
-         "id" : "social",
+         "id" : "id3",
          "number":22
       },
       {
          "name" : "Fire Pension : $1,503,060",
-         "id" : "social",
+         "id" : "id3",
          "number":23
       },
       {
          "name" : "Police Pension : $1,503,060",
-         "id" : "social",
+         "id" : "id3",
          "number":24
       }
    ],

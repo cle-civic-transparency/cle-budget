@@ -421,7 +421,6 @@ h2.accordion-header {
 /* LINE CHART */
 #police-chart2, #police-chart3 {
   height: 300px;
-  width: 700px;
 }
 
 .y-label {
@@ -542,33 +541,8 @@ path.domain {
     .btn {
       margin-top: 2px;
     }
-  }
-
-  @media screen and (max-width: 600px) {
-    .timeline::after {
-      left: 31px;
-    }
-
-    .timeline-container {
+    .sankey-container {
       width: 100%;
-      padding-left: 70px;
-      padding-right: 25px;
-    }
-
-    .timeline-container::before {
-      left: 60px;
-      border: medium solid white;
-      border-width: 10px 10px 10px 0;
-      border-color: transparent white transparent transparent;
-    }
-
-    .left::after, .right::after {
-      left: 15px;
-      right: -13px;
-    }
-
-    .right {
-      left: 0%;
     }
   }
 

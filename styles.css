@@ -542,6 +542,10 @@ path.domain {
     .btn {
       margin-top: 2px;
     }
+    #police-chart1 {
+      width: 450px;
+      margin: auto;
+    }
   }
 
   @media screen and (max-width: 600px) {

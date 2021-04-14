@@ -36,4 +36,21 @@ d3.json("d3/data/sankey-police.json", function(error, json) {
       return null;
     }
   }
+
+  function drawChart() {
+    currentWidth = parseInt(d3.select('#div_basicResize').style('width'), 10)
+    chart.attr("width", currentWidth)
+
+    x.range([20, currentWidth - 20]);
+    xAxis.call(d3.axisBottom(x))
+
+    chart
+    .attr("cx", function(d){ return x(d)})
+  }
+
+  // Initialize the chart
+drawChart()
+
+// Add an event listener that run the function when dimension change
+window.addEventListener('resize', drawChart );
 });

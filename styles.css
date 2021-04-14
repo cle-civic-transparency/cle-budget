@@ -99,6 +99,7 @@ a:hover {
 
 .note {
   font-size: 12px;
+  line-height: 1;
 }
 
 .public-safety-u {
@@ -514,6 +515,7 @@ path.domain {
 /*********************/
 /* MEDIA QUERIES */
 /*********************/
+
 /* MOBILE */
 @media screen and (max-width: 575px) {
   section {
@@ -545,6 +547,11 @@ path.domain {
     flex: 0 0 auto;
     width: 70%;
   }
+  .col-md-8 {
+    flex: 0 0 auto;
+    width: 94%;
+  }
+}
 
   /*********************/
   /* GET INVOLVED */

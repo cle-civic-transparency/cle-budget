@@ -474,8 +474,13 @@ path.domain {
   font-weight: bold;
 }
 
+.card-role {
+  color: var(--medium-blue);
+  font-weight: bold;
+}
+
 .card-subtext {
-  margin-top: -2%;
+  margin-top: -5%;
   font-size: 18px;
 }
 

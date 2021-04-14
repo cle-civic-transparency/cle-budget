@@ -421,7 +421,6 @@ h2.accordion-header {
 /* LINE CHART */
 #police-chart2, #police-chart3 {
   height: 300px;
-  width: 700px;
 }
 
 .y-label {
@@ -542,9 +541,8 @@ path.domain {
     .btn {
       margin-top: 2px;
     }
-    #police-chart1 {
-      width: 450px;
-      margin: auto;
+    .sankey-container {
+      width: 100%;
     }
   }
 
@@ -570,7 +568,6 @@ path.domain {
       left: 15px;
       right: -13px;
     }
-
     .right {
       left: 0%;
     }

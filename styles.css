@@ -392,12 +392,6 @@ h2.accordion-header {
 
 /* D3 CHARTS */
 /* SANKEY */
-.svg {
-  display: block;
-  margin: auto;
-  width: 700px;
-}
-
 #police-chart1, #judicial-chart, #utilities-chart, #infrastructure-chart {
   height: 500px;
   font: 13px 'Lato', sans-serif;

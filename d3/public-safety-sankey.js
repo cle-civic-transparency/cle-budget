@@ -45,12 +45,14 @@ d3.json("d3/data/sankey-police.json", function(error, json) {
     xAxis.call(d3.axisBottom(x))
 
     chart
-    .attr("cx", function(d){ return x(d)})
+      .attr("cx", function(d) {
+        return x(d)
+      })
   }
 
   // Initialize the chart
-drawChart()
+  drawChart()
 
-// Add an event listener that run the function when dimension change
-window.addEventListener('resize', drawChart );
+  // Add an event listener that run the function when dimension change
+  window.addEventListener('resize', drawChart);
 });

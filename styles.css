@@ -309,6 +309,15 @@ sup a {
   margin-top: 5%;
 }
 
+
+/* Mobile warning */
+#mobile-pop-up{
+  background-color: var(--dark-red);
+  color: white;
+  text-align: center;
+  display: none;
+}
+
 /*********************/
 /* PUBLIC SAFETY  */
 /*********************/

@@ -106,7 +106,13 @@ svg.append("text")
 function drawChart() {
 
 	window_width = parseInt(d3.select('body').style('width'), 10)
-	margin_right = 0.5 * window_width;
+	// TODO: Calibrate this:
+	// console.log(window_width);
+	if (window_width < 500 )
+		margin_right = 0.2 * window_width;
+	else{
+		margin_right = 0.5 * window_width;
+	}
 
 	// reset the width
 	width = parseInt(d3.select('body').style('width'), 10) - margin.left - margin_right;

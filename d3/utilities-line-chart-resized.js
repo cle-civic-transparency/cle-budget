@@ -1,28 +1,24 @@
 //////////////////////////////////////////////
 // Data //////////////////////////////////////
 //////////////////////////////////////////////
-// fake data
+// var data = [
+// 	{year: "2013",energy: 4},
+// 	{year: "2014",energy: 5},
+// 	{year: "2015",energy: 5},
+// 	{year: "2016",energy: 8},
+// 	{year: "2017",energy: 9.5},
+// 	{year: "2018",energy: 9.0}
+// ];
+
 var data = [
-	{year: "2002",officers: 2335},
-	{year: "2003",officers: 2225},
-	{year: "2004",officers: 1970},
-	{year: "2005",officers: 2008},
-	{year: "2006",officers: 2063},
-	{year: "2007",officers: 2035},
-	{year: "2008",officers: 1920},
-	{year: "2009",officers: 1907},
-	{year: "2010",officers: 1863},
-	{year: "2011",officers: 1807},
-	{year: "2012",officers: 1736},
-	{year: "2013",officers: 1759},
-	{year: "2014",officers: 1757},
-	{year: "2015",officers: 1774},
-	{year: "2016",officers: 1773},
-	{year: "2017",officers: 1868},
-	{year: "2018",officers: 1878},
-	{year: "2019",officers: 1879},
-	{year: "2020",officers: 1881}
+	{year: "2013",energy: 4},
+	{year: "2014",energy: 5},
+	{year: "2015",energy: 5},
+	{year: "2016",energy: 8},
+	{year: "2017",energy: 9.5},
+	{year: "2018",energy: 9.0}
 ];
+
 
 // Parse the date / time
 var timeParse = d3.time.format("%Y").parse;
@@ -30,7 +26,7 @@ var timeParse = d3.time.format("%Y").parse;
 function type(dataArray) {
 	dataArray.forEach(function(d) {
 		d.year = timeParse(d.year);
-		d.retention = +d.officers;
+		d.retention = +d.energy;
 	});
 	return dataArray;
 }
@@ -41,7 +37,7 @@ data = type(data);
 //////////////////////////////////////////////
 
 // Set the dimensions of the canvas / graph
-var margin = {top: 5, right: 0, bottom: 30, left: 65},
+var margin = {top: 5, right: 0, bottom: 30, left: 45},
 		width, // width gets defined below
     height = 250 - margin.top - margin.bottom;
 
@@ -59,7 +55,7 @@ var yAxis = d3.svg.axis()
 var line = d3.svg.line();
 
 // Add the svg canvas
-var svg = d3.select("#police-chart3")
+var svg = d3.select("#chart2")
     .append("svg")
 		.attr("height", height + margin.top + margin.bottom);
 
@@ -69,14 +65,14 @@ var artboard = svg.append("g")
 // set the domain range from the data
 xScale.domain(d3.extent(data, function(d) { return d.year; }));
 yScale.domain([
-		d3.min(data, function(d) { return Math.floor(d.officers - 200); }),
-		d3.max(data, function(d) { return Math.floor(d.officers + 200); })
+		d3.min(data, function(d) { return Math.floor(d.energy - 1); }),
+		d3.max(data, function(d) { return Math.floor(d.energy + 1); })
 	]);
 
 // draw the line created above
 var path = artboard.append("path").data([data])
 		.style('fill', 'none')
-		.style('stroke', 'var(--light-blue)')
+		.style('stroke', 'var(--light-green)')
 		.style('stroke-width', '3px');
 
 // Add the X Axis
@@ -94,10 +90,10 @@ svg.append("text")
 	.attr("class", "y-label")
 	.attr("text-anchor", "end")
 	.attr("y", 12)
-	.attr("x", -40)
+	.attr("x", -20)
 	.attr("yAxis", "1em")
 	.attr("transform", "rotate(-90)")
-	.text("Number of Employees");;
+	.text("% Renewable Energy w/ RECs");;
 
 
 //////////////////////////////////////////////
@@ -129,7 +125,7 @@ function drawChart() {
 
 	// specify new properties for the line
 	line.x(function(d) { return xScale(d.year); })
-		.y(function(d) { return yScale(d.officers); });
+		.y(function(d) { return yScale(d.energy); });
 
 	// draw the path based on the line created above
 	path.attr('d', line);

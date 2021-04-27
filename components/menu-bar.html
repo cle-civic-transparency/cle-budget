@@ -36,6 +36,17 @@
       </div>
     </div>
   </nav>
+  <div id="mobile-pop-up">
+    Warning: For better viewing, we recommend viewing the site on a computer or larger screen.
+  <div>
 
 </body>
 </html>
+<script>
+  var window_width = parseInt(d3.select('body').style('width'), 10);
+  if (window_width < 500 )
+    $('#mobile-pop-up').css("display", "block");
+  else{
+    $('#mobile-pop-up').css("display", "none");
+  }
+</script>

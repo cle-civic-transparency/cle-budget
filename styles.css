@@ -312,7 +312,7 @@ sup a {
 
 /* Mobile warning */
 #mobile-pop-up{
-  background-color: var(--dark-red);
+  background-color: red;
   color: white;
   text-align: center;
   display: none;

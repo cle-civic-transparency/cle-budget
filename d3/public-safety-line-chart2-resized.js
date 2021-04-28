@@ -26,6 +26,7 @@ var data = [
 
 // Parse the date / time
 var timeParse = d3.time.format("%Y").parse;
+
 // force types
 function type(dataArray) {
 	dataArray.forEach(function(d) {

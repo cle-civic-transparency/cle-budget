@@ -72,7 +72,7 @@ h4 {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   font-weight: bold;
-  padding-top: 1%;
+  padding-top: 12px;
 }
 
 a {
@@ -99,6 +99,7 @@ a:hover {
 
 .note {
   font-size: 12px;
+  line-height: 1;
 }
 
 .public-safety-u {
@@ -308,6 +309,15 @@ sup a {
   margin-top: 5%;
 }
 
+
+/* Mobile warning */
+#mobile-pop-up{
+  background-color: red;
+  color: white;
+  text-align: center;
+  display: none;
+}
+
 /*********************/
 /* PUBLIC SAFETY  */
 /*********************/
@@ -391,12 +401,6 @@ h2.accordion-header {
 
 /* D3 CHARTS */
 /* SANKEY */
-.svg {
-  display: block;
-  margin: auto;
-  width: 700px;
-}
-
 #police-chart1, #judicial-chart, #utilities-chart, #infrastructure-chart {
   height: 500px;
   font: 13px 'Lato', sans-serif;
@@ -423,34 +427,9 @@ h2.accordion-header {
   height: 300px;
 }
 
-.y-label {
-  font-size: 14px;
-}
-
 text {
   font-family: 'Lato', sans-serif;
-  font-size: 11.5px;
-}
-
-path.line {
-  fill: none;
-  stroke: var(--light-blue);
-  stroke-width: 3px;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: slategray;
-  shape-rendering: crispEdges;
-}
-
-path.domain {
-  stroke: none;
-}
-
-.y .tick line {
-  stroke: #ddd;
+  font-size: 12px;
 }
 
 /*********************/
@@ -472,6 +451,7 @@ path.domain {
 .card-text {
   color: var(--medium-blue);
   font-weight: bold;
+  padding:10px;
 }
 
 .card-role {
@@ -480,7 +460,7 @@ path.domain {
 }
 
 .card-subtext {
-  margin-top: -2%;
+  margin-top: -4%;
   font-size: 18px;
 }
 
@@ -514,6 +494,7 @@ path.domain {
 /*********************/
 /* MEDIA QUERIES */
 /*********************/
+
 /* MOBILE */
 @media screen and (max-width: 575px) {
   section {
@@ -545,6 +526,11 @@ path.domain {
     flex: 0 0 auto;
     width: 70%;
   }
+  .col-md-8 {
+    flex: 0 0 auto;
+    width: 94%;
+  }
+}
 
   /*********************/
   /* GET INVOLVED */

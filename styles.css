@@ -432,18 +432,15 @@ text {
   font-size: 12px;
 }
 
+path.domain {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
 /*********************/
 /* UTILITIES */
 /*********************/
-.horizontal {
-  margin-top: 3%;
-  margin-bottom: 2%;
-}
-
-.horizontal-text {
-  padding-bottom: 1%;
-}
-
 .card {
   background-color: var(--lightgray);
 }
@@ -464,8 +461,6 @@ text {
   font-size: 18px;
 }
 
-/* UTILITIES */
-/*********************/
 .horizontal {
   margin-top: 3%;
   margin-bottom: 2%;
@@ -475,10 +470,7 @@ text {
   padding-bottom: 1%;
 }
 
-.card-body {}
-
-.card {
-  background-color: var(--lightgray);
+kground-color: var(--lightgray);
 }
 
 .card-text {
